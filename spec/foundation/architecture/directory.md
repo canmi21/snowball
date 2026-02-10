@@ -25,6 +25,8 @@ monorepo/
 │   │   └── service-config/
 │   └── convergence/        ← convergence crates
 │       └── config-reload-tokio/
+├── app/                    ← binary crate projects (independent repos)
+│   └── qwq/               ← each app has own .jj/, .git/, [workspace]
 ├── tools/                  ← workspace tooling
 │   ├── check/              ← compliance scripts
 │   └── vcs/                ← VCS operation wrappers
@@ -43,8 +45,10 @@ monorepo/
 | `library/composition/` | Crates that combine lower-level crates | Composition                   |
 | `library/convergence/` | Crates that pin generics, zero logic   | Convergence                   |
 
-Binary crates live in application repos, not in the monorepo
-(see [repository](repository.md)).
+Binary crates live under `app/` as independent VCS repositories.
+They are physically inside the monorepo directory tree but maintain
+their own `.jj/`, `.git/`, and Cargo `[workspace]`
+(see [VCS strategy](../vcs/strategy.md)).
 
 ## Inside Each Crate
 

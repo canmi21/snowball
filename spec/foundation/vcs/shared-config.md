@@ -25,8 +25,27 @@ automatically. Others require an explicit symlink.
 | Language config | Symlink to root file                   | Yes            |
 
 App repositories under `app/` do not inherit from the root
-workspace automatically. They must define their own configuration
-or symlink to root files explicitly.
+workspace automatically. Each app manages its configuration
+through a combination of symlinks and local definitions.
+
+### App Configuration
+
+Tool configuration files that support directory walk-up in the
+root workspace do not walk up from an independent app repository.
+Apps must establish their own access to shared configuration.
+
+| Config       | App mechanism                         |
+| ------------ | ------------------------------------- |
+| rustfmt      | Symlink `rustfmt.toml` to root        |
+| editorconfig | Symlink `.editorconfig` to root       |
+| Lints        | Duplicate `[workspace.lints]` locally |
+| LICENSE      | Symlink to root file                  |
+
+Lint rules (`[workspace.lints.clippy]`) cannot inherit across
+Cargo workspace boundaries. Each app must define its own
+`[workspace.lints]` section matching the root configuration.
+The `qwq` tool enforces consistency by detecting drift between
+app and root lint definitions.
 
 ## Symlink Rules
 
