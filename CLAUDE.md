@@ -30,7 +30,11 @@ If the spec does not cover something, evolve the spec first, then act.
 | `convergence/` | [convergence](spec/foundation/architecture/convergence.md) |
 | `bin/` (application repo) | [bin spec](spec/bin/) |
 | `spec/` | [evolution](spec/foundation/evolution/) + [writing-style](spec/foundation/writing-style.md) |
+| `tools/` | [compliance](spec/foundation/compliance.md) |
 | root config | [git](spec/foundation/git/) + [publication](spec/foundation/publication/) |
+
+Directory structure follows snowball hierarchy:
+[directory](spec/foundation/architecture/directory.md).
 
 ## Core Rules
 

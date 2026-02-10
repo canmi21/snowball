@@ -11,12 +11,16 @@ Current version: [VERSION](VERSION)
 - [repository](foundation/architecture/repository.md) — Monorepo vs application repo separation.
 - [trait-impl-separation](foundation/architecture/trait-impl-separation.md) — Traits and implementations in separate crates.
 - [type-flow](foundation/architecture/type-flow.md) — Associated types, vocabulary traits, adapters.
+- [directory](foundation/architecture/directory.md) — Monorepo layout by crate role.
 
 ### Lifecycle
 - [lifecycle](foundation/lifecycle.md) — Three phases: exploration (0.x), stability (1.0), convergence.
 
 ### Writing Style
 - [writing-style](foundation/writing-style.md) — Language, tone, structure rules, LLM compliance.
+
+### Compliance
+- [compliance](foundation/compliance.md) — Two-layer checking: shell scripts + LLM agent.
 
 ### Publication
 - [checklist](foundation/publication/checklist.md) — 9-step pre-publish checklist.
