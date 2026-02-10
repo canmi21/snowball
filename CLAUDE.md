@@ -26,9 +26,7 @@ If the spec does not cover something, evolve the spec first, then act.
 
 | Working in | Read first |
 |-----------|------------|
-| `leaf/` | [lib patterns](spec/lib/patterns/) + [practices](spec/lib/practices/) |
-| `composition/` | [lib patterns](spec/lib/patterns/) + [practices](spec/lib/practices/) |
-| `convergence/` | [convergence](spec/foundation/architecture/convergence.md) |
+| `library/` | [lib patterns](spec/lib/patterns/) + [practices](spec/lib/practices/) + [convergence](spec/foundation/architecture/convergence.md) |
 | `bin/` (application repo) | [bin spec](spec/bin/) |
 | `spec/` | [evolution](spec/foundation/evolution/) + [writing-style](spec/foundation/writing-style.md) + [naming](spec/foundation/naming/) |
 | `tools/` | [compliance](spec/foundation/compliance.md) |
