@@ -1,40 +1,4 @@
-# Binary Crate Structure
-
-## Two Categories
-
-Binary crates fall into two categories based on lifecycle:
-
-- **CLI tool**: executes a task and exits.
-- **Long-running service**: runs continuously until a shutdown signal is received.
-
-The file layout and main.rs flow differ between the two.
-
-## File Layout
-
-### Minimum Set
-
-| Category | Always present | Present when needed |
-|----------|---------------|-------------------|
-| CLI tool | main.rs, run.rs, config.rs | telemetry.rs |
-| Long-running service | main.rs, run.rs, config.rs, telemetry.rs | — |
-
-### Scaling
-
-When orchestration complexity grows, single files expand into directories:
-
-- `run.rs` → `run/` (mod.rs + subsystem modules)
-- `config.rs` → `config/` (mod.rs + subsystem configs)
-- Same for `telemetry.rs` and any other module.
-
-Nesting depth must stay under 4 levels.
-Each file within a directory should be focused and small,
-but there is no hard line count — clarity is the goal.
-
-### Naming
-
-- File and directory names use lowercase letters and hyphens only: `shutdown-handler.rs`, `health-check/`.
-- Use directory hierarchy to avoid redundant prefixes:
-  `system/monitor.rs`, not `system/system-monitor.rs`.
+# main.rs and run.rs
 
 ## main.rs
 
@@ -79,9 +43,9 @@ main.rs does not construct services, handle signals, or contain business logic.
 The single orchestration site in the binary:
 
 - Receives configuration as its only required parameter.
-- Constructs all dependencies in order (see [assembly](assembly.md)).
+- Constructs all dependencies in order (see [assembly](../assembly.md)).
 - Starts services, installs the shutdown mechanism
-  (see [shutdown](shutdown.md), long-running service only).
+  (see [shutdown](../shutdown.md), long-running service only).
 - Returns `anyhow::Result<()>`.
 
 The `run()` function is always the entry point, even when the module
@@ -91,7 +55,7 @@ and delegates to submodules.
 For CLI tools, `run()` may be synchronous (not async).
 
 All testable logic lives in `run()`. Integration tests call `run()` directly,
-not the binary process (see [testing](testing.md)).
+not the binary process (see [testing](../testing.md)).
 
 ## Async Runtime
 
@@ -100,7 +64,7 @@ This is a practical default, not a mandate — the choice of runtime
 is a binary-level decision and does not affect library crate design.
 
 Library crates in the snowball monorepo remain runtime-agnostic
-(see [stateful-async](../lib/patterns/stateful-async.md) runtime dependency tiers).
+(see [stateful-async](../../lib/patterns/stateful-async.md) runtime dependency tiers).
 
 ## Dependency Path
 

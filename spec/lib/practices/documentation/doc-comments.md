@@ -1,6 +1,8 @@
-# Documentation
+# Doc Comments
 
-## Library Crates — Code Is the Documentation
+Follows the general rules in [general](general.md).
+
+## Library Crates
 
 ### Mandatory (All Phases, Including 0.x)
 
@@ -39,7 +41,22 @@ missing_docs = "deny"
 This lint is active from `0.x` onward. Discipline starts at the beginning,
 not at stabilization.
 
-## Binary Crates — Minimal Documentation
+### Clippy Doc Lints
+
+The following clippy lints should be enabled to enforce doc quality:
+
+```toml
+[lints.clippy]
+doc_markdown = "warn"
+missing_errors_doc = "warn"
+missing_panics_doc = "warn"
+```
+
+- `doc_markdown`: catches unformatted code references in prose.
+- `missing_errors_doc`: requires `# Errors` section when returning `Result`.
+- `missing_panics_doc`: requires `# Panics` section when a function can panic.
+
+## Binary Crates
 
 - `main.rs` — no doc comments needed.
 - `run.rs` — `run()` function needs a brief description of its orchestration role.
@@ -49,7 +66,5 @@ not at stabilization.
 
 ## Forbidden
 
-- Comments on obvious code (`// create variable`).
 - Doc comments on private functions (unless the logic is non-obvious).
-- Implementation details in documentation —
-  docs describe **what** something does, code expresses **how**.
+- Implementation details in doc comments.

@@ -54,7 +54,7 @@ async fn full_startup_and_shutdown() {
 
 - Binary tests call `run()` directly. They do not launch the binary as a process.
   This is the primary benefit of the main/run separation
-  (see [structure](structure.md)).
+  (see [main/run](structure/main-run.md)).
 - Do not mock library internals. Libraries test themselves.
   Mock only external dependencies (database, network, filesystem).
 - Every failure-handling path (propagate, retry, skip) has at least one test.
