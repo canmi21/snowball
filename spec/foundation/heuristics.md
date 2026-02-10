@@ -56,3 +56,9 @@ When the script encounters a violation, it checks the allowlist.
 If the file hash matches, the violation is silently skipped.
 If the file has been modified (hash mismatch), the entry is
 invalidated and the violation is flagged again for re-evaluation.
+
+Re-evaluation follows the same evaluation process above:
+
+1. If the content now has multiple distinct concerns — split.
+2. If the content remains cohesive — update the hash in the
+   allowlist entry.
