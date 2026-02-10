@@ -3,45 +3,51 @@
 The spec is maintained by a single maintainer.
 The process is lightweight but disciplined.
 
-## Steps
+## Two Paths
 
-### 1. Record the Trigger
+### Fast Path — Additive and Corrective Changes
 
-Document why the change is needed, referencing
-one of the trigger categories (see [triggers](triggers.md)).
+For changes that extend the spec or fix errors without altering
+existing requirements:
 
-### 2. Assess Impact
+1. Modify the spec files directly.
+2. Update the spec CHANGELOG with the new timestamp and description.
+3. Update [VERSION](../../VERSION).
 
-Determine the change type: additive, corrective, or breaking
-(see [types](types.md)).
+No formal review required. The maintainer applies the change directly.
 
-Identify which spec files are affected.
-For breaking changes, identify which existing crates are affected.
+### Full Path — Breaking Changes
 
-### 3. Modify Spec Files
+For changes that alter existing requirements and may affect
+compliant crates:
 
-Edit the spec files directly in the monorepo.
-Each change is tracked through git commits following the
-[commit message rules](../git/commit-message.md).
+1. **Record the trigger** — reference one of the
+   [trigger categories](triggers.md).
+2. **Assess impact** — determine which spec files and existing crates
+   are affected (see [types](types.md) and [impact](impact.md)).
+3. **Migration guide** — describe what existing crates must change.
+4. **Modify spec files** — edit directly in the monorepo.
+   Each change is tracked through git commits following the
+   [commit message rules](../git/commit-message.md).
+5. **Update spec CHANGELOG** — entry includes the timestamp,
+   affected files, and a reference to the migration guide.
+6. **Update [VERSION](../../VERSION).**
+7. **Transition period** (optional) — a defined window during which
+   both old and new rules are accepted.
 
-### 4. Update Spec CHANGELOG
+## CHANGELOG Entry Content
 
-The spec maintains its own CHANGELOG recording every modification.
-Each entry includes:
+Each CHANGELOG entry includes:
 
-- Date.
+- Timestamp (the new spec version).
 - Change type (additive / corrective / breaking).
 - Which files were modified.
 - Brief description of the change and its rationale.
 
-### 5. Additional Steps for Breaking Changes
+## LLM Compliance
 
-Breaking changes require extra work before the change is finalized:
-
-- **Migration guide**: a description of what existing crates
-  must change to comply with the new rule.
-- **Affected crate list**: which monorepo crates need adjustment.
-- **Transition period** (optional): a defined window during which
-  both old and new rules are accepted.
-  After the transition period ends, all crates must comply
-  with the new rule.
+When an LLM agent modifies the spec, it must immediately comply
+with the updated rules from that point forward.
+If a conflict arises between the new rule and work in progress,
+the user resolves the conflict and the resolution may trigger
+a further spec modification.

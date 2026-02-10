@@ -26,10 +26,24 @@ One commit = one crate, one logical change.
    A spec change and its corresponding code change are two commits,
    even if they arise from the same task.
 
+## Cross-Area Rule for Spec Commits
+
+Spec commits use spec area as scope (`foundation`, `lib`, `bin`).
+When a definition change in one area triggers cascading reference updates
+in other areas:
+
+1. The definition change is committed under its own scope.
+2. All cascading reference updates are committed as a separate
+   `chore(workspace)` commit.
+
+The definition commit carries the substance.
+The chore commit carries the mechanical adaptation.
+
 ## Exceptions
 
 - **`break` commits** may include migration documentation
   alongside the breaking change itself.
 - **`chore(workspace)` commits** may touch workspace-level files
   that inherently span multiple crates
-  (e.g., workspace `Cargo.toml` dependency version updates).
+  (e.g., workspace `Cargo.toml` dependency version updates,
+  or cascading reference updates from a spec definition change).

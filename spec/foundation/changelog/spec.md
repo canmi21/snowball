@@ -1,6 +1,15 @@
 # CHANGELOG — Specification
 
-Follows the shared format in [format](format.md).
+## Versioning
+
+The spec does not use semver. Revisions are identified by UTC timestamps.
+Each modification produces a new timestamp obtained via:
+
+```bash
+date -u +"%Y-%m-%dT%H:%M:%SZ"
+```
+
+The current spec version is stored in [VERSION](../../VERSION).
 
 ## Category Restrictions
 
@@ -8,6 +17,22 @@ All five categories are permitted at any time.
 The spec is a living document that continuously adapts and refines itself.
 
 However, Breaking changes must be used with caution and deliberation.
+
+## Version Entry Format
+
+```markdown
+## [2026-02-10T06:11:23Z]
+
+### Added
+- Git specification. Files: `foundation/git/commit-message.md`,
+  `commit-scope.md`, `branching.md`, `lib.md`, `bin.md`, `spec.md`.
+
+### Fixed
+- Convergence rules duplicated in roles.md and convergence.md.
+  Files: `foundation/architecture/roles.md`.
+```
+
+The timestamp is the version. No separate date field.
 
 ## Additional Requirements
 
@@ -19,28 +44,12 @@ Every Breaking entry must:
   [evolution process](../evolution/process.md).
 - List the affected spec files.
 
-```markdown
-### Breaking
-- Changed the CHANGELOG categories from 6 to 5.
-  Affected: `foundation/changelog/format.md`.
-  Migration: [evolution/impact.md](../evolution/impact.md).
-```
-
 ### All Entries
 
 Every entry should list the spec files that were modified,
 so that readers can quickly navigate to the changed content.
 
-```markdown
-### Added
-- Spec evolution rules. Files: `foundation/evolution/triggers.md`,
-  `types.md`, `process.md`, `impact.md`.
-```
-
 ## Header
-
-The spec CHANGELOG uses a slightly different preamble
-since it documents the specification, not a crate:
 
 ```markdown
 # Changelog
@@ -50,4 +59,13 @@ will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](format.md).
+Spec revisions use UTC timestamps as version identifiers.
 ```
+
+## Spec Version Tracking
+
+Each crate that follows the snowball spec should record
+which spec version it was last aligned with.
+When the spec updates, compare the recorded version against
+the spec CHANGELOG to determine what changed and whether
+the crate needs adjustment.

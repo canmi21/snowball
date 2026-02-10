@@ -55,3 +55,15 @@ Details live in linked subfiles, not inline.
 - Short topic → single file.
 - Growing topic → directory with focused subfiles.
 - Nesting depth stays under 4 levels.
+
+## LLM Agents
+
+When an LLM agent modifies the spec, it must immediately comply
+with the updated rules from that point forward.
+Pre-existing content is not retroactively corrected unless
+the change is corrective (see [evolution process](evolution/process.md)).
+
+If a new rule conflicts with work in progress,
+the user makes the final decision. The resolution may trigger
+a further spec modification through the
+[evolution process](evolution/process.md).
