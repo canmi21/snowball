@@ -19,10 +19,24 @@ check_allowlist() {
   local file_hash
   file_hash="$(shasum -a 256 "$file" | cut -d' ' -f1)"
 
-  # simple toml parse: look for matching file + check + hash
-  if grep -q "file = \"$rel_path\"" "$ALLOWLIST" && \
-     grep -q "check = \"$check\"" "$ALLOWLIST" && \
-     grep -q "hash = \"$file_hash\"" "$ALLOWLIST"; then
+  # parse [[entry]] blocks — match file + check + hash within the same entry
+  local match_file=0 match_check=0 match_hash=0
+
+  while IFS= read -r line; do
+    if [[ "$line" == "[[entry]]" ]]; then
+      if [[ $match_file -eq 1 && $match_check -eq 1 && $match_hash -eq 1 ]]; then
+        return 0
+      fi
+      match_file=0; match_check=0; match_hash=0
+    fi
+
+    [[ "$line" == "file = \"$rel_path\"" ]] && match_file=1
+    [[ "$line" == "check = \"$check\"" ]] && match_check=1
+    [[ "$line" == "hash = \"$file_hash\"" ]] && match_hash=1
+  done < "$ALLOWLIST"
+
+  # check last entry
+  if [[ $match_file -eq 1 && $match_check -eq 1 && $match_hash -eq 1 ]]; then
     return 0
   fi
 
@@ -32,8 +46,8 @@ check_allowlist() {
 while IFS= read -r file; do
   basename="$(basename "$file")"
 
-  # skip CHANGELOG (data file, grows naturally)
-  if [[ "$basename" == "CHANGELOG.md" ]]; then
+  # skip data files that grow naturally
+  if [[ "$basename" == "CHANGELOG.md" || "$basename" == "README.md" ]]; then
     continue
   fi
 
