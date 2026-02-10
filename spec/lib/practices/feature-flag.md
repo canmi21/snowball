@@ -6,23 +6,23 @@
 
 Leaf crates may only use feature flags for:
 
-1. **`std` / `alloc` capability tiers.**
-   `default = ["std"]`, `std = ["alloc"]`, `alloc = []`.
-   There is no `no_std` feature — `no_std` is the implicit result
-   of `default-features = false`. See [no-std](no-std.md).
-   Enabling a tier exposes additional APIs; it never changes
+1. **Capability tiers.**
+   Higher tiers expose additional APIs; they never change
    the behavior of APIs available at lower tiers.
+   See [no-std](no-std.md) for the standard tier model.
 
-2. **Optional `tracing` instrumentation.**
-   Adds `#[instrument]` span annotations. See [observability](observability.md).
+2. **Optional instrumentation.**
+   Adds span annotations for observability. See [observability](observability.md).
 
-3. **Optional derive support** (e.g., `serde`).
-   Adds trait implementations to existing types.
+3. **Optional derived capabilities** (e.g., serialization support).
+   Adds interface implementations to existing types.
    Never changes the behavior of existing APIs.
 
 Leaf crates do **not** have a `full` feature. There is nothing to "fully enable" —
 each feature is a capability addition, and the combination is determined
 by the consumer.
+
+For language-specific feature flag syntax, see [lang/](lang/).
 
 ### Composition Crate — Pass-Through Features
 
@@ -42,14 +42,7 @@ Feature selection belongs in convergence crates.
 ### Convergence Crate — Selection Features
 
 Convergence crates may use feature flags to select between implementations
-within a single dimension:
-
-```toml
-[features]
-default = ["toml"]
-toml = ["dep:config-parse-toml"]
-json = ["dep:config-parse-json"]
-```
+within a single dimension.
 
 Rules:
 
@@ -63,8 +56,8 @@ Features within a dimension are **multi-select by default**.
 Enabling both `toml` and `json` makes both implementations available.
 
 Features are **mutually exclusive** only when the implementations are functionally
-identical and cannot coexist (e.g., `ring` vs `aws-lc-rs` as a crypto backend).
-In this case, use `compile_error!` to enforce the constraint.
+identical and cannot coexist (e.g., two alternative crypto backends).
+In this case, enforce the constraint with a compile-time error.
 
 A `full` feature in convergence crates is acceptable — it activates all
 non-mutually-exclusive selections.
@@ -72,7 +65,7 @@ non-mutually-exclusive selections.
 ## Forbidden Uses
 
 - Feature flags that change the behavior of existing APIs in leaf crates.
-- Behavioral branching (`if cfg!(feature = "x") { ... } else { ... }`)
+- Behavioral branching (conditional compilation that changes existing behavior)
   in leaf or composition crates.
 - Multiple unrelated dimensions of selection in a single crate.
 

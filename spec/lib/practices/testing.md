@@ -35,9 +35,9 @@ Complete Layer 1 + Layer 2 coverage implicitly defines all accepted input types
 and all possible output types. The test suite serves as executable type documentation —
 if the tests are comprehensive, the type boundaries are unambiguous.
 
-## Dev-Dependencies — Leverage Standard Implementations
+## Test-Only Dependencies — Leverage Standard Implementations
 
-Test dependencies (`[dev-dependencies]`) do not enter the final artifact.
+Test-only dependencies do not enter the final artifact.
 This zero-cost property should be exploited aggressively.
 
 When a standard, well-established implementation exists for the domain
@@ -55,12 +55,12 @@ a crate operates in, depend on it in tests as a reference counterpart.
 **Scope:**
 
 - Protocol and format crates: use standard implementations as the other end
-  (e.g., test a QUIC implementation against `quinn`,
-  test an HTTP parser against `hyper`).
+  (e.g., test a QUIC implementation against an established QUIC library,
+  test an HTTP parser against an established HTTP library).
 - Data processing crates: use reference implementations to validate output
   against known-correct results.
 - Binary crates: prefer real dependencies over mocks where practical
-  (e.g., `testcontainers` for a real database instead of a mock DB interface).
+  (e.g., a real database via containers instead of a mock DB interface).
   See [bin testing](../../bin/testing.md) for bin-specific details.
 
 This principle supplements, not replaces, the three test layers.

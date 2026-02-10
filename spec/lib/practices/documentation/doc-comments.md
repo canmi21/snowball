@@ -2,67 +2,30 @@
 
 Follows the general rules in [general](general.md).
 
+For language-specific doc comment syntax and lints, see [lang/](lang/).
+
 ## Library Crates
 
 ### Mandatory (All Phases, Including 0.x)
 
-Every public item (function, type, trait, method) must have a `///` doc comment containing:
+Every public item (function, type, interface, method) must have
+a doc comment containing:
 
 1. **One-line summary** — what it does.
-2. **Error conditions** (if it returns `Result`) — which inputs or states
-   produce which `Error` variants.
-3. **Minimal example** (`/// # Examples` block) — also serves as a compile-time test.
+2. **Error conditions** (if it can fail) — which inputs or states
+   produce which error variants.
+3. **Minimal example** — also serves as a compile-time or runtime test
+   where the language supports it.
 
-````rust
-/// Parses raw bytes into a configuration structure.
-///
-/// # Errors
-///
-/// - [`ParseError::InvalidSyntax`] — input is not valid TOML.
-/// - [`ParseError::MissingField`] — a required field is absent.
-///
-/// # Examples
-///
-/// ```
-/// let config = my_lib::parse(b"key = \"value\"")?;
-/// assert_eq!(config.get("key"), Some("value"));
-/// # Ok::<(), my_lib::ParseError>(())
-/// ```
-pub fn parse(raw: &[u8]) -> Result<Config, ParseError> { /* ... */ }
-````
-
-### Enforced by Lint
-
-```toml
-[lints.rust]
-missing_docs = "deny"
-```
-
-This lint is active from `0.x` onward. Discipline starts at the beginning,
-not at stabilization.
-
-### Clippy Doc Lints
-
-The following clippy lints should be enabled to enforce doc quality:
-
-```toml
-[lints.clippy]
-doc_markdown = "warn"
-missing_errors_doc = "warn"
-missing_panics_doc = "warn"
-```
-
-- `doc_markdown`: catches unformatted code references in prose.
-- `missing_errors_doc`: requires `# Errors` section when returning `Result`.
-- `missing_panics_doc`: requires `# Panics` section when a function can panic.
+Documentation coverage is enforced from initial development onward.
+Discipline starts at the beginning, not at stabilization.
 
 ## Binary Crates
 
-- `main.rs` — no doc comments needed.
-- `run.rs` — `run()` function needs a brief description of its orchestration role.
-- `config.rs` — every field of the configuration struct must document
-  its meaning and default value.
-- `telemetry.rs` — document the replaceable subscriber strategy.
+- Entry point — no doc comments needed.
+- Orchestration function — brief description of its orchestration role.
+- Configuration type — every field must document its meaning and default value.
+- Telemetry setup — document the replaceable subscriber strategy.
 
 ## Forbidden
 

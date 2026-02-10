@@ -5,59 +5,40 @@ The most fundamental library type. Pure functions: same input always produces sa
 ## Definition (all conditions must hold)
 
 - All public functions are pure.
-- No mutable state, no `static mut`, `lazy_static`, or `OnceLock`.
+- No mutable state, no global or shared state.
 - No I/O (no file access, no network, no environment variables).
-- No background threads, no `spawn`.
-- Synchronous return, no `Future`.
+- No background threads or concurrent execution.
+- Synchronous return only.
 
 ## File Structure
 
-```
-src/
-  lib.rs          Module declarations and explicit re-exports only.
-  types.rs        Input, output, and error type definitions.
-  traits.rs       Trait definitions (if this crate defines a capability).
-  core.rs         Core logic. The only file permitted to contain business code.
-tests/
-  integration.rs
-```
+Separate concerns into distinct files:
 
-`lib.rs` uses explicit re-exports, not globs:
+- **Entry point**: module declarations and explicit re-exports only.
+- **Types**: input, output, and error type definitions.
+- **Interfaces**: interface definitions (if this package defines a capability).
+- **Core logic**: the only file permitted to contain business code.
+- **Tests**: integration tests.
 
-```rust
-mod types;
-mod traits;
-mod core;
+For language-specific file layout, see [lang/](lang/).
 
-pub use types::{Input, Output, MyError};
-pub use traits::MyTrait;
-pub use core::MyImpl;
-```
-
-## Core Logic Constraints (core.rs)
+## Core Logic Constraints
 
 - Stays within the SCoL threshold (see [heuristics](../../foundation/heuristics.md)).
-- No `unwrap()`, `expect()`, `panic!()`, `todo!()`, `unimplemented!()`.
-- No `unsafe` unless the crate's core purpose is wrapping unsafe operations.
-  If unsafe is present, safety invariants must be documented.
+- No panic-equivalent operations
+  (see [panic policy](../../foundation/safety/panic-policy.md)).
 - No logging, no printing.
 - No environment variable reads or global configuration access.
 
-## Cargo.toml Constraints
-
-- Explicit `edition` and `rust-version`.
-- Minimize dependencies.
-- `tokio`, `async-std`, `log`, `tracing` must not appear in `[dependencies]`.
-
 ## Checklist
 
-- SS-1. `lib.rs` contains only `mod` and `pub use`.
+- SS-1. Entry point contains only declarations and re-exports.
 - SS-2. All public functions produce identical output for identical input.
-- SS-3. Error type is a `#[non_exhaustive]` enum with `thiserror::Error`.
-- SS-4. No `unwrap`, `expect`, `panic`, `todo`.
+- SS-3. Error type is a tagged, extensible enum.
+- SS-4. No panic-equivalent operations.
 - SS-5. No I/O, no global state, no logging.
 - SS-6. Core logic stays within the SCoL threshold.
 - SS-7. Every public function has a happy-path test.
-- SS-8. Every Error variant has an error-path test.
-- SS-9. All public items have doc comments with examples.
+- SS-8. Every error variant has an error-path test.
+- SS-9. All public items have documentation with examples.
 - SS-10. No async runtime or logging framework in dependencies.

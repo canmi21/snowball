@@ -2,28 +2,25 @@
 
 ## Base Rules (All Library Crates)
 
-Every library crate defines its own `Error` enum. The following rules apply universally.
+Every library crate defines its own error type. The following rules apply universally.
 
-### Mandatory Attributes
-
-- `#[non_exhaustive]` on the enum — allows additive variants in minor versions.
-- `#[derive(Debug, thiserror::Error)]` — `thiserror` is the designated derive macro
-  for all error types in this ecosystem.
+For language-specific error type implementation, see [lang/](lang/).
 
 ### Structural Rules
 
+- The error type must be extensible — adding new variants
+  in a minor version must not break existing callers.
 - Every variant name is a **noun** describing what went wrong,
   not what to do about it.
 - All error information is carried in **structured fields**, not strings.
-- The following are **forbidden** as public error carriers:
-  `Box<dyn Error>`, `anyhow::Error`, `String`.
-- `anyhow` is an **application-layer privilege** — libraries never expose it
-  in their public API.
+- Opaque error containers (type-erased errors, stringly-typed errors)
+  are forbidden in library public APIs.
+  Opaque errors are an application-layer privilege.
 
 ### Cross-Crate Error Isolation
 
 - A leaf crate does not know about other leaf crates' error types.
-- `From` conversions between different crates' errors are written
+- Error conversions between different crates' errors are written
   only in composition/glue crates, never in leaf crates.
 
 ## Recommended Variant Names
@@ -36,7 +33,7 @@ use the recommended variant name for consistency across the ecosystem.
 | I/O failure           | `Io`             | Operations involving file, network, or system I/O        |
 | Underlying timeout    | `Timeout`        | Async operations where the underlying layer may time out |
 | Operation cancelled   | `Cancelled`      | Async operations that may be cancelled                   |
-| Lock poisoning        | `Poisoned`       | Crates using `std` synchronization locks                 |
+| Lock poisoning        | `Poisoned`       | Crates using synchronization locks                       |
 | Service shutting down | `ShuttingDown`   | Stateful services with a lifecycle                       |
 
 This list is not exhaustive. As the ecosystem grows, new recommended names
@@ -51,7 +48,7 @@ will be added to this specification.
 
 ## Async Library Additions
 
-- All error variants must be `Send + Sync`.
+- All error variants must be thread-safe.
 - The library itself does **not** implement timeout logic.
   Timeout is a caller-side policy decision.
   The `Timeout` variant represents a timeout reported by the underlying layer.
@@ -64,8 +61,8 @@ will be added to this specification.
 
 ## Stateful Async Library Additions
 
-- Inherits async rules (`Send + Sync`, `Timeout`, `Cancelled`).
-- Must include `Poisoned` if using `std` synchronization locks.
+- Inherits async rules (thread-safety, `Timeout`, `Cancelled`).
+- Must include `Poisoned` if using synchronization locks.
 - Must include `ShuttingDown` if the crate manages a service lifecycle.
 
 ## Error Chain Architecture
@@ -78,10 +75,10 @@ do not appear in the chain.
 
 | Layer             | Error Responsibility                                                                                 |
 | ----------------- | ---------------------------------------------------------------------------------------------------- |
-| Leaf crate        | Defines own `Error` enum. Uses `#[source]` to link underlying causes.                                |
-| Composition crate | Defines own `Error` enum wrapping multiple lower-layer errors. Describes which sub-operation failed. |
+| Leaf crate        | Defines own error type. Links underlying causes through source chaining.                             |
+| Composition crate | Defines own error type wrapping multiple lower-layer errors. Describes which sub-operation failed.   |
 | Convergence crate | No new error types. Re-exports or type-aliases the composition layer's errors.                       |
-| Binary (`run.rs`) | Uses `anyhow` + `.context()` to add top-level business semantics.                                    |
+| Binary            | Adds top-level business context to errors from lower layers.                                         |
 
 ### Decision Rule
 
