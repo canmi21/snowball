@@ -33,6 +33,10 @@ Current version: [VERSION](VERSION) |
 
 - [heuristics](foundation/heuristics.md) — Threshold philosophy: 100 lines, 300 SCoL, 4 depth.
 
+### Agent
+
+- [agent](foundation/agent.md) — Sub-agent definition: frontmatter, model selection, memory.
+
 ### Compliance
 
 - [compliance](foundation/compliance.md) — Two-layer checking: shell scripts + LLM agent.

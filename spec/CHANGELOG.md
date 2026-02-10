@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T09:01:13Z]
+
+### Added
+
+- Agent specification: sub-agent definition, frontmatter, model selection,
+  memory rules.
+  Files: `foundation/agent.md`.
+
 ## [2026-02-10T08:39:43Z]
 
 ### Added
