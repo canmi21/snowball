@@ -11,18 +11,17 @@ The file layout and main.rs flow differ between the two.
 
 ## Minimum Set
 
-| Category             | Always present                           | Present when needed |
-| -------------------- | ---------------------------------------- | ------------------- |
-| CLI tool             | main.rs, run.rs, config.rs               | telemetry.rs        |
-| Long-running service | main.rs, run.rs, config.rs, telemetry.rs | —                   |
+| Category             | Always present                     | Present when needed |
+| -------------------- | ---------------------------------- | ------------------- |
+| CLI tool             | entry point, orchestration, config | telemetry           |
+| Long-running service | entry point, orchestration, config, telemetry | —        |
+
+For language-specific file names, see [lang/](lang/).
 
 ## Scaling
 
-When orchestration complexity grows, single files expand into directories:
-
-- `run.rs` → `run/` (mod.rs + subsystem modules)
-- `config.rs` → `config/` (mod.rs + subsystem configs)
-- Same for `telemetry.rs` and any other module.
+When orchestration complexity grows, single files expand into directories
+with a module entry point plus subsystem modules.
 
 Nesting depth must stay under 4 levels.
 Each file within a directory should be focused and small,
@@ -35,4 +34,4 @@ Source code files follow language convention
 Directory names use lowercase letters and hyphens.
 
 Use directory hierarchy to avoid redundant prefixes:
-`system/monitor.rs`, not `system/system_monitor.rs`.
+`system/monitor`, not `system/system_monitor`.

@@ -1,44 +1,32 @@
-# main.rs and run.rs
+# Entry Point and Orchestration
 
-## main.rs
+## Entry Point
 
-The entry point. Kept as short as possible.
+The entry point is kept as short as possible.
 The steps below are the recommended structure, not a rigid template.
-Specifics may vary, but the spirit holds: main.rs is thin, run() is the orchestration point.
+Specifics may vary, but the spirit holds:
+the entry point is thin, the orchestration function does the real work.
+
+For language-specific entry point examples, see [lang/](lang/).
 
 ### CLI Tool (2–3 steps)
 
-```rust
-fn main() {
-    let config = config::load();
-    if let Err(e) = run::run(config) {
-        // output full error chain
-        std::process::exit(1);
-    }
-}
-```
+1. Load configuration.
+2. Call the orchestration function. On failure, output the error chain and exit.
 
-Telemetry initialization is optional for CLI tools.
-When present, it becomes 3 steps.
+Telemetry initialization is optional for CLI tools. When present, it becomes 3 steps.
 
 ### Long-Running Service (4 steps)
 
-```rust
-#[tokio::main]
-async fn main() {
-    let (reload_handle, _guard) = telemetry::init();
-    let config = config::load();
-    telemetry::reconfigure(&reload_handle, &config.telemetry);
-    if let Err(e) = run::run(config).await {
-        // output full error chain
-        std::process::exit(1);
-    }
-}
-```
+1. Initialize telemetry with minimal defaults.
+2. Load configuration.
+3. Reconfigure telemetry with loaded settings.
+4. Call the orchestration function. On failure, output the error chain and exit.
 
-main.rs does not construct services, handle signals, or contain business logic.
+The entry point does not construct services, handle signals,
+or contain business logic.
 
-## run.rs
+## Orchestration Function
 
 The single orchestration site in the binary:
 
@@ -46,24 +34,23 @@ The single orchestration site in the binary:
 - Constructs all dependencies in order (see [assembly](../assembly.md)).
 - Starts services, installs the shutdown mechanism
   (see [shutdown](../shutdown.md), long-running service only).
-- Returns `anyhow::Result<()>`.
+- Returns a result type appropriate for the language's error handling.
 
-The `run()` function is always the entry point, even when the module
-expands into a directory. In that case, `run/mod.rs` contains `run()`
-and delegates to submodules.
+The orchestration function is always the entry point for logic,
+even when the module expands into a directory.
 
-For CLI tools, `run()` may be synchronous (not async).
+For CLI tools, the orchestration function may be synchronous (not async).
 
-All testable logic lives in `run()`. Integration tests call `run()` directly,
-not the binary process (see [testing](../testing.md)).
+All testable logic lives in the orchestration function.
+Integration tests call it directly, not the binary process
+(see [testing](../testing.md)).
 
 ## Async Runtime
 
-Most long-running services use tokio as the async runtime.
-This is a practical default, not a mandate — the choice of runtime
-is a binary-level decision and does not affect library crate design.
+The choice of async runtime is a binary-level decision
+and does not affect library crate design.
 
-Library crates in the snowball monorepo remain runtime-agnostic
+Library crates remain runtime-agnostic
 (see [stateful-async](../../lib/patterns/stateful-async.md) runtime dependency tiers).
 
 ## Dependency Path

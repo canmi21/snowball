@@ -14,7 +14,7 @@ configuration loading are observable.
 
 ### Step 1 — Basic Init (before config)
 
-Start a minimal subscriber using environment variables (`RUST_LOG`)
+Start a minimal subscriber using environment-based configuration
 and default formatting. This captures any errors that occur
 during the configuration loading phase.
 
@@ -24,45 +24,35 @@ Once configuration is loaded, reconfigure the subscriber
 with the full telemetry settings from config
 (output format, level overrides, export targets).
 
-For CLI tools, step 2 may be omitted if `RUST_LOG` is sufficient.
+For CLI tools, step 2 may be omitted if environment-based
+configuration is sufficient.
 
-## telemetry.rs Responsibilities
+## Telemetry Module Responsibilities
 
-Construct, install, and reconfigure the global tracing subscriber:
+- Construct, install, and reconfigure the global tracing subscriber.
+- Provide an `init()` function that returns a reload handle
+  and a flush-on-drop guard.
+- Provide a `reconfigure()` function that applies full configuration.
+- Alternatively, provide named constructors for distinct environments
+  (production, test).
 
-```rust
-pub fn init() -> (ReloadHandle, impl Drop) {
-    // Build minimal subscriber with reload capability
-    // Set as global default
-    // Return reload handle + flush-on-drop guard
-}
-
-pub fn reconfigure(handle: &ReloadHandle, config: &TelemetryConfig) {
-    // Apply full configuration to the running subscriber
-}
-```
-
-Alternatively, provide named constructors for distinct environments:
-
-```rust
-pub fn init_production() -> (ReloadHandle, impl Drop) { ... }
-pub fn init_test() -> impl Drop { ... }
-```
+For language-specific telemetry implementation, see [lang/](lang/).
 
 ## Rules
 
-- Subscriber construction logic lives only in `telemetry.rs`.
-- main.rs calls `init()` and `reconfigure()`. It does not know subscriber internals.
+- Subscriber construction logic lives only in the telemetry module.
+- The entry point calls `init()` and `reconfigure()`.
+  It does not know subscriber internals.
 - Production: structured output (JSON or `key=value`).
 - Development: human-readable output.
-- Log level is controlled via `RUST_LOG` environment variable
+- Log level is controlled via environment variable
   or configuration, never hardcoded.
 
 ## Relationship to Library Observability
 
 - Library crates produce zero log output
   (see [observability](../lib/practices/observability.md)).
-- Library crates may annotate functions with `#[instrument]`
-  behind an optional `tracing` feature flag.
+- Library crates may annotate functions with span instrumentation
+  behind an optional feature flag.
 - The binary's subscriber activation is what makes
-  library-level `#[instrument]` spans observable.
+  library-level spans observable.

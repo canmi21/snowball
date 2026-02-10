@@ -39,7 +39,7 @@ is defined there.
 ## Relationship to Library Crates
 
 - Stateful async library crates expose their own shutdown interface
-  (see [stateful-async](../lib/patterns/stateful-async.md) item 24).
+  (see [stateful-async](../lib/patterns/stateful-async.md) SFA-6).
 - The binary calls each library's shutdown method
   and manages the overall timeout and exit strategy.
 - Library crates do not know the binary's cancellation mechanism.
