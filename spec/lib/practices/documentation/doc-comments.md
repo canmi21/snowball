@@ -13,7 +13,7 @@ Every public item (function, type, trait, method) must have a `///` doc comment 
    produce which `Error` variants.
 3. **Minimal example** (`/// # Examples` block) — also serves as a compile-time test.
 
-```rust
+````rust
 /// Parses raw bytes into a configuration structure.
 ///
 /// # Errors
@@ -29,7 +29,7 @@ Every public item (function, type, trait, method) must have a `///` doc comment 
 /// # Ok::<(), my_lib::ParseError>(())
 /// ```
 pub fn parse(raw: &[u8]) -> Result<Config, ParseError> { /* ... */ }
-```
+````
 
 ### Enforced by Lint
 

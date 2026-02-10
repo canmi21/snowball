@@ -13,24 +13,24 @@ If the spec does not cover something, evolve the spec first, then act.
 
 ## Concepts
 
-| Concept | What it is | Spec |
-|---------|-----------|------|
-| Leaf | Lowest-level crate, no snowball dependencies | [roles](spec/foundation/architecture/roles.md) |
-| Composition | Combines lower crates, relative relationship | [roles](spec/foundation/architecture/roles.md) |
-| Convergence | Pins generics for a use case, zero logic | [convergence](spec/foundation/architecture/convergence.md) |
-| Binary | Application entry point, orchestration | [structure](spec/bin/structure/layout.md) |
-| Naming | Lowercase + hyphens, prefix promotion, per-domain rules | [naming](spec/foundation/naming/common.md) |
-| Heuristics | All numeric limits (100 lines, 300 SCoL, 4 depth) are evaluation triggers, not hard limits | [heuristics](spec/foundation/heuristics.md) |
+| Concept     | What it is                                                                                 | Spec                                                       |
+| ----------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| Leaf        | Lowest-level crate, no snowball dependencies                                               | [roles](spec/foundation/architecture/roles.md)             |
+| Composition | Combines lower crates, relative relationship                                               | [roles](spec/foundation/architecture/roles.md)             |
+| Convergence | Pins generics for a use case, zero logic                                                   | [convergence](spec/foundation/architecture/convergence.md) |
+| Binary      | Application entry point, orchestration                                                     | [structure](spec/bin/structure/layout.md)                  |
+| Naming      | Lowercase + hyphens, prefix promotion, per-domain rules                                    | [naming](spec/foundation/naming/common.md)                 |
+| Heuristics  | All numeric limits (100 lines, 300 SCoL, 4 depth) are evaluation triggers, not hard limits | [heuristics](spec/foundation/heuristics.md)                |
 
 ## Context Detection
 
-| Working in | Read first |
-|-----------|------------|
-| `library/` | [lib patterns](spec/lib/patterns/) + [practices](spec/lib/practices/) + [convergence](spec/foundation/architecture/convergence.md) |
-| `bin/` (application repo) | [bin spec](spec/bin/) |
-| `spec/` | [evolution](spec/foundation/evolution/) + [writing-style](spec/foundation/writing-style.md) + [naming](spec/foundation/naming/) |
-| `tools/` | [compliance](spec/foundation/compliance.md) |
-| root config | [git](spec/foundation/git/) + [publication](spec/foundation/publication/) |
+| Working in                | Read first                                                                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `library/`                | [lib patterns](spec/lib/patterns/) + [practices](spec/lib/practices/) + [convergence](spec/foundation/architecture/convergence.md) |
+| `bin/` (application repo) | [bin spec](spec/bin/)                                                                                                              |
+| `spec/`                   | [evolution](spec/foundation/evolution/) + [writing-style](spec/foundation/writing-style.md) + [naming](spec/foundation/naming/)    |
+| `tools/`                  | [compliance](spec/foundation/compliance.md)                                                                                        |
+| root config               | [git](spec/foundation/git/) + [publication](spec/foundation/publication/)                                                          |
 
 Directory structure follows snowball hierarchy:
 [directory](spec/foundation/architecture/directory.md).

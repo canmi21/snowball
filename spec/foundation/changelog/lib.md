@@ -14,6 +14,7 @@ explaining what the old usage was and what the new usage is.
 
 ```markdown
 ### Breaking
+
 - Renamed `parse` to `decode`. Previously: `crate::parse(input)`. Now: `crate::decode(input)`.
 ```
 

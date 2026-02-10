@@ -11,10 +11,10 @@ The file layout and main.rs flow differ between the two.
 
 ## Minimum Set
 
-| Category | Always present | Present when needed |
-|----------|---------------|-------------------|
-| CLI tool | main.rs, run.rs, config.rs | telemetry.rs |
-| Long-running service | main.rs, run.rs, config.rs, telemetry.rs | — |
+| Category             | Always present                           | Present when needed |
+| -------------------- | ---------------------------------------- | ------------------- |
+| CLI tool             | main.rs, run.rs, config.rs               | telemetry.rs        |
+| Long-running service | main.rs, run.rs, config.rs, telemetry.rs | —                   |
 
 ## Scaling
 

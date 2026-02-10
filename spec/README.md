@@ -6,6 +6,7 @@ Current version: [VERSION](VERSION) |
 ## Foundation
 
 ### Architecture
+
 - [roles](foundation/architecture/roles.md) — Crate roles: leaf, composition, convergence, binary.
 - [convergence](foundation/architecture/convergence.md) — Terminal composition layer rules.
 - [dependencies](foundation/architecture/dependencies.md) — Dependency direction: stateless never depends on stateful.
@@ -15,45 +16,55 @@ Current version: [VERSION](VERSION) |
 - [directory](foundation/architecture/directory.md) — Monorepo layout by crate role.
 
 ### Lifecycle
+
 - [lifecycle](foundation/lifecycle.md) — Three phases: exploration (0.x), stability (1.0), convergence.
 
 ### Writing Style
+
 - [writing-style](foundation/writing-style.md) — Language, tone, structure rules, LLM compliance.
 
 ### Naming
+
 - [common](foundation/naming/common.md) — Universal naming conventions, prefix promotion.
 - [file-structure](foundation/naming/file-structure.md) — File and directory naming and organization.
 - [crate](foundation/naming/crate.md) — Crate naming by role.
 
 ### Heuristics
+
 - [heuristics](foundation/heuristics.md) — Threshold philosophy: 100 lines, 300 SCoL, 4 depth.
 
 ### Compliance
+
 - [compliance](foundation/compliance.md) — Two-layer checking: shell scripts + LLM agent.
 
 ### Publication
+
 - [checklist](foundation/publication/checklist.md) — 9-step pre-publish checklist.
 - [versioning](foundation/publication/versioning.md) — Semver rules for code crates.
 - [contribution](foundation/publication/contribution.md) — Single maintainer, PR rules, new crate proposals.
 
 ### Safety
+
 - [panic-policy](foundation/safety/panic-policy.md) — No intentional panic code. Startup boundary.
 - [unsafe-code](foundation/safety/unsafe-code.md) — Three categories: safe-by-default, FFI, performance.
 - [dependency](foundation/safety/dependency.md) — Minimal deps, cargo-audit, review process.
 
 ### Evolution
+
 - [triggers](foundation/evolution/triggers.md) — Five trigger types for spec changes.
 - [types](foundation/evolution/types.md) — Additive, corrective, breaking.
 - [process](foundation/evolution/process.md) — Fast path vs full path.
 - [impact](foundation/evolution/impact.md) — Per-type handling for existing crates.
 
 ### CHANGELOG
+
 - [format](foundation/changelog/format.md) — Five categories, Keep a Changelog based.
 - [lib](foundation/changelog/lib.md) — Library crate CHANGELOG rules.
 - [bin](foundation/changelog/bin.md) — Binary crate CHANGELOG rules.
 - [spec](foundation/changelog/spec.md) — Spec CHANGELOG rules, timestamp versioning.
 
 ### Git
+
 - [commit-message](foundation/git/commit-message.md) — 11 types, format, scope.
 - [commit-scope](foundation/git/commit-scope.md) — Granularity, cross-area rules.
 - [branching](foundation/git/branching.md) — Trunk-based, fixup+autosquash, tags.
@@ -64,15 +75,18 @@ Current version: [VERSION](VERSION) |
 ## Library Crates
 
 ### Patterns
+
 - [stateless-sync](lib/patterns/stateless-sync.md) — Pure functions, no state, no I/O.
 - [stateless-async](lib/patterns/stateless-async.md) — Pure function + async I/O.
 - [stateful-sync](lib/patterns/stateful-sync.md) — Mutable state, typestate, builder.
 - [stateful-async](lib/patterns/stateful-async.md) — State + async + concurrency.
 
 ### Contract
+
 - [trait-design](lib/contract/trait-design.md) — Receiver, types, cohesion, object safety, async.
 
 ### Practices
+
 - [error-handling](lib/practices/error-handling.md) — thiserror, Error enum, error chain.
 - [testing](lib/practices/testing.md) — Three layers, dev-dependency philosophy.
 - [naming](lib/practices/naming.md) — Crate naming by role.

@@ -9,11 +9,11 @@ spec files, documentation, scripts, configuration.
 
 Source code files follow the language's native convention:
 
-| Language | Convention | Example |
-|----------|-----------|---------|
-| Rust | `snake_case.rs` | `config_parse.rs` |
+| Language   | Convention      | Example           |
+| ---------- | --------------- | ----------------- |
+| Rust       | `snake_case.rs` | `config_parse.rs` |
 | TypeScript | `kebab-case.ts` | `config-parse.ts` |
-| Go | `snake_case.go` | `config_parse.go` |
+| Go         | `snake_case.go` | `config_parse.go` |
 
 This list grows as new languages join the ecosystem.
 

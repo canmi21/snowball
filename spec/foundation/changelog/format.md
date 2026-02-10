@@ -39,9 +39,11 @@ and the Unreleased section is emptied.
 ## [0.2.0] - 2025-03-15
 
 ### Added
+
 - `encode` function for the reverse transformation.
 
 ### Fixed
+
 - Incorrect handling of empty input returning Ok instead of error.
 ```
 
@@ -51,13 +53,13 @@ and the Unreleased section is emptied.
 
 ## Five Categories
 
-| Category | Meaning |
-|----------|---------|
-| **Added** | New functionality. |
-| **Fixed** | Bug fixes. |
-| **Changed** | Modifications to existing functionality (non-breaking). |
-| **Removed** | Removed functionality. |
-| **Breaking** | Changes that break backward compatibility. |
+| Category     | Meaning                                                 |
+| ------------ | ------------------------------------------------------- |
+| **Added**    | New functionality.                                      |
+| **Fixed**    | Bug fixes.                                              |
+| **Changed**  | Modifications to existing functionality (non-breaking). |
+| **Removed**  | Removed functionality.                                  |
+| **Breaking** | Changes that break backward compatibility.              |
 
 Only include categories that have entries. Omit empty categories.
 

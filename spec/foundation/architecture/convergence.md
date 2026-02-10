@@ -20,7 +20,7 @@ A convergence crate does **not** contain:
   - Specific to one application but substantial in scope
     → orchestration crate in the application repo.
   - Specific to one application and small → directly in `run.rs`.
-  See [repository](repository.md) for the reusability criterion.
+    See [repository](repository.md) for the reusability criterion.
 
 ## When to Create a Convergence Crate
 

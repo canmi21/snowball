@@ -31,13 +31,13 @@ Every library crate defines its own `Error` enum. The following rules apply univ
 When a crate's operations involve the following scenarios,
 use the recommended variant name for consistency across the ecosystem.
 
-| Scenario | Recommended Name | When to Include |
-|----------|-----------------|-----------------|
-| I/O failure | `Io` | Operations involving file, network, or system I/O |
-| Underlying timeout | `Timeout` | Async operations where the underlying layer may time out |
-| Operation cancelled | `Cancelled` | Async operations that may be cancelled |
-| Lock poisoning | `Poisoned` | Crates using `std` synchronization locks |
-| Service shutting down | `ShuttingDown` | Stateful services with a lifecycle |
+| Scenario              | Recommended Name | When to Include                                          |
+| --------------------- | ---------------- | -------------------------------------------------------- |
+| I/O failure           | `Io`             | Operations involving file, network, or system I/O        |
+| Underlying timeout    | `Timeout`        | Async operations where the underlying layer may time out |
+| Operation cancelled   | `Cancelled`      | Async operations that may be cancelled                   |
+| Lock poisoning        | `Poisoned`       | Crates using `std` synchronization locks                 |
+| Service shutting down | `ShuttingDown`   | Stateful services with a lifecycle                       |
 
 This list is not exhaustive. As the ecosystem grows, new recommended names
 will be added to this specification.
@@ -76,12 +76,12 @@ do not appear in the chain.
 
 ### By Layer
 
-| Layer | Error Responsibility |
-|-------|---------------------|
-| Leaf crate | Defines own `Error` enum. Uses `#[source]` to link underlying causes. |
+| Layer             | Error Responsibility                                                                                 |
+| ----------------- | ---------------------------------------------------------------------------------------------------- |
+| Leaf crate        | Defines own `Error` enum. Uses `#[source]` to link underlying causes.                                |
 | Composition crate | Defines own `Error` enum wrapping multiple lower-layer errors. Describes which sub-operation failed. |
-| Convergence crate | No new error types. Re-exports or type-aliases the composition layer's errors. |
-| Binary (`run.rs`) | Uses `anyhow` + `.context()` to add top-level business semantics. |
+| Convergence crate | No new error types. Re-exports or type-aliases the composition layer's errors.                       |
+| Binary (`run.rs`) | Uses `anyhow` + `.context()` to add top-level business semantics.                                    |
 
 ### Decision Rule
 

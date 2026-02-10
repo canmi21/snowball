@@ -17,10 +17,12 @@ Add `handle.rs` for the running instance's control interface.
 ## Concurrency Strategy (choose one)
 
 **Route A (recommended): std synchronization locks with short critical sections.**
+
 - Critical section contains only in-memory reads and writes. No `.await` inside.
 - Does not bind to any async runtime.
 
 **Route B: Abstract lock mechanism through a trait.**
+
 - Use only when the critical section genuinely requires `.await`.
 
 The chosen route must be documented in the `state.rs` module-level doc comment.
@@ -75,12 +77,12 @@ pub async fn cleanup_loop(&self) -> Result<!, Error> {
 
 ## Runtime Dependency Tiers
 
-| Crate level | Rule |
-|-------------|------|
-| Leaf / trait crate | Strictly runtime-agnostic. |
+| Crate level                 | Rule                                                             |
+| --------------------------- | ---------------------------------------------------------------- |
+| Leaf / trait crate          | Strictly runtime-agnostic.                                       |
 | Runtime-specific impl crate | Committed to one runtime. Uses its features. No unbounded spawn. |
-| Convergence crate | Selects runtime impl via features. Zero logic. |
-| App orchestration / bin | Full runtime access. Unbounded spawn permitted. |
+| Convergence crate           | Selects runtime impl via features. Zero logic.                   |
+| App orchestration / bin     | Full runtime access. Unbounded spawn permitted.                  |
 
 ## Additional Checklist
 

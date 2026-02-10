@@ -24,10 +24,12 @@ However, Breaking changes must be used with caution and deliberation.
 ## [2026-02-10T06:11:23Z]
 
 ### Added
+
 - Git specification. Files: `foundation/git/commit-message.md`,
   `commit-scope.md`, `branching.md`, `lib.md`, `bin.md`, `spec.md`.
 
 ### Fixed
+
 - Convergence rules duplicated in roles.md and convergence.md.
   Files: `foundation/architecture/roles.md`.
 ```

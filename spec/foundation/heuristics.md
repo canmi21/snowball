@@ -12,11 +12,11 @@ where the author pauses to assess structure.
 
 ## Thresholds
 
-| Threshold | Scope | Trigger |
-|-----------|-------|---------|
-| 100 lines | Spec file | Evaluate splitting into a directory with subfiles |
-| 300 lines (SCoL) | Code module | Evaluate crate decomposition or module extraction |
-| 4 levels | Directory nesting | Evaluate flattening or reorganization |
+| Threshold        | Scope             | Trigger                                           |
+| ---------------- | ----------------- | ------------------------------------------------- |
+| 100 lines        | Spec file         | Evaluate splitting into a directory with subfiles |
+| 300 lines (SCoL) | Code module       | Evaluate crate decomposition or module extraction |
+| 4 levels         | Directory nesting | Evaluate flattening or reorganization             |
 
 SCoL = Source Count of Lines, excluding comments, blank lines, and tests.
 

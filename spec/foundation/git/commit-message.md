@@ -25,26 +25,26 @@ Eleven commit types, divided into two groups.
 These types correspond directly to CHANGELOG categories
 (see [format](../changelog/format.md)):
 
-| Type | CHANGELOG Category |
-|------|--------------------|
-| `add` | Added |
-| `fix` | Fixed |
-| `change` | Changed |
-| `rm` | Removed |
-| `break` | Breaking |
+| Type     | CHANGELOG Category |
+| -------- | ------------------ |
+| `add`    | Added              |
+| `fix`    | Fixed              |
+| `change` | Changed            |
+| `rm`     | Removed            |
+| `break`  | Breaking           |
 
 ### Non-CHANGELOG
 
 These types do not produce CHANGELOG entries:
 
-| Type | Purpose |
-|------|---------|
-| `refactor` | Code restructuring that does not change behavior |
-| `doc` | Documentation changes |
-| `test` | Test additions or modifications |
-| `spec` | Snowball spec changes |
-| `ci` | CI/CD pipeline changes |
-| `chore` | Trivial housekeeping — use sparingly, only when nothing else fits |
+| Type       | Purpose                                                           |
+| ---------- | ----------------------------------------------------------------- |
+| `refactor` | Code restructuring that does not change behavior                  |
+| `doc`      | Documentation changes                                             |
+| `test`     | Test additions or modifications                                   |
+| `spec`     | Snowball spec changes                                             |
+| `ci`       | CI/CD pipeline changes                                            |
+| `chore`    | Trivial housekeeping — use sparingly, only when nothing else fits |
 
 ## Scope
 

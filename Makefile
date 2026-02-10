@@ -1,9 +1,16 @@
 .PHONY: check check-spec \
        check-spec-links check-spec-line-count check-spec-naming \
        check-spec-forbidden-patterns check-spec-terminology \
-       check-spec-changelog-format
+       check-spec-changelog-format \
+       fmt fmt-check
 
 check: check-spec
+
+fmt:
+	@oxfmt --write spec/ CLAUDE.md
+
+fmt-check:
+	@oxfmt --check spec/ CLAUDE.md
 
 check-spec: check-spec-links check-spec-line-count check-spec-naming \
             check-spec-forbidden-patterns check-spec-terminology \

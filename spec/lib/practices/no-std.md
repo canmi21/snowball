@@ -2,19 +2,19 @@
 
 ## Decision Criteria
 
-| Condition | Conclusion |
-|-----------|-----------|
-| Trait method signatures contain no std-only types (File, Path, TcpStream, Mutex) | Can be `no_std` |
-| Implementation uses heap allocation (Vec, String, Box) | Requires `alloc`, still `no_std` compatible |
-| Implementation interacts with the operating system | Requires `std` |
+| Condition                                                                        | Conclusion                                  |
+| -------------------------------------------------------------------------------- | ------------------------------------------- |
+| Trait method signatures contain no std-only types (File, Path, TcpStream, Mutex) | Can be `no_std`                             |
+| Implementation uses heap allocation (Vec, String, Box)                           | Requires `alloc`, still `no_std` compatible |
+| Implementation interacts with the operating system                               | Requires `std`                              |
 
 ## Three Capability Tiers
 
-| Tier | Contents | Environment Requirement |
-|------|----------|----------------------|
-| `core` | Option, Result, fundamental traits | All environments |
-| `alloc` | Vec, String, Box, Arc | Requires an allocator, no OS needed |
-| `std` | File, network, threads | Requires an OS |
+| Tier    | Contents                           | Environment Requirement             |
+| ------- | ---------------------------------- | ----------------------------------- |
+| `core`  | Option, Result, fundamental traits | All environments                    |
+| `alloc` | Vec, String, Box, Arc              | Requires an allocator, no OS needed |
+| `std`   | File, network, threads             | Requires an OS                      |
 
 ## Feature Gate Pattern
 
