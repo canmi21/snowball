@@ -20,6 +20,14 @@ Current version: [VERSION](VERSION) |
 ### Writing Style
 - [writing-style](foundation/writing-style.md) — Language, tone, structure rules, LLM compliance.
 
+### Naming
+- [common](foundation/naming/common.md) — Universal naming conventions, prefix promotion.
+- [file-structure](foundation/naming/file-structure.md) — File and directory naming and organization.
+- [crate](foundation/naming/crate.md) — Crate naming by role.
+
+### Heuristics
+- [heuristics](foundation/heuristics.md) — Threshold philosophy: 100 lines, 300 SCoL, 4 depth.
+
 ### Compliance
 - [compliance](foundation/compliance.md) — Two-layer checking: shell scripts + LLM agent.
 

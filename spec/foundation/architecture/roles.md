@@ -81,14 +81,16 @@ and [main/run](../../bin/structure/main-run.md).
 
 ## The 300-Line Heuristic
 
-300 lines is a thinking tool, not a hard limit.
+300 lines is a design introspection trigger, not a hard limit.
+See [heuristics](../heuristics.md) for the threshold philosophy.
 
 Its purpose is to create continuous pressure: when approaching 300 lines,
 ask whether the crate contains sub-logic that could be independently reusable.
 If it does, extract it — that extraction becomes a new crate on the snowball.
 
-If the logic is tightly coupled and slightly exceeds 300 lines, that is acceptable.
-The heuristic serves design introspection, not mechanical enforcement.
+If the logic is tightly coupled and slightly exceeds 300 lines,
+that is acceptable.
 
-For composition and orchestration code, staying under 300 lines should be natural —
-glue code that exceeds this threshold likely has logic that belongs in a lower-level crate.
+For composition and orchestration code, staying under 300 lines
+should be natural — glue code that exceeds this threshold likely
+has logic that belongs in a lower-level crate.

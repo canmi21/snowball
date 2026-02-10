@@ -35,10 +35,10 @@ define it once in a shared location and link from both.
 
 ### File Size
 
-Each spec file should be under 100 lines.
-If a file grows beyond this, split it into a directory
-with focused subfiles — the same scaling pattern
-used for code modules (see [layout](../bin/structure/layout.md)).
+Each spec file targets the line count threshold defined in
+[heuristics](heuristics.md). When a file grows beyond this,
+split it into a directory with focused subfiles
+(see [file structure](naming/file-structure.md)).
 
 ### Abstraction Hierarchy
 
@@ -54,7 +54,7 @@ Details live in linked subfiles, not inline.
 
 - Short topic → single file.
 - Growing topic → directory with focused subfiles.
-- Nesting depth stays under 4 levels.
+- Nesting depth threshold defined in [heuristics](heuristics.md).
 
 ## LLM Agents
 

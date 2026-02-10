@@ -7,6 +7,33 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T07:50:05Z]
+
+### Added
+
+- Naming specification promoted to foundation level: common rules,
+  file structure, and crate naming.
+  Files: `foundation/naming/common.md`, `file-structure.md`, `crate.md`.
+
+- Heuristics specification: threshold philosophy, evaluation method,
+  allowlist mechanism for mechanical checks.
+  Files: `foundation/heuristics.md`.
+
+### Changed
+
+- Naming in library practices simplified to links to foundation.
+  Files: `lib/practices/naming.md`.
+
+- Writing style: file size and nesting depth now link to heuristics.
+  Files: `foundation/writing-style.md`.
+
+- Crate roles: 300-line heuristic section links to heuristics.
+  Files: `foundation/architecture/roles.md`.
+
+- CLAUDE.md: replaced 300-line heuristic concept with broader
+  heuristics entry.
+  Files: root `CLAUDE.md`.
+
 ## [2026-02-10T06:11:23Z]
 
 ### Added
