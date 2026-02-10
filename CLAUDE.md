@@ -30,7 +30,7 @@ If the spec does not cover something, evolve the spec first, then act.
 | `bin/` (application repo) | [bin spec](spec/bin/)                                                                                                              |
 | `spec/`                   | [evolution](spec/foundation/evolution/) + [writing-style](spec/foundation/writing-style.md) + [naming](spec/foundation/naming/)    |
 | `tools/`                  | [compliance](spec/foundation/compliance.md)                                                                                        |
-| `.claude/agents/`         | [agent](spec/foundation/agent.md)                                                                                                  |
+| `.claude/agents/`         | [agent](spec/foundation/agent/overview.md)                                                                                         |
 | root config               | [git](spec/foundation/git/) + [publication](spec/foundation/publication/)                                                          |
 
 Directory structure follows snowball hierarchy:
