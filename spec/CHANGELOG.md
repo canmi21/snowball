@@ -7,6 +7,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T08:13:53Z]
+
+### Changed
+
+- Spec transitions from bootstrap to self-hosting. All modifications
+  now follow the full evolution process.
+  Files: `foundation/evolution/bootstrap.md` moved to `archived/bootstrap.md`.
+
+### Added
+
+- Archived directory for historical pre-self-hosting records.
+  Files: `archived/README.md`.
+
 ## [2026-02-10T07:50:05Z]
 
 ### Added

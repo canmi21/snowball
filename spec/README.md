@@ -42,7 +42,6 @@ Current version: [VERSION](VERSION) |
 - [dependency](foundation/safety/dependency.md) — Minimal deps, cargo-audit, review process.
 
 ### Evolution
-- [bootstrap](foundation/evolution/bootstrap.md) — Bootstrap phase and self-hosting transition.
 - [triggers](foundation/evolution/triggers.md) — Five trigger types for spec changes.
 - [types](foundation/evolution/types.md) — Additive, corrective, breaking.
 - [process](foundation/evolution/process.md) — Fast path vs full path.
@@ -94,3 +93,7 @@ Current version: [VERSION](VERSION) |
 - [shutdown](bin/shutdown.md) — Graceful shutdown, cancellation, timeout.
 - [error-handling](bin/error-handling.md) — anyhow only, no Error enums.
 - [testing](bin/testing.md) — Orchestration tests, integration tests, real dependencies.
+
+## Archived
+
+- [archived/README](archived/README.md) — Historical records from before self-hosting.
