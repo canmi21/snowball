@@ -7,6 +7,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T16:16:38Z]
+
+### Added
+
+- vcs-land agent registered in agent inventory. Purpose: fast-forward main bookmark
+  to the latest commit after task completion. Uses haiku model without memory.
+  Files: `foundation/agent/registry.md`, `.claude/agents/vcs-land.md`.
+
+### Changed
+
+- Foundation VCS specification migrated from git-centric to VCS-agnostic model.
+  Renamed foundation/git/ directory to foundation/vcs/ and rewrote all 8 files for
+  jj-colocated workflow: strategy.md (repository topology, nested isolation),
+  shared-config.md (symlink rules, workspace inheritance), commit-message.md (11 types,
+  jj workflow section), commit-scope.md (granularity rules), bookmarks.md (task-level
+  bookmarks, jj syntax), lib.md/bin.md/spec.md (domain rules with jj guidance).
+  Cross-references updated: CLAUDE.md, spec/README.md, directory.md, compliance.md,
+  contribution.md, process.md, changelog/spec.md, tools/check/links.sh, allowlist.toml.
+  Files: `foundation/vcs/strategy.md`, `foundation/vcs/shared-config.md`,
+  `foundation/vcs/commit-message.md`, `foundation/vcs/commit-scope.md`,
+  `foundation/vcs/bookmarks.md`, `foundation/vcs/lib.md`, `foundation/vcs/bin.md`,
+  `foundation/vcs/spec.md`.
+
+- Commit wrapper migration: tools/git/commit.sh (git-native) replaced with
+  tools/vcs/commit.sh (jj-native). Updated in compliance.md and spec-commit agent.
+  Files: `tools/vcs/commit.sh`, `foundation/compliance.md`.
+
+### Removed
+
+- spec/archived/ directory deleted (bootstrap.md, bootstrap-checklist.md).
+  Git history preserves content for historical reference.
+
 ## [2026-02-10T14:03:07Z]
 
 ### Changed

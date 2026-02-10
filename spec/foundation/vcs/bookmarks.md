@@ -25,12 +25,12 @@ scope/description
 - `scope` — the primary driver or area of the task.
 - `description` — lowercase, hyphens, brief.
 
-| Scenario                  | Example                       |
-| ------------------------- | ----------------------------- |
-| Single crate work         | `my-crate/add-parser`         |
-| Multi-crate initiative    | `error-handling/unify-types`  |
-| App-driven library work   | `my-app/auth-support`         |
-| Standalone spec work      | `spec/vcs-migration`          |
+| Scenario                | Example                      |
+| ----------------------- | ---------------------------- |
+| Single crate work       | `my-crate/add-parser`        |
+| Multi-crate initiative  | `error-handling/unify-types` |
+| App-driven library work | `my-app/auth-support`        |
+| Standalone spec work    | `spec/vcs-migration`         |
 
 Spec changes that arise during a development task stay in the
 current task bookmark. Use `spec/` scope only for standalone

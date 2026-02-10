@@ -137,4 +137,3 @@ Current version: [VERSION](VERSION) |
 
 - [structure/lang/rust](bin/structure/lang/rust.md) — main.rs, run.rs, tokio, file naming.
 - [lang/rust](bin/lang/rust.md) — anyhow, thiserror, Cargo config, tracing subscriber, test examples.
-
