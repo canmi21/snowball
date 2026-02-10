@@ -1,0 +1,50 @@
+# Shared Configuration
+
+Configuration files are defined once at the repository root
+and shared across crates through inheritance or symlinks.
+
+## Define Once
+
+Every configuration value has a single source of truth at the
+workspace root. Crates must not duplicate or override workspace-level
+settings unless the spec explicitly permits it.
+
+## Inheritance Table
+
+Some tools walk up the directory tree and find root configuration
+automatically. Others require an explicit symlink.
+
+| Config          | Mechanism                            | Symlink needed |
+| --------------- | ------------------------------------ | -------------- |
+| Lints           | `[workspace.lints]` in Cargo.toml   | No             |
+| Dep versions    | `[workspace.dependencies]`           | No             |
+| rustfmt         | `rustfmt.toml` at root, tool walks up | No           |
+| clippy          | `clippy.toml` at root, tool walks up  | No           |
+| editorconfig    | `.editorconfig` at root, tool walks up | No           |
+| LICENSE         | Symlink to root file                 | Yes            |
+| Language config | Symlink to root file                 | Yes            |
+
+App repositories under `app/` do not inherit from the root
+workspace automatically. They must define their own configuration
+or symlink to root files explicitly.
+
+## Symlink Rules
+
+- Use relative paths. A symlink inside a crate points upward
+  to the root file (e.g., `../../LICENSE`).
+- The symlink name must match the target file name.
+  `LICENSE -> ../../LICENSE`, not `license-link -> ../../LICENSE`.
+- Create a symlink only when the tool does not support directory
+  walk-up or workspace inheritance. Prefer native inheritance
+  mechanisms over symlinks.
+
+## Publishing Behavior
+
+`cargo publish` resolves symlinks to their actual content.
+The published `.crate` tarball contains the real file, not the
+symlink. This means symlinked LICENSE files appear correctly
+in the published package.
+
+jj and git both track symlinks as path strings. Cloning a
+repository recreates the symlinks, which resolve correctly
+as long as the target exists at the expected relative path.

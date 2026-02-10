@@ -45,5 +45,6 @@ The chore commit carries the mechanical adaptation.
   alongside the breaking change itself.
 - **`chore(workspace)` commits** may touch workspace-level files
   that inherently span multiple crates
-  (e.g., workspace package manifest dependency version updates,
-  or cascading reference updates from a spec definition change).
+  (e.g., workspace package manifests, dependency version declarations,
+  formatter and linter configuration, or cascading reference updates
+  from a spec definition change).

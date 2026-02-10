@@ -1,7 +1,7 @@
-# Git — Spec
+# VCS — Spec
 
 Follows the shared rules in [commit-message](commit-message.md),
-[commit-scope](commit-scope.md), and [branching](branching.md).
+[commit-scope](commit-scope.md), and [bookmarks](bookmarks.md).
 
 ## Additional Rules
 

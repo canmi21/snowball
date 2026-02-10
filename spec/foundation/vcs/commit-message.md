@@ -51,7 +51,7 @@ These types do not produce CHANGELOG entries:
 The scope identifies the area of change:
 
 - **Crate commits**: scope = crate name. Example: `fix(my-crate): handle empty input`.
-- **Spec commits**: scope = spec area. Example: `spec(foundation): add git rules`.
+- **Spec commits**: scope = spec area. Example: `spec(foundation): add vcs rules`.
 - **Workspace-level commits**: scope = `workspace`. Example: `chore(workspace): update dependencies`.
 
 See [commit-scope](commit-scope.md) for granularity rules.
@@ -66,6 +66,20 @@ one per crate.
 
 Each domain adds its own constraints:
 
-- Lib crates: see [lib](lib.md).
+- Library crates: see [lib](lib.md).
 - Binary crates: see [bin](bin.md).
 - The spec itself: see [spec](spec.md).
+
+## jj Workflow
+
+All commits are created through jj, never through git directly.
+
+- `jj commit -m "type(scope): description"` — snapshot the current
+  working copy into a new commit and start a fresh change.
+- `jj describe -m "type(scope): description"` — set or update the
+  description of the current change without creating a new one.
+- `jj split` — interactively split the current change into two
+  when it contains unrelated modifications.
+
+The commit message format applies identically regardless of
+which jj command creates the commit.
