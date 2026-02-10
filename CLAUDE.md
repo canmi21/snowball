@@ -55,8 +55,8 @@ Directory structure follows snowball hierarchy:
 7. **No panic code.** No `unwrap`, `expect`, `panic!`.
    [panic-policy](spec/foundation/safety/panic-policy.md).
 
-## Bootstrap
+## Self-Hosting
 
-The spec is currently in bootstrap phase
-([bootstrap](spec/foundation/evolution/bootstrap.md)).
-Strict cross-area commit splitting is relaxed until self-hosting is declared.
+The spec has reached self-hosting. All modifications follow the
+[evolution process](spec/foundation/evolution/process.md).
+Bootstrap history is [archived](spec/archived/bootstrap.md).

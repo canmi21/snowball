@@ -46,7 +46,7 @@ while IFS= read -r file; do
       fi
     done
   done < "$file"
-done < <(find "$SPEC_DIR" -name '*.md' -type f)
+done < <(find "$SPEC_DIR" -name '*.md' -type f -not -path '*/archived/*')
 
 if [[ $errors -gt 0 ]]; then
   echo ""
