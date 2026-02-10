@@ -7,6 +7,47 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T11:36:52Z]
+
+### Added
+
+- Composition Crate pass-through features section to guide feature propagation
+  across composition layers. Files: `lib/practices/feature-flag.md`.
+
+### Changed
+
+- Rust file naming: removed contradiction between layout.md and role examples,
+  established file-structure.md as single source for file naming.
+  Files: `bin/structure/layout.md`.
+
+- Roles specification: removed 300-line heuristic duplication, replaced with
+  SCoL references linking to foundation/heuristics.md as single source.
+  Files: `foundation/architecture/roles.md`.
+
+- Directory layout: added `.claude/agents/` and `tools/` subdirectories to
+  monorepo structure, clarifying workspace organization beyond main crate roles.
+  Files: `foundation/architecture/directory.md`.
+
+- Compliance enforcement moved from Layer 1 check list to commit-time enforcement
+  description, documenting the sequential order of verification stages.
+  Files: `foundation/compliance.md`.
+
+- Library pattern checklists standardized with explicit prefixes: stateless-sync (SS),
+  stateless-async (SA), stateful-sync (SFS), stateful-async (SFA). Removed 300-line
+  hardcoding in favor of heuristic reference.
+  Files: `lib/patterns/stateless-sync.md`, `lib/patterns/stateless-async.md`,
+  `lib/patterns/stateful-sync.md`, `lib/patterns/stateful-async.md`.
+
+### Fixed
+
+- Unreleased section exemption: specification CHANGELOG explicitly documents that
+  spec modifications produce immediate timestamps with no unreleased state.
+  Files: `foundation/changelog/spec.md`.
+
+- Stateful-async pattern: explicit inheritance rules for composition and feature
+  interaction with exclusion notes for incompatible combinations.
+  Files: `lib/patterns/stateful-async.md`.
+
 ## [2026-02-10T10:32:33Z]
 
 ### Changed
