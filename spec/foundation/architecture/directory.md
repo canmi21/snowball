@@ -25,7 +25,11 @@ monorepo/
 │   │   └── service-config/
 │   └── convergence/        ← convergence crates
 │       └── config-reload-tokio/
-├── tools/                  ← checking scripts
+├── tools/                  ← workspace tooling
+│   ├── check/              ← compliance scripts
+│   └── git/                ← git operation wrappers
+├── .claude/
+│   └── agents/             ← LLM sub-agent definitions
 ├── Cargo.toml              ← workspace root
 ├── CLAUDE.md
 └── README.md

@@ -18,6 +18,12 @@ The spec is a living document that continuously adapts and refines itself.
 
 However, Breaking changes must be used with caution and deliberation.
 
+## Unreleased Section
+
+The spec CHANGELOG does not use an `[Unreleased]` section.
+Every spec modification produces an immediate timestamp version,
+so there is no unreleased state.
+
 ## Version Entry Format
 
 ```markdown

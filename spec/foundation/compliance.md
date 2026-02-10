@@ -14,7 +14,9 @@ Deterministic scripts that enforce rules expressible as pattern matching:
 - Forbidden patterns (`unwrap`, `expect`, `panic!`, emoji).
 - Terminology consistency in the correct context.
 - CHANGELOG format validation.
-- Commit message format validation.
+
+Commit message format is enforced at commit time by the commit
+wrapper (`tools/git/commit.sh`), not as a post-hoc check.
 
 Scripts run in CI as a gate. A failure blocks the action.
 

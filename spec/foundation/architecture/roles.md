@@ -18,7 +18,7 @@ Performs a single X→Y transformation with no internal state.
 
 1. Describable as "transform X into Y" where X and Y are expressed as trait bounds.
 2. Every public method is indispensable — remove any one and the rest lose independent meaning.
-3. Core logic stays near or under 300 lines (excluding comments, blank lines, and tests).
+3. Core logic stays within the SCoL threshold (see [heuristics](../heuristics.md)).
 
 **Diagnostic questions:**
 
@@ -27,7 +27,7 @@ Performs a single X→Y transformation with no internal state.
    X or Y is a concrete type → insufficient generality; express as trait bound.
 
 2. How many reasonable variants exist for X and Y?
-   Combinations exceed 300 lines of coverage → scope too large; split.
+   Combinations exceed the SCoL threshold → scope too large; split.
    Multiple branches each exceeding 10 lines → each branch should be an independent crate.
 
 3. Remove any public method — do the remaining methods still have independent meaning?
@@ -41,7 +41,7 @@ Follows stateful library patterns (see [stateful-sync](../../lib/patterns/statef
 and [stateful-async](../../lib/patterns/stateful-async.md)).
 
 The same qualification criteria apply at the conceptual level:
-single responsibility, method indispensability, 300-line heuristic.
+single responsibility, method indispensability, SCoL heuristic.
 
 ## Composition — Relative Definition
 
@@ -56,7 +56,7 @@ Composition is not a fixed category — the same crate C could be any of the fol
   managing their interaction through internal concurrency or sequencing.
 
 In all cases, the composition layer is inherently thin — it is glue and orchestration,
-not core logic. The 300-line heuristic applies naturally.
+not core logic. The SCoL heuristic applies naturally.
 
 When other specification files refer to "composition crate", this is shorthand
 for "a crate in a composition relationship" — not a fixed category parallel to
@@ -79,18 +79,7 @@ The final application layer. Consumes convergence crates and performs orchestrat
 Detailed rules in [bin layout](../../bin/structure/layout.md)
 and [main/run](../../bin/structure/main-run.md).
 
-## The 300-Line Heuristic
+## Crate Size
 
-300 lines is a design introspection trigger, not a hard limit.
-See [heuristics](../heuristics.md) for the threshold philosophy.
-
-Its purpose is to create continuous pressure: when approaching 300 lines,
-ask whether the crate contains sub-logic that could be independently reusable.
-If it does, extract it — that extraction becomes a new crate on the snowball.
-
-If the logic is tightly coupled and slightly exceeds 300 lines,
-that is acceptable.
-
-For composition and orchestration code, staying under 300 lines
-should be natural — glue code that exceeds this threshold likely
-has logic that belongs in a lower-level crate.
+All crate roles share the same SCoL threshold.
+See [heuristics](../heuristics.md) for the threshold and evaluation process.
