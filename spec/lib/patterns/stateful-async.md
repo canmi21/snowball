@@ -51,12 +51,12 @@ Never hold a synchronization lock across an async suspension point.
 
 ## Runtime Dependency Tiers
 
-| Package level               | Rule                                                         |
-| --------------------------- | ------------------------------------------------------------ |
-| Leaf / interface package    | Strictly runtime-agnostic.                                   |
-| Runtime-specific impl       | Committed to one runtime. No unbounded spawn.                |
-| Convergence package         | Selects runtime impl via features. Zero logic.               |
-| App orchestration / binary  | Full runtime access. Unbounded spawn permitted.              |
+| Package level              | Rule                                            |
+| -------------------------- | ----------------------------------------------- |
+| Leaf / interface package   | Strictly runtime-agnostic.                      |
+| Runtime-specific impl      | Committed to one runtime. No unbounded spawn.   |
+| Convergence package        | Selects runtime impl via features. Zero logic.  |
+| App orchestration / binary | Full runtime access. Unbounded spawn permitted. |
 
 ## Additional Checklist
 

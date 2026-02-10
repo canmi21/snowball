@@ -73,12 +73,12 @@ do not appear in the chain.
 
 ### By Layer
 
-| Layer             | Error Responsibility                                                                                 |
-| ----------------- | ---------------------------------------------------------------------------------------------------- |
-| Leaf crate        | Defines own error type. Links underlying causes through source chaining.                             |
-| Composition crate | Defines own error type wrapping multiple lower-layer errors. Describes which sub-operation failed.   |
-| Convergence crate | No new error types. Re-exports or type-aliases the composition layer's errors.                       |
-| Binary            | Adds top-level business context to errors from lower layers.                                         |
+| Layer             | Error Responsibility                                                                               |
+| ----------------- | -------------------------------------------------------------------------------------------------- |
+| Leaf crate        | Defines own error type. Links underlying causes through source chaining.                           |
+| Composition crate | Defines own error type wrapping multiple lower-layer errors. Describes which sub-operation failed. |
+| Convergence crate | No new error types. Re-exports or type-aliases the composition layer's errors.                     |
+| Binary            | Adds top-level business context to errors from lower layers.                                       |
 
 ### Decision Rule
 

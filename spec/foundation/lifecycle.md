@@ -17,13 +17,13 @@
 
 Post-1.0 change rules:
 
-| Change                               | Allowed                    | Version bump  |
-| ------------------------------------ | -------------------------- | ------------- |
-| Bug fix (no API change)              | Yes                        | Patch (1.0.x) |
-| New default method on existing interface | Yes                   | Minor (1.x.0) |
-| New public type or function          | Yes                        | Minor (1.x.0) |
-| Change method signature              | **No** — write a new crate | —             |
-| Remove public item                   | **No** — write a new crate | —             |
+| Change                                   | Allowed                    | Version bump  |
+| ---------------------------------------- | -------------------------- | ------------- |
+| Bug fix (no API change)                  | Yes                        | Patch (1.0.x) |
+| New default method on existing interface | Yes                        | Minor (1.x.0) |
+| New public type or function              | Yes                        | Minor (1.x.0) |
+| Change method signature                  | **No** — write a new crate | —             |
+| Remove public item                       | **No** — write a new crate | —             |
 
 **If a change would break any existing dependent code, it is forbidden.**
 Create a new crate instead.

@@ -7,6 +7,51 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T14:03:07Z]
+
+### Changed
+
+- Foundation specs generalized for multi-language support: extracted Rust-specific rules
+  to `foundation/*/lang/rust.md` files. Modified: type-flow.md (generalized to patterns),
+  panic-policy.md (replaced thiserror/anyhow with structured/opaque), dependency.md
+  (removed Rust version/registry details), publication/contribution.md, evolution/triggers.md,
+  safety/_, naming/crate.md, git/commit-scope.md, architecture/_ directory references,
+  compliance.md, lifecycle.md.
+  Files: `foundation/architecture/type-flow.md`, `foundation/architecture/lang/rust.md`,
+  `foundation/architecture/directory.md`, `foundation/architecture/repository.md`,
+  `foundation/panic-policy.md`, `foundation/safety/panic-policy.md`,
+  `foundation/safety/lang/rust.md`, `foundation/safety/dependency.md`,
+  `foundation/evolution/triggers.md`, `foundation/evolution/lang/rust.md`,
+  `foundation/lifecycle.md`, `foundation/naming/crate.md`, `foundation/naming/lang/rust.md`,
+  `foundation/git/commit-scope.md`, `foundation/git/lang/rust.md`,
+  `foundation/publication/contribution.md`, `foundation/publication/lang/rust.md`,
+  `foundation/compliance.md`.
+
+- Library specs generalized for multi-language support: extracted Rust-specific rules
+  to `lib/*/lang/rust.md` files. Pattern files refactored to remove code examples while
+  preserving structure rules. Practices documentation split: doc-comments, code-comments
+  now language-agnostic with Rust details in documentation/lang/rust.md.
+  Files: `lib/patterns/stateless-sync.md`, `lib/patterns/stateless-async.md`,
+  `lib/patterns/stateful-sync.md`, `lib/patterns/stateful-async.md`,
+  `lib/patterns/lang/rust.md`, `lib/contract/trait-design.md`, `lib/contract/lang/rust.md`,
+  `lib/practices/error-handling.md`, `lib/practices/testing.md`,
+  `lib/practices/feature-flag.md`, `lib/practices/observability.md`,
+  `lib/practices/documentation/doc-comments.md`, `lib/practices/documentation/code-comments.md`,
+  `lib/practices/documentation/lang/rust.md`, `lib/practices/lang/rust.md`.
+
+- Binary specs generalized for multi-language support: replaced Rust-specific syntax
+  with universal abstractions. Extracted Rust examples (main.rs, run.rs, tokio, anyhow)
+  to `bin/lang/rust.md` and `bin/structure/lang/rust.md`. Modified: assembly.md
+  (main/run → entry/orchestration), config.md (struct examples → universal rules),
+  error-handling.md (anyhow/thiserror → opaque/structured), structure/layout.md
+  (.rs extensions → universal names), structure/main-run.md (generalized entry/orchestration),
+  telemetry.md (tracing → universal pattern), testing.md (tokio → universal rules).
+  Fixed shutdown.md reference (item 24 → SFA-6).
+  Files: `bin/assembly.md`, `bin/config.md`, `bin/error-handling.md`,
+  `bin/lang/rust.md`, `bin/shutdown.md`, `bin/structure/layout.md`,
+  `bin/structure/lang/rust.md`, `bin/structure/main-run.md`, `bin/telemetry.md`,
+  `bin/testing.md`.
+
 ## [2026-02-10T11:36:52Z]
 
 ### Added

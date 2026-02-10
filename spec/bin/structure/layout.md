@@ -11,10 +11,10 @@ The file layout and main.rs flow differ between the two.
 
 ## Minimum Set
 
-| Category             | Always present                     | Present when needed |
-| -------------------- | ---------------------------------- | ------------------- |
-| CLI tool             | entry point, orchestration, config | telemetry           |
-| Long-running service | entry point, orchestration, config, telemetry | —        |
+| Category             | Always present                                | Present when needed |
+| -------------------- | --------------------------------------------- | ------------------- |
+| CLI tool             | entry point, orchestration, config            | telemetry           |
+| Long-running service | entry point, orchestration, config, telemetry | —                   |
 
 For language-specific file names, see [lang/](lang/).
 
