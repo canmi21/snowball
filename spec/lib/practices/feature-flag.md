@@ -24,6 +24,21 @@ Leaf crates do **not** have a `full` feature. There is nothing to "fully enable"
 each feature is a capability addition, and the combination is determined
 by the consumer.
 
+### Composition Crate — Pass-Through Features
+
+Composition crates may use feature flags to:
+
+1. **Pass through features from lower crates.**
+   When a dependency exposes a feature (e.g., `tracing`),
+   the composition crate re-exposes it under the same name.
+
+2. **Optional lower-crate dependencies.**
+   When a lower crate is not always needed,
+   gate it behind a feature flag.
+
+Composition crates do not introduce new capability dimensions.
+Feature selection belongs in convergence crates.
+
 ### Convergence Crate — Selection Features
 
 Convergence crates may use feature flags to select between implementations

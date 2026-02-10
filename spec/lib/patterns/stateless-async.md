@@ -33,11 +33,11 @@ my-parser-async/       Async I/O shell; internally calls my-parser for actual pa
 
 Do not use feature flags to switch between sync and async within a single crate.
 
-## Additional Checklist (extends sync checklist items 1-10)
+## Additional Checklist (extends SS-1 to SS-10)
 
-11. Traits and returned futures are bounded `Send`.
-12. No concrete runtime in `[dependencies]`. Runtime only in `[dev-dependencies]`.
-13. No direct runtime API calls.
-14. All I/O capabilities injected through traits.
-15. Error type covers `Timeout` and `Cancelled` categories.
-16. Tests use mock I/O.
+- SA-1. Traits and returned futures are bounded `Send`.
+- SA-2. No concrete runtime in `[dependencies]`. Runtime only in `[dev-dependencies]`.
+- SA-3. No direct runtime API calls.
+- SA-4. All I/O capabilities injected through traits.
+- SA-5. Error type covers `Timeout` and `Cancelled` categories.
+- SA-6. Tests use mock I/O.

@@ -86,22 +86,25 @@ pub async fn cleanup_loop(&self) -> Result<!, Error> {
 
 ## Additional Checklist
 
-Inherits all items from [stateless-sync](stateless-sync.md) (1-10),
-[stateless-async](stateless-async.md) (11-16),
-and [stateful-sync](stateful-sync.md) (12, 14-16, 18).
+Inherits SS-1 to SS-10, SA-1 to SA-6,
+and SFS-2, SFS-4 to SFS-6, SFS-8.
 
-Note: stateful-sync item 17 (no interior mutability except cache) does **not** apply here.
-Interior mutability is the standard mechanism for stateful async crates.
-Stateful-sync item 13 (&self/&mut self split) is replaced by item 22 below (all &self).
+Excluded from stateful-sync:
+
+- SFS-1 (lifecycle phases): typestate is optional in async contexts
+  where handle-based access dominates.
+- SFS-3 (&self/&mut self split): replaced by SFA-4 (all `&self`).
+- SFS-7 (no interior mutability except cache): does **not** apply.
+  Interior mutability is the standard mechanism for stateful async crates.
 
 Items specific to stateful async:
 
-19. Concurrency strategy documented in `state.rs` module docs.
-20. No lock held across `.await` points.
-21. Handle is `Clone + Send + Sync`.
-22. All trait methods use `&self`. No `&mut self`.
-23. No unbounded spawn in library crates. Bounded spawn (structured concurrency) is permitted.
-24. `shutdown` semantics are explicit. Post-shutdown operations return `ShuttingDown` error.
-25. Concurrent read/write tests present.
-26. Graceful shutdown and post-shutdown behavior tests present.
-27. Leaf crates do not bind to a runtime. Runtime-specific crates document the binding.
+- SFA-1. Concurrency strategy documented in `state.rs` module docs.
+- SFA-2. No lock held across `.await` points.
+- SFA-3. Handle is `Clone + Send + Sync`.
+- SFA-4. All trait methods use `&self`. No `&mut self`.
+- SFA-5. No unbounded spawn in library crates. Bounded spawn (structured concurrency) is permitted.
+- SFA-6. `shutdown` semantics are explicit. Post-shutdown operations return `ShuttingDown` error.
+- SFA-7. Concurrent read/write tests present.
+- SFA-8. Graceful shutdown and post-shutdown behavior tests present.
+- SFA-9. Leaf crates do not bind to a runtime. Runtime-specific crates document the binding.

@@ -40,13 +40,13 @@ a runtime enum is acceptable.
 
 - If `Drop` is implemented, it must not panic and must not perform blocking I/O.
 
-## Additional Checklist (extends sync checklist items 1-10)
+## Additional Checklist (extends SS-1 to SS-10)
 
-11. Lifecycle phases encoded as distinct types where applicable.
-12. Irreversible operations consume `self`.
-13. `&self` and `&mut self` methods belong to separate traits.
-14. Construction uses builder or explicit `new`. No post-construction initialization.
-15. Construction errors and runtime errors are independent `Error` types.
-16. Failed operations do not corrupt existing state (transactional semantics).
-17. No interior mutability except for pure cache optimization.
-18. `Drop` implementation does not panic or block.
+- SFS-1. Lifecycle phases encoded as distinct types where applicable.
+- SFS-2. Irreversible operations consume `self`.
+- SFS-3. `&self` and `&mut self` methods belong to separate traits.
+- SFS-4. Construction uses builder or explicit `new`. No post-construction initialization.
+- SFS-5. Construction errors and runtime errors are independent `Error` types.
+- SFS-6. Failed operations do not corrupt existing state (transactional semantics).
+- SFS-7. No interior mutability except for pure cache optimization.
+- SFS-8. `Drop` implementation does not panic or block.

@@ -36,7 +36,7 @@ pub use core::MyImpl;
 
 ## Core Logic Constraints (core.rs)
 
-- Stays near or under 300 lines (excluding comments and blank lines).
+- Stays within the SCoL threshold (see [heuristics](../../foundation/heuristics.md)).
 - No `unwrap()`, `expect()`, `panic!()`, `todo!()`, `unimplemented!()`.
 - No `unsafe` unless the crate's core purpose is wrapping unsafe operations.
   If unsafe is present, safety invariants must be documented.
@@ -51,13 +51,13 @@ pub use core::MyImpl;
 
 ## Checklist
 
-1. `lib.rs` contains only `mod` and `pub use`.
-2. All public functions produce identical output for identical input.
-3. Error type is a `#[non_exhaustive]` enum with `thiserror::Error`.
-4. No `unwrap`, `expect`, `panic`, `todo`.
-5. No I/O, no global state, no logging.
-6. Core logic stays near or under 300 lines.
-7. Every public function has a happy-path test.
-8. Every Error variant has an error-path test.
-9. All public items have doc comments with examples.
-10. No async runtime or logging framework in dependencies.
+- SS-1. `lib.rs` contains only `mod` and `pub use`.
+- SS-2. All public functions produce identical output for identical input.
+- SS-3. Error type is a `#[non_exhaustive]` enum with `thiserror::Error`.
+- SS-4. No `unwrap`, `expect`, `panic`, `todo`.
+- SS-5. No I/O, no global state, no logging.
+- SS-6. Core logic stays within the SCoL threshold.
+- SS-7. Every public function has a happy-path test.
+- SS-8. Every Error variant has an error-path test.
+- SS-9. All public items have doc comments with examples.
+- SS-10. No async runtime or logging framework in dependencies.
