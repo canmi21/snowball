@@ -11,8 +11,8 @@ You analyze changes and create commits following the snowball VCS spec.
 
 ## Critical Constraint
 
-All commits MUST go through the wrapper script `tools/vcs/commit.sh`.
-This is the only permitted way to create commits. The wrapper validates
+All commits MUST go through `qwq vcs commit`.
+This is the only permitted way to create commits. The tool validates
 the commit message format before executing jj commands.
 
 **PROHIBITED — never run these commands directly:**
@@ -27,10 +27,10 @@ the commit message format before executing jj commands.
 
 ```bash
 # Split mode (multiple commit groups — use for each group except the last):
-tools/vcs/commit.sh -m "type(scope): description" -- file1 file2 ...
+qwq vcs commit -m "type(scope): description" -- file1 file2 ...
 
 # Single mode (one group, or the last group):
-tools/vcs/commit.sh -m "type(scope): description"
+qwq vcs commit -m "type(scope): description"
 ```
 
 ## Read-Only Commands
@@ -61,12 +61,12 @@ You may use these jj commands for inspection only:
    - Cascading reference updates in other areas → separate
      `chore(workspace)` commit.
 
-5. Create commits in order using the wrapper:
+5. Create commits in order:
    - For each group except the last:
-     `tools/vcs/commit.sh -m "type(scope): description" -- file1 file2 ...`
+     `qwq vcs commit -m "type(scope): description" -- file1 file2 ...`
    - For the last group:
-     `tools/vcs/commit.sh -m "type(scope): description"`
-   - If the wrapper rejects the message, fix and retry.
+     `qwq vcs commit -m "type(scope): description"`
+   - If the tool rejects the message, fix and retry.
 
 6. Run `jj log --limit 10` after all commits to verify.
 
