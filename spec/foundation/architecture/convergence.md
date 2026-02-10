@@ -15,8 +15,12 @@ A convergence crate contains:
 A convergence crate does **not** contain:
 
 - Logic of any kind (no computation, no orchestration, no state).
-- Orchestration belongs either in a dedicated composition crate
-  or in the binary's `run.rs`.
+- Orchestration belongs elsewhere. The placement depends on reusability:
+  - Reusable across applications → composition crate in the monorepo.
+  - Specific to one application but substantial in scope
+    → orchestration crate in the application repo.
+  - Specific to one application and small → directly in `run.rs`.
+  See [repository](repository.md) for the reusability criterion.
 
 ## When to Create a Convergence Crate
 

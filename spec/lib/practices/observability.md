@@ -25,7 +25,8 @@ the caller's tracing subscriber decide whether to collect the span.
 
 ### Rules
 
-- `#[instrument]` must be behind an optional `tracing` feature flag.
+- `#[instrument]` must be behind an optional `tracing` feature flag
+  (see [feature-flag](feature-flag.md) for the feature flag rules).
 - When the feature is disabled, there is zero runtime cost.
 
 ```toml

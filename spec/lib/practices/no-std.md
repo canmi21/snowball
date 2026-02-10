@@ -31,7 +31,8 @@ it exposes additional APIs that require heap allocation.
 Enabling `std` does not change the behavior of core or alloc APIs —
 it exposes additional APIs that require the operating system.
 
-This is capability presence, not behavioral variation.
+This is capability presence, not behavioral variation
+(see [feature-flag](feature-flag.md) for the full feature flag rules).
 
 ## lib.rs for no_std Crates
 

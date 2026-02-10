@@ -50,7 +50,7 @@ Composition is not a fixed category — the same crate C could be any of the fol
 
 - **New stateless logic**: C uses A and B to implement a new X→Y transformation
   at a higher abstraction level. C itself remains a stateless, pure-function crate.
-- **Partial convergence**: C re-exports and pins some type parameters from A and B,
+- **Type narrowing**: C re-exports and pins some type parameters from A and B,
   raising the abstraction level while leaving other parameters generic.
 - **Stateful orchestration**: C introduces state to coordinate A and B,
   managing their interaction through internal concurrency or sequencing.
@@ -58,17 +58,16 @@ Composition is not a fixed category — the same crate C could be any of the fol
 In all cases, the composition layer is inherently thin — it is glue and orchestration,
 not core logic. The 300-line heuristic applies naturally.
 
+When other specification files refer to "composition crate", this is shorthand
+for "a crate in a composition relationship" — not a fixed category parallel to
+leaf or convergence.
+
 ## Convergence — Terminal Composition
 
 The final composition layer before a binary crate.
 A convergence crate pins all remaining generic type parameters for a specific use case.
 
-### Rules
-
-- Contains only type aliases and constructor functions.
-- Contains zero logic.
-- Fixes parameters that never vary across a given use-case domain.
-- Preserves parameters that still vary as generics.
+See [convergence](convergence.md) for the full rules.
 
 Multiple convergence sets may coexist for different environments
 (production, testing, embedded). The underlying crates remain unchanged.
@@ -77,7 +76,8 @@ Multiple convergence sets may coexist for different environments
 
 The final application layer. Consumes convergence crates and performs orchestration.
 
-Detailed rules in [bin/](../../../bin/).
+Detailed rules in [bin layout](../../bin/structure/layout.md)
+and [main/run](../../bin/structure/main-run.md).
 
 ## The 300-Line Heuristic
 
