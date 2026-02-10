@@ -35,7 +35,11 @@ Current version: [VERSION](VERSION) |
 
 ### Agent
 
-- [agent](foundation/agent.md) — Sub-agent definition: frontmatter, model selection, memory.
+- [agent/overview](foundation/agent/overview.md) — Sub-agent definition: frontmatter, file location, memory.
+- [agent/model-selection](foundation/agent/model-selection.md) — Model selection rules by task complexity.
+- [agent/first-rule](foundation/agent/first-rule.md) — Spec-first principle: stop on gaps, never improvise.
+- [agent/creation](foundation/agent/creation.md) — Interactive creation process with user approval.
+- [agent/registry](foundation/agent/registry.md) — Agent inventory table.
 
 ### Compliance
 

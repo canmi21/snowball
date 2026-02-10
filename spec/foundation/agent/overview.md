@@ -31,15 +31,7 @@ model: sonnet
 | `tools`       | Only the tools the agent actually needs |
 | `model`       | Select by task complexity (see below)   |
 
-### Model Selection
-
-| Model    | Use when                                                         |
-| -------- | ---------------------------------------------------------------- |
-| `opus`   | Deep reasoning, architecture decisions, complex multi-step tasks |
-| `sonnet` | Standard tasks, code modification, search and analysis           |
-| `haiku`  | Simple mechanical tasks, format checks, single-step operations   |
-
-Avoid `inherit`. Choose the minimum model that handles the task.
+See [model selection](model-selection.md) for model rules.
 
 ## Body Content
 
@@ -47,7 +39,8 @@ Avoid `inherit`. Choose the minimum model that handles the task.
 - Point to spec files for rules instead of duplicating content.
   The agent reads spec dynamically; when the spec changes,
   the agent adapts automatically.
-- If the spec does not cover a situation, the agent does not act.
+- If the spec does not cover a situation, the agent stops
+  and reports the gap (see [first rule](first-rule.md)).
 
 ## Memory
 

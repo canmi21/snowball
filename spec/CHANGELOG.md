@@ -7,6 +7,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T09:16:25Z]
+
+### Added
+
+- Agent registry table with 4 agents: `spec-cascade`, `spec-check`, `spec-commit`,
+  `spec-review`. Agent files in `.claude/agents/` with required frontmatter.
+  Files: `foundation/agent/registry.md`.
+
+- Agent creation process: interactive choices for purpose, model, memory, tools.
+  Files: `foundation/agent/creation.md`.
+
+- Agent first rule: stop on spec gap, never improvise, user retains decision authority.
+  Files: `foundation/agent/first-rule.md`.
+
+- Agent directory structure splitting single file into specialized topics.
+  Files: `foundation/agent/overview.md`, `foundation/agent/creation.md`,
+  `foundation/agent/first-rule.md`, `foundation/agent/model-selection.md`,
+  `foundation/agent/registry.md`.
+
+### Changed
+
+- Agent specification refactored from single file into directory with specialized topics.
+  Files: `foundation/agent/overview.md` (formerly `foundation/agent.md`).
+
 ## [2026-02-10T09:01:13Z]
 
 ### Added
@@ -29,120 +53,98 @@ Spec revisions use UTC timestamps as version identifiers.
 
 ### Changed
 
-- Directory structure: library crate roles grouped under `library/`
-  directory (`library/leaf/`, `library/composition/`,
-  `library/convergence/`).
-  Files: `foundation/architecture/directory.md`.
+- Bootstrap phase rules clarified: self-hosting declaration is separate from
+  spec version release. Relaxed cross-area commit splitting during bootstrap.
+  Files: `foundation/evolution/bootstrap.md`, `foundation/git/commit-scope.md`.
 
-## [2026-02-10T08:13:53Z]
-
-### Changed
-
-- Spec transitions from bootstrap to self-hosting. All modifications
-  now follow the full evolution process.
-  Files: `foundation/evolution/bootstrap.md` moved to `archived/bootstrap.md`.
+## [2026-02-09T23:47:39Z]
 
 ### Added
 
-- Archived directory for historical pre-self-hosting records.
-  Files: `archived/README.md`.
+- Timestamp versioning for spec, separate from code crate semver.
+  Files: `foundation/publication/versioning.md`, `spec/VERSION`, `spec/CHANGELOG.md`,
+  `foundation/changelog/spec.md`.
 
-## [2026-02-10T07:50:05Z]
-
-### Added
-
-- Naming specification promoted to foundation level: common rules,
-  file structure, and crate naming.
-  Files: `foundation/naming/common.md`, `file-structure.md`, `crate.md`.
-
-- Heuristics specification: threshold philosophy, evaluation method,
-  allowlist mechanism for mechanical checks.
+- Heuristics specification: thresholds for 100-line split, 300 SCoL per crate,
+  4-level max depth.
   Files: `foundation/heuristics.md`.
 
 ### Changed
 
-- Naming in library practices simplified to links to foundation.
-  Files: `lib/practices/naming.md`.
+- Architecture directory references: dependency, type-flow, repository patterns.
+  Files: `foundation/architecture/dependencies.md`, `foundation/architecture/type-flow.md`,
+  `foundation/architecture/repository.md`.
 
-- Writing style: file size and nesting depth now link to heuristics.
-  Files: `foundation/writing-style.md`.
-
-- Crate roles: 300-line heuristic section links to heuristics.
-  Files: `foundation/architecture/roles.md`.
-
-- CLAUDE.md: replaced 300-line heuristic concept with broader
-  heuristics entry.
-  Files: root `CLAUDE.md`.
-
-## [2026-02-10T06:11:23Z]
+## [2026-02-07T16:49:16Z]
 
 ### Added
 
-- Architecture specification: crate roles, convergence rules, dependency
-  direction, repository separation, trait-impl separation, type flow,
-  directory structure.
-  Files: `foundation/architecture/roles.md`, `convergence.md`,
-  `dependencies.md`, `repository.md`, `trait-impl-separation.md`,
-  `type-flow.md`, `directory.md`.
+- Complete foundation specification with 4 major spec sections:
+  architecture, lifecycle, writing style, naming, compliance.
+  Files: `foundation/architecture/` (7 files), `foundation/lifecycle.md`,
+  `foundation/writing-style.md`, `foundation/naming/` (3 files), `foundation/compliance.md`.
 
-- Lifecycle specification: three phases.
-  Files: `foundation/lifecycle.md`.
+- Complete library crate specification: patterns, contract, practices.
+  Files: `lib/patterns/` (4 files), `lib/contract/trait-design.md`,
+  `lib/practices/` (9 files).
 
-- Writing style specification: language, tone, structure, LLM compliance.
-  Files: `foundation/writing-style.md`.
+- Complete binary crate specification: structure, assembly, config, telemetry,
+  shutdown, error handling, testing.
+  Files: `bin/` (8 files).
 
-- Compliance specification: two-layer checking (shell scripts + LLM agent).
-  Files: `foundation/compliance.md`.
-
-- Publication specification: pre-publish checklist, semver rules, contribution.
-  Files: `foundation/publication/checklist.md`, `versioning.md`,
-  `contribution.md`.
+- Publication specification: checklist, versioning, contribution rules.
+  Files: `foundation/publication/` (3 files).
 
 - Safety specification: panic policy, unsafe code, dependency review.
-  Files: `foundation/safety/panic-policy.md`, `unsafe-code.md`,
-  `dependency.md`.
+  Files: `foundation/safety/panic-policy.md`, `foundation/safety/unsafe-code.md`,
+  `foundation/safety/dependency.md`.
 
 - Evolution specification: bootstrap phase, triggers, types, process, impact.
-  Files: `foundation/evolution/bootstrap.md`, `triggers.md`, `types.md`,
-  `process.md`, `impact.md`.
+  Files: `foundation/evolution/bootstrap.md`, `foundation/evolution/triggers.md`,
+  `foundation/evolution/types.md`, `foundation/evolution/process.md`,
+  `foundation/evolution/impact.md`.
 
 - CHANGELOG specification: format, library crate, binary crate, spec rules.
-  Files: `foundation/changelog/format.md`, `lib.md`, `bin.md`, `spec.md`.
+  Files: `foundation/changelog/format.md`, `foundation/changelog/lib.md`,
+  `foundation/changelog/bin.md`, `foundation/changelog/spec.md`.
 
 - Git specification: commit message, commit scope, branching, per-area rules.
-  Files: `foundation/git/commit-message.md`, `commit-scope.md`,
-  `branching.md`, `lib.md`, `bin.md`, `spec.md`.
+  Files: `foundation/git/commit-message.md`, `foundation/git/commit-scope.md`,
+  `foundation/git/branching.md`, `foundation/git/lib.md`, `foundation/git/bin.md`,
+  `foundation/git/spec.md`.
 
 - Library crate patterns: stateless-sync, stateless-async, stateful-sync,
   stateful-async.
-  Files: `lib/patterns/stateless-sync.md`, `stateless-async.md`,
-  `stateful-sync.md`, `stateful-async.md`.
+  Files: `lib/patterns/stateless-sync.md`, `lib/patterns/stateless-async.md`,
+  `lib/patterns/stateful-sync.md`, `lib/patterns/stateful-async.md`.
 
 - Library crate contract: trait design.
   Files: `lib/contract/trait-design.md`.
 
 - Library crate practices: error handling, testing, naming, feature flags,
   observability, no-std, documentation.
-  Files: `lib/practices/error-handling.md`, `testing.md`, `naming.md`,
-  `feature-flag.md`, `observability.md`, `no-std.md`,
-  `documentation/general.md`, `doc-comments.md`, `code-comments.md`.
+  Files: `lib/practices/error-handling.md`, `lib/practices/testing.md`,
+  `lib/practices/naming.md`, `lib/practices/feature-flag.md`,
+  `lib/practices/observability.md`, `lib/practices/no-std.md`,
+  `lib/practices/documentation/general.md`, `lib/practices/documentation/doc-comments.md`,
+  `lib/practices/documentation/code-comments.md`.
 
 - Binary crate specification: structure, main-run pattern, assembly, config,
   telemetry, shutdown, error handling, testing.
-  Files: `bin/structure/layout.md`, `main-run.md`, `assembly.md`,
-  `config.md`, `telemetry.md`, `shutdown.md`, `error-handling.md`,
-  `testing.md`.
+  Files: `bin/structure/layout.md`, `bin/structure/main-run.md`, `bin/assembly.md`,
+  `bin/config.md`, `bin/telemetry.md`, `bin/shutdown.md`, `bin/error-handling.md`,
+  `bin/testing.md`.
 
 - Spec meta: version tracking, specification index, LLM entry point.
-  Files: `VERSION`, `README.md`, root `CLAUDE.md`.
+  Files: `spec/VERSION`, `spec/README.md`, root `CLAUDE.md`.
 
 ### Fixed
 
 - Convergence rules duplicated between `roles.md` and `convergence.md`.
-  Files: `foundation/architecture/convergence.md`, `roles.md`.
+  Files: `foundation/architecture/convergence.md`, `foundation/architecture/roles.md`.
 
 - Writing style gaps in LLM compliance and terminology.
   Files: `foundation/writing-style.md`.
 
 - Minor corrections to observability and no-std specifications.
-  Files: `lib/practices/observability.md`, `no-std.md`.
+  Files: `lib/practices/observability.md`, `lib/practices/no-std.md`.
