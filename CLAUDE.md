@@ -31,7 +31,7 @@ If the spec does not cover something, evolve the spec first, then act.
 | `spec/`                   | [evolution](spec/foundation/evolution/) + [writing-style](spec/foundation/writing-style.md) + [naming](spec/foundation/naming/)    |
 | `tools/`                  | [compliance](spec/foundation/compliance.md)                                                                                        |
 | `.claude/agents/`         | [agent](spec/foundation/agent/overview.md)                                                                                         |
-| root config               | [git](spec/foundation/git/) + [publication](spec/foundation/publication/)                                                          |
+| root config               | [vcs](spec/foundation/vcs/) + [publication](spec/foundation/publication/)                                                          |
 
 Directory structure follows snowball hierarchy:
 [directory](spec/foundation/architecture/directory.md).
@@ -46,9 +46,9 @@ Directory structure follows snowball hierarchy:
    The resolution may trigger a spec modification.
 4. **Modifying the spec?** Pragmatic behavior is allowed during
    the modification. Once the spec is updated, return to strict compliance.
-5. **Commit rules:** [commit-message](spec/foundation/git/commit-message.md),
-   [commit-scope](spec/foundation/git/commit-scope.md),
-   [branching](spec/foundation/git/branching.md).
+5. **Commit rules:** [commit-message](spec/foundation/vcs/commit-message.md),
+   [commit-scope](spec/foundation/vcs/commit-scope.md),
+   [bookmarks](spec/foundation/vcs/bookmarks.md).
 6. **Error handling:** Libraries use `thiserror`, binaries use `anyhow`.
    Never mix. [lib](spec/lib/practices/error-handling.md) /
    [bin](spec/bin/error-handling.md).
@@ -59,4 +59,3 @@ Directory structure follows snowball hierarchy:
 
 The spec has reached self-hosting. All modifications follow the
 [evolution process](spec/foundation/evolution/process.md).
-Bootstrap history is [archived](spec/archived/bootstrap.md).

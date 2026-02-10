@@ -71,14 +71,16 @@ Current version: [VERSION](VERSION) |
 - [bin](foundation/changelog/bin.md) — Binary crate CHANGELOG rules.
 - [spec](foundation/changelog/spec.md) — Spec CHANGELOG rules, timestamp versioning.
 
-### Git
+### VCS
 
-- [commit-message](foundation/git/commit-message.md) — 11 types, format, scope.
-- [commit-scope](foundation/git/commit-scope.md) — Granularity, cross-area rules.
-- [branching](foundation/git/branching.md) — Trunk-based, fixup+autosquash, tags.
-- [lib](foundation/git/lib.md) — Library crate git rules.
-- [bin](foundation/git/bin.md) — Binary crate git rules.
-- [spec](foundation/git/spec.md) — Spec git rules.
+- [strategy](foundation/vcs/strategy.md) — jj colocated model, repository topology, nested isolation.
+- [shared-config](foundation/vcs/shared-config.md) — Symlink rules, workspace config inheritance.
+- [commit-message](foundation/vcs/commit-message.md) — 11 types, format, scope, jj workflow.
+- [commit-scope](foundation/vcs/commit-scope.md) — Granularity, cross-area rules.
+- [bookmarks](foundation/vcs/bookmarks.md) — Trunk-based, task bookmarks, history cleanup, tags.
+- [lib](foundation/vcs/lib.md) — Library crate VCS rules.
+- [bin](foundation/vcs/bin.md) — Binary crate VCS rules.
+- [spec](foundation/vcs/spec.md) — Spec VCS rules.
 
 ### Rust (lang/rust.md in each concept directory)
 
@@ -87,7 +89,6 @@ Current version: [VERSION](VERSION) |
 - [safety/lang/rust](foundation/safety/lang/rust.md) — .unwrap(), .expect(), panic!(), unsafe, cargo audit.
 - [publication/lang/rust](foundation/publication/lang/rust.md) — Pre-publish checklist, cargo fmt, cargo clippy.
 - [evolution/lang/rust](foundation/evolution/lang/rust.md) — Rust edition, clippy, tokio, thiserror triggers.
-- [git/lang/rust](foundation/git/lang/rust.md) — Cargo.toml workspace commit examples.
 
 ## Library Crates
 
@@ -137,7 +138,3 @@ Current version: [VERSION](VERSION) |
 - [structure/lang/rust](bin/structure/lang/rust.md) — main.rs, run.rs, tokio, file naming.
 - [lang/rust](bin/lang/rust.md) — anyhow, thiserror, Cargo config, tracing subscriber, test examples.
 
-## Archived
-
-- [archived/README](archived/README.md) — Historical records from before self-hosting.
-- [archived/bootstrap](archived/bootstrap.md) — Bootstrap phase rules (no longer in effect).

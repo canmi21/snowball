@@ -46,6 +46,6 @@ All contributed code must follow the ecosystem's established rules:
   as defined in the respective specification files under
   [practices](../../lib/practices/).
 - Commits and branching: as defined in
-  [git](../git/commit-message.md).
+  [vcs](../vcs/commit-message.md).
 
 For language-specific tool commands, see the relevant `lang/` spec.

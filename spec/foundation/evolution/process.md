@@ -27,8 +27,8 @@ compliant crates:
    are affected (see [types](types.md) and [impact](impact.md)).
 3. **Migration guide** — describe what existing crates must change.
 4. **Modify spec files** — edit directly in the monorepo.
-   Each change is tracked through git commits following the
-   [commit message rules](../git/commit-message.md).
+   Each change is tracked through commits following the
+   [commit message rules](../vcs/commit-message.md).
 5. **Update spec CHANGELOG** — entry includes the timestamp,
    affected files, and a reference to the migration guide.
 6. **Update [VERSION](../../VERSION).**

@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Validates commit message format then executes git commit.
-# Usage: tools/git/commit.sh -m "type(scope): description" [-- file1 file2 ...]
+# Validates commit message format then executes jj commit or split.
+#
+# Usage:
+#   tools/vcs/commit.sh -m "type(scope): description"
+#     → jj commit -m (commits entire working copy)
+#
+#   tools/vcs/commit.sh -m "type(scope): description" -- file1 file2 ...
+#     → jj describe -m + jj split (keeps specified files, rest moves to child)
 
 VALID_TYPES="add|fix|change|rm|break|refactor|doc|test|spec|ci|chore"
 FORMAT_RE="^(${VALID_TYPES})\([a-z][a-z0-9-]*\): [a-z].*[^.]$"
@@ -54,10 +60,12 @@ if [[ -n "$body" ]] && echo "$body" | ggrep -qP '^[A-Za-z-]+: |^[A-Za-z-]+ #'; t
   exit 1
 fi
 
-# stage files if provided
+# execute jj command
 if [[ ${#files[@]} -gt 0 ]]; then
-  git add "${files[@]}"
+  # split mode: describe current change, then split specified files out
+  jj describe -m "$msg"
+  JJ_EDITOR=true jj split -- "${files[@]}"
+else
+  # single commit: commit entire working copy
+  jj commit -m "$msg"
 fi
-
-# commit
-git commit -m "$msg"

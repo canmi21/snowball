@@ -27,7 +27,7 @@ monorepo/
 │       └── config-reload-tokio/
 ├── tools/                  ← workspace tooling
 │   ├── check/              ← compliance scripts
-│   └── git/                ← git operation wrappers
+│   └── vcs/                ← VCS operation wrappers
 ├── .claude/
 │   └── agents/             ← LLM sub-agent definitions
 ├── Cargo.toml              ← workspace root

@@ -1,0 +1,4 @@
+[[entry]]
+file = "spec/foundation/vcs/bookmarks.md"
+check = "line-count"
+hash = "2262cc4f4bff8953f275ded3ebab40f5cab852eb2f07b98a9de5ad97230841c4"

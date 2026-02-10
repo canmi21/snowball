@@ -31,8 +31,9 @@ so there is no unreleased state.
 
 ### Added
 
-- Git specification. Files: `foundation/git/commit-message.md`,
-  `commit-scope.md`, `branching.md`, `lib.md`, `bin.md`, `spec.md`.
+- VCS specification. Files: `foundation/vcs/strategy.md`,
+  `shared-config.md`, `commit-message.md`, `commit-scope.md`,
+  `bookmarks.md`, `lib.md`, `bin.md`, `spec.md`.
 
 ### Fixed
 
