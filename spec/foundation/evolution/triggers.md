@@ -21,11 +21,13 @@ New rules or new pattern files are needed.
 
 ## 4. Toolchain Change
 
-A Rust edition update, a new clippy lint, or a change in `rustfmt` defaults
+A language edition update, a new linter rule, or a change in formatter defaults
 affects existing rules. The spec adapts to stay aligned with the toolchain.
+
+For language-specific trigger examples, see the relevant `lang/` spec.
 
 ## 5. External Dependency Evolution
 
-A key dependency (e.g., `tokio`, `tracing`, `thiserror`) introduces
-a major version change that alters the assumptions behind existing rules.
+A key dependency introduces a major version change that alters
+the assumptions behind existing rules.
 The spec is reviewed for compatibility.

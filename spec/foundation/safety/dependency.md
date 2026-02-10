@@ -15,14 +15,16 @@ Before adding a dependency, apply the trusted foundation crate evaluation
 
 ## Vulnerability Auditing
 
-Run `cargo audit` regularly to check for known vulnerabilities
-in the dependency tree.
+Run the language's dependency audit tool regularly to check
+for known vulnerabilities in the dependency tree.
 
-- `cargo audit` must pass with zero known vulnerabilities
-  before any crate is published.
+- The audit must pass with zero known vulnerabilities
+  before any package is published.
 - When a vulnerability is reported in a dependency:
   update the dependency if a fix exists,
   or replace it if the maintainer is unresponsive.
+
+For language-specific audit tools, see the relevant `lang/` spec.
 
 ## Dependency Review for Updates
 

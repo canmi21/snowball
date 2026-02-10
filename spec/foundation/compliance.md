@@ -11,7 +11,7 @@ Deterministic scripts that enforce rules expressible as pattern matching:
 - Link validity across spec files.
 - File line count (under 100 lines).
 - File and directory naming (lowercase + hyphens).
-- Forbidden patterns (`unwrap`, `expect`, `panic!`, emoji).
+- Forbidden patterns (panic-equivalent operations, emoji).
 - Terminology consistency in the correct context.
 - CHANGELOG format validation.
 

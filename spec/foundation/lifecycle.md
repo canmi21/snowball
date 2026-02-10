@@ -20,7 +20,7 @@ Post-1.0 change rules:
 | Change                               | Allowed                    | Version bump  |
 | ------------------------------------ | -------------------------- | ------------- |
 | Bug fix (no API change)              | Yes                        | Patch (1.0.x) |
-| New default method on existing trait | Yes                        | Minor (1.x.0) |
+| New default method on existing interface | Yes                   | Minor (1.x.0) |
 | New public type or function          | Yes                        | Minor (1.x.0) |
 | Change method signature              | **No** — write a new crate | —             |
 | Remove public item                   | **No** — write a new crate | —             |
@@ -44,5 +44,5 @@ not from modification of existing ones.
 ## Versioning and Publishing
 
 - Every crate has its own independent version number following semver.
-- Crate-to-crate dependencies reference published versions on crates.io.
+- Crate-to-crate dependencies reference published versions on the language package registry.
 - `0.x` permits breaking changes; `1.0+` permits only additive changes.

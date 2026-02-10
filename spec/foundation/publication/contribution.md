@@ -36,10 +36,10 @@ An issue or PR description is sufficient.
 
 All contributed code must follow the ecosystem's established rules:
 
-- Formatting: `cargo fmt` (see [checklist](checklist.md)).
-- Linting: `cargo clippy -- -D warnings` across the feature matrix.
+- Formatting: pass the language formatter.
+- Linting: pass the language linter with zero warnings.
 - Documentation: every public item documented
-  (see [doc-comments](../../lib/practices/documentation/doc-comments.md)).
+  (see [documentation](../../lib/practices/documentation/general.md)).
 - Patterns: the appropriate library pattern
   (see [patterns](../../lib/patterns/)).
 - Error handling, naming, feature flags, observability:
@@ -47,3 +47,5 @@ All contributed code must follow the ecosystem's established rules:
   [practices](../../lib/practices/).
 - Commits and branching: as defined in
   [git](../git/commit-message.md).
+
+For language-specific tool commands, see the relevant `lang/` spec.

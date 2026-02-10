@@ -31,8 +31,8 @@ Each binary application lives in its own dedicated repository:
 
 ## Inter-Crate Dependencies
 
-Crates within the monorepo depend on each other through published versions on crates.io,
-**not** through `path = "../..."` workspace references.
+Crates within the monorepo depend on each other through published versions
+on the language package registry, **not** through local path references.
 
 Each crate maintains its own independent version number following semver.
 
@@ -44,5 +44,7 @@ This discipline ensures:
 
 ## Application Repos Depend on the Monorepo
 
-Application repos depend on snowball crates exclusively through crates.io versions.
-They never reference the monorepo by path.
+Application repos depend on snowball crates exclusively through
+the language package registry. They never reference the monorepo by path.
+
+For language-specific dependency configuration, see the relevant `lang/` spec.

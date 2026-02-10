@@ -8,47 +8,23 @@ Manual type conversion between crates should be unnecessary in the common case.
 
 ## Primary Mechanism — Associated Types
 
-Each capability trait declares its input and output types as associated types:
+Each capability interface declares its input and output types
+as associated types (or equivalent generic type parameters).
+Composition packages connect types through generic constraints,
+so the type chain is verified at compile time with no runtime
+conversion needed.
 
-```rust
-pub trait Parser {
-    type Output;
-    type Error;
-    fn parse(&self, raw: &[u8]) -> Result<Self::Output, Self::Error>;
-}
-```
+For language-specific examples, see the relevant `lang/` spec.
 
-Composition crates connect types through `where` clauses:
+## Supplementary Mechanism — Vocabulary Interfaces
 
-```rust
-fn load<P, V>(parser: &P, validator: &V, raw: &[u8]) -> Result<P::Output, ...>
-where
-    P: Parser,
-    V: Validator<P::Output>,  // P's output feeds directly into V's input
-{
-    let data = parser.parse(raw)?;
-    validator.validate(&data)?;
-    Ok(data)
-}
-```
+When unrelated packages need to agree on the shape of data
+without depending on each other's types, define a vocabulary interface
+that describes the data shape.
 
-The type chain is verified at compile time. No runtime conversion needed.
-
-## Supplementary Mechanism — Vocabulary Traits
-
-When unrelated crates need to agree on the shape of data
-without depending on each other's types, define a vocabulary trait:
-
-```rust
-/// Describes the shape of configuration data.
-/// Any type satisfying this trait can flow between config-related crates.
-pub trait ConfigData: Send {
-    fn get_field(&self, name: &str) -> Option<&str>;
-}
-```
-
-Vocabulary traits belong in trait-definition crates (the same crates that define
-capability traits, or in dedicated vocabulary crates if the shape is cross-domain).
+Vocabulary interfaces belong in interface-definition packages
+(the same packages that define capability interfaces,
+or in dedicated vocabulary packages if the shape is cross-domain).
 
 ### When to Use Vocabulary Traits
 

@@ -20,7 +20,8 @@ atomic-swap         hot-reload          config-parse
 ```
 
 No ecosystem prefix — leaf crates are decoupled by design.
-Check crates.io availability at development time; adjust as needed.
+Check the language package registry for name availability
+at development time; adjust as needed.
 
 ### Composition Crate — Domain Naming
 

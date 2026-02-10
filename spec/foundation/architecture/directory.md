@@ -78,16 +78,15 @@ Shared configuration that applies to all crates of a language
 lives at the monorepo root:
 
 - `Makefile` — Global task entry point: check, fmt, and other operations.
-- `Cargo.toml` — Rust workspace members, shared dependencies.
-- `rustfmt.toml` — Formatting rules.
-- `clippy.toml` — Lint configuration.
 - `.editorconfig` — Editor indentation and whitespace rules.
-- `package.json` / `go.work` — when other languages are present.
+- Language-specific workspace and tooling configuration.
 
 This avoids duplicating configuration in every crate.
 `Makefile` serves as the single entry point for all workspace-level
 operations, delegating to scripts in `tools/` and language-specific
 tooling as needed.
+
+For language-specific root configuration files, see the relevant `lang/` spec.
 
 ## Crate Promotion
 
