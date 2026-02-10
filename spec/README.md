@@ -119,3 +119,4 @@ Current version: [VERSION](VERSION) |
 ## Archived
 
 - [archived/README](archived/README.md) — Historical records from before self-hosting.
+- [archived/bootstrap](archived/bootstrap.md) — Bootstrap phase rules (no longer in effect).

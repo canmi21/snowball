@@ -64,7 +64,8 @@ Spec revisions use UTC timestamps as version identifiers.
 
 - Bootstrap phase rules clarified: self-hosting declaration is separate from
   spec version release. Relaxed cross-area commit splitting during bootstrap.
-  Files: `foundation/evolution/bootstrap.md`, `foundation/git/commit-scope.md`.
+  Files: `archived/bootstrap.md` (formerly `foundation/evolution/bootstrap.md`),
+  `foundation/git/commit-scope.md`.
 
 ## [2026-02-09T23:47:39Z]
 
@@ -109,7 +110,8 @@ Spec revisions use UTC timestamps as version identifiers.
   `foundation/safety/dependency.md`.
 
 - Evolution specification: bootstrap phase, triggers, types, process, impact.
-  Files: `foundation/evolution/bootstrap.md`, `foundation/evolution/triggers.md`,
+  Files: `archived/bootstrap.md` (formerly `foundation/evolution/bootstrap.md`),
+  `foundation/evolution/triggers.md`,
   `foundation/evolution/types.md`, `foundation/evolution/process.md`,
   `foundation/evolution/impact.md`.
 

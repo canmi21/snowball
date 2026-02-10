@@ -37,8 +37,10 @@ If unsure, stop and report. Read `spec/foundation/agent.md` for details.
 5. For each commit group:
    - Determine the commit type from the 11 types in commit-message.md.
    - Write a subject line: `type(scope): description`
-   - Verify subject ≤ 72 characters, lowercase, no period.
-   - Stage the files and create the commit.
+   - Use the commit wrapper to stage and commit:
+     `tools/git/commit.sh -m "type(scope): description" -- file1 file2 ...`
+   - The wrapper validates format, length, and footer rules before committing.
+     If it rejects the message, fix the message and retry.
 
 6. Run `git status` after all commits to verify clean state.
 

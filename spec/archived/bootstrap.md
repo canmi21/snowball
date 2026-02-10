@@ -11,7 +11,7 @@ because the rules for self-modification are themselves being written.
 ## Rules During Bootstrap
 
 - Commits use the `spec` type and follow the format in
-  [commit-message](../git/commit-message.md), but strict cross-area
+  [commit-message](../foundation/git/commit-message.md), but strict cross-area
   splitting is not enforced.
 - Multiple logical changes may be grouped in a single commit
   when the spec is evolving rapidly.
@@ -22,18 +22,18 @@ because the rules for self-modification are themselves being written.
 The bootstrap phase ends when the maintainer declares self-hosting.
 The declaration is a commit that:
 
-1. Updates [VERSION](../../VERSION) with the current timestamp.
+1. Updates [VERSION](../VERSION) with the current timestamp.
 2. Adds a CHANGELOG entry marking the transition.
 3. Removes or archives this file.
 
 After self-hosting, all spec modifications follow the full
-[evolution process](process.md).
+[evolution process](../foundation/evolution/process.md).
 
 ## Post-Bootstrap
 
 Once self-hosting is declared:
 
-- Corrective changes follow the fast path (see [process](process.md)).
+- Corrective changes follow the fast path (see [process](../foundation/evolution/process.md)).
 - Breaking changes follow the full evolution process.
 - LLM agents modifying the spec must immediately comply
-  with the updated rules (see [writing-style](../writing-style.md)).
+  with the updated rules (see [writing-style](../foundation/writing-style.md)).
