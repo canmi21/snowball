@@ -30,7 +30,9 @@ but there is no hard line count — clarity is the goal.
 
 ## Naming
 
-- File and directory names use lowercase letters and hyphens only:
-  `shutdown-handler.rs`, `health-check/`.
-- Use directory hierarchy to avoid redundant prefixes:
-  `system/monitor.rs`, not `system/system-monitor.rs`.
+Source code files follow language convention
+(see [file naming](../../foundation/naming/file-structure.md)).
+Directory names use lowercase letters and hyphens.
+
+Use directory hierarchy to avoid redundant prefixes:
+`system/monitor.rs`, not `system/system_monitor.rs`.
