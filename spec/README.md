@@ -1,6 +1,7 @@
 # Snowball Specification Index
 
-Current version: [VERSION](VERSION)
+Current version: [VERSION](VERSION) |
+[CHANGELOG](CHANGELOG.md)
 
 ## Foundation
 
