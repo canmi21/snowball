@@ -1,5 +1,0 @@
-[[entry]]
-file = "spec/lib/patterns/stateful-async.md"
-check = "line-count"
-hash = "dcdfbd11d2cf72e7f6e023c5a6b5c46143e70dfc2df60163668af8090b6020ce"
-reason = "Single cohesive pattern — concurrency strategy and spawn rules serve the same concern."

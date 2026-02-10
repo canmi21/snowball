@@ -80,6 +80,15 @@ Current version: [VERSION](VERSION) |
 - [bin](foundation/git/bin.md) — Binary crate git rules.
 - [spec](foundation/git/spec.md) — Spec git rules.
 
+### Rust (lang/rust.md in each concept directory)
+
+- [architecture/lang/rust](foundation/architecture/lang/rust.md) — Rust trait examples, crates.io, workspace config.
+- [naming/lang/rust](foundation/naming/lang/rust.md) — crates.io availability, runtime naming.
+- [safety/lang/rust](foundation/safety/lang/rust.md) — .unwrap(), .expect(), panic!(), unsafe, cargo audit.
+- [publication/lang/rust](foundation/publication/lang/rust.md) — Pre-publish checklist, cargo fmt, cargo clippy.
+- [evolution/lang/rust](foundation/evolution/lang/rust.md) — Rust edition, clippy, tokio, thiserror triggers.
+- [git/lang/rust](foundation/git/lang/rust.md) — Cargo.toml workspace commit examples.
+
 ## Library Crates
 
 ### Patterns
@@ -91,19 +100,26 @@ Current version: [VERSION](VERSION) |
 
 ### Contract
 
-- [trait-design](lib/contract/trait-design.md) — Receiver, types, cohesion, object safety, async.
+- [trait-design](lib/contract/trait-design.md) — Receiver, types, cohesion, dynamic dispatch, async.
 
 ### Practices
 
-- [error-handling](lib/practices/error-handling.md) — thiserror, Error enum, error chain.
-- [testing](lib/practices/testing.md) — Three layers, dev-dependency philosophy.
+- [error-handling](lib/practices/error-handling.md) — Error type, variant naming, error chain.
+- [testing](lib/practices/testing.md) — Three layers, test-only dependency philosophy.
 - [naming](lib/practices/naming.md) — Crate naming by role.
 - [feature-flag](lib/practices/feature-flag.md) — Capability presence, not behavioral variation.
 - [observability](lib/practices/observability.md) — Zero logging, span instrumentation only.
 - [no-std](lib/practices/no-std.md) — Three capability tiers, feature gate pattern.
 - [documentation/general](lib/practices/documentation/general.md) — Universal comment/doc rules.
-- [documentation/doc-comments](lib/practices/documentation/doc-comments.md) — Rustdoc, clippy lints.
-- [documentation/code-comments](lib/practices/documentation/code-comments.md) — SAFETY, TODO/FIXME.
+- [documentation/doc-comments](lib/practices/documentation/doc-comments.md) — Public item documentation, examples.
+- [documentation/code-comments](lib/practices/documentation/code-comments.md) — When to comment, TODO/FIXME.
+
+### Rust (lang/rust.md in each concept directory)
+
+- [patterns/lang/rust](lib/patterns/lang/rust.md) — File layout, typestate, handle, lock strategy, spawn rules.
+- [practices/lang/rust](lib/practices/lang/rust.md) — thiserror, Cargo.toml features, tracing, dev-dependencies.
+- [documentation/lang/rust](lib/practices/documentation/lang/rust.md) — ///, clippy doc lints, SAFETY annotations.
+- [contract/lang/rust](lib/contract/lang/rust.md) — Trait syntax, object safety, Send+Sync, async traits.
 
 ## Binary Crates
 
