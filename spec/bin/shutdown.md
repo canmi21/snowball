@@ -32,14 +32,9 @@ The snowball ecosystem will provide a shutdown crate early on.
 
 ## Panic Policy
 
-- **Before `run()` starts successfully** (initialization phase):
-  the primary path returns `Result::Err` with a specific error, feedback,
-  and clean self-termination.
-  Panic is permitted as a last-resort safety net for programming bugs,
-  but should be extremely rare in well-designed snowball binaries.
-- **After `run()` starts successfully** (operational phase):
-  panic is forbidden. All errors propagate through `Result` and the
-  graceful shutdown mechanism.
+See [panic-policy](../foundation/safety/panic-policy.md) for the full rules.
+The startup boundary (before/after `run()` starts successfully)
+is defined there.
 
 ## Relationship to Library Crates
 

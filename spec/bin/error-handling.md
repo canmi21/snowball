@@ -27,8 +27,7 @@ main() outputs the full error chain, then exits
   Binaries aggregate errors with `anyhow`.
 - Writing `.unwrap()` or `.expect()` in binary crate code is forbidden.
   All fallible operations use `?`.
-  Panic exists as an invisible safety net for programming bugs
-  (see [shutdown](shutdown.md) panic policy), but is never written intentionally.
+  See [panic-policy](../foundation/safety/panic-policy.md) for the full rules.
 - Every significant operation in `run()` receives a `.context()` annotation
   describing the operation in progress, producing a readable error chain.
 - The error output format (human-readable, structured JSON, with or without backtrace)
