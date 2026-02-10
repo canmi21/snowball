@@ -124,13 +124,18 @@ Current version: [VERSION](VERSION) |
 ## Binary Crates
 
 - [structure/layout](bin/structure/layout.md) — Two categories, file layout, scaling, naming.
-- [structure/main-run](bin/structure/main-run.md) — main.rs, run.rs, async runtime, dependency path.
+- [structure/main-run](bin/structure/main-run.md) — Entry point, orchestration function, async runtime.
 - [assembly](bin/assembly.md) — Manual DI, explicit params, no DI framework.
 - [config](bin/config.md) — Priority, load() boundary, structural rules.
 - [telemetry](bin/telemetry.md) — Two-step init, replaceable subscriber.
 - [shutdown](bin/shutdown.md) — Graceful shutdown, cancellation, timeout.
-- [error-handling](bin/error-handling.md) — anyhow only, no Error enums.
+- [error-handling](bin/error-handling.md) — Opaque error aggregation, no structured error types.
 - [testing](bin/testing.md) — Orchestration tests, integration tests, real dependencies.
+
+### Rust (lang/rust.md in each concept directory)
+
+- [structure/lang/rust](bin/structure/lang/rust.md) — main.rs, run.rs, tokio, file naming.
+- [lang/rust](bin/lang/rust.md) — anyhow, thiserror, Cargo config, tracing subscriber, test examples.
 
 ## Archived
 
