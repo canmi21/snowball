@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T08:23:24Z]
+
+### Changed
+
+- Directory structure: library crate roles grouped under `library/`
+  directory (`library/leaf/`, `library/composition/`,
+  `library/convergence/`).
+  Files: `foundation/architecture/directory.md`.
+
 ## [2026-02-10T08:13:53Z]
 
 ### Changed

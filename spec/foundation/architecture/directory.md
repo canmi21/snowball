@@ -16,14 +16,15 @@ monorepo/
 │   ├── foundation/
 │   ├── lib/
 │   └── bin/
-├── leaf/                   ← leaf crates
-│   ├── retry/
-│   ├── config-parse/
-│   └── config-parse-toml/
-├── composition/            ← composition crates
-│   └── service-config/
-├── convergence/            ← convergence crates
-│   └── config-reload-tokio/
+├── library/                ← all library crates
+│   ├── leaf/               ← leaf crates
+│   │   ├── retry/
+│   │   ├── config-parse/
+│   │   └── config-parse-toml/
+│   ├── composition/        ← composition crates
+│   │   └── service-config/
+│   └── convergence/        ← convergence crates
+│       └── config-reload-tokio/
 ├── tools/                  ← checking scripts
 ├── Cargo.toml              ← workspace root
 ├── CLAUDE.md
@@ -34,9 +35,9 @@ monorepo/
 
 | Directory | Contains | Crate Role |
 |-----------|----------|-----------|
-| `leaf/` | Crates with no snowball dependencies | Leaf (stateless and stateful) |
-| `composition/` | Crates that combine lower-level crates | Composition |
-| `convergence/` | Crates that pin generics, zero logic | Convergence |
+| `library/leaf/` | Crates with no snowball dependencies | Leaf (stateless and stateful) |
+| `library/composition/` | Crates that combine lower-level crates | Composition |
+| `library/convergence/` | Crates that pin generics, zero logic | Convergence |
 
 Binary crates live in application repos, not in the monorepo
 (see [repository](repository.md)).
@@ -49,7 +50,7 @@ Each crate directory follows its language's native structure:
 - **TypeScript**: `package.json`, `src/`, `tests/`
 - **Go**: `go.mod`, `*.go`, `*_test.go`
 
-Crate naming follows [naming](../../lib/practices/naming.md) conventions.
+Crate naming follows [naming](../naming/crate.md) conventions.
 The directory name matches the crate name.
 
 ## Multi-Language
@@ -58,7 +59,7 @@ The same conceptual slot may have implementations in multiple languages.
 Language-specific variants use a suffix:
 
 ```
-leaf/
+library/leaf/
 ├── config-parse/           ← Rust trait definition
 ├── config-parse-toml/      ← Rust implementation
 └── config-parse-ts/        ← TypeScript implementation
