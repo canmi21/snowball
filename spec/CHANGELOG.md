@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T10:32:33Z]
+
+### Changed
+
+- Allowlist section expanded with explicit re-evaluation guidance:
+  when hash mismatches, determine if content now has multiple concerns
+  (split) or remains cohesive (update hash).
+  Files: `foundation/heuristics.md`.
+
 ## [2026-02-10T09:16:25Z]
 
 ### Added
