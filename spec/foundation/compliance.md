@@ -47,14 +47,14 @@ through the [evolution process](evolution/process.md).
 
 ### Relationship
 
-| Property | Shell Script | LLM Agent |
-|----------|-------------|-----------|
-| Deterministic | Yes | No |
-| Cost | Zero | API cost |
-| Speed | Fast | Slower |
-| CI gate | Yes | Optional |
+| Property               | Shell Script  | LLM Agent |
+| ---------------------- | ------------- | --------- |
+| Deterministic          | Yes           | No        |
+| Cost                   | Zero          | API cost  |
+| Speed                  | Fast          | Slower    |
+| CI gate                | Yes           | Optional  |
 | Adapts to spec changes | Manual update | Automatic |
-| Semantic understanding | No | Yes |
+| Semantic understanding | No            | Yes       |
 
 Layer 1 is the floor — minimum compliance, always enforced.
 Layer 2 is the review — deeper compliance, run on demand.
@@ -62,3 +62,5 @@ Layer 2 is the review — deeper compliance, run on demand.
 ## Script Location
 
 Checking scripts live in the `tools/` directory at the monorepo root.
+The `Makefile` at the repository root serves as the entry point
+for running checks (see [directory](architecture/directory.md)).

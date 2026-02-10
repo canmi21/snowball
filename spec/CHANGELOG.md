@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T08:39:43Z]
+
+### Added
+
+- Makefile documented as global task entry point in workspace root.
+  Files: `foundation/architecture/directory.md`.
+
+- Compliance script location links to Makefile entry point.
+  Files: `foundation/compliance.md`.
+
 ## [2026-02-10T08:23:24Z]
 
 ### Changed

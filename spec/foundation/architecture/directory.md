@@ -33,11 +33,11 @@ monorepo/
 
 ## Layer Directories
 
-| Directory | Contains | Crate Role |
-|-----------|----------|-----------|
-| `library/leaf/` | Crates with no snowball dependencies | Leaf (stateless and stateful) |
-| `library/composition/` | Crates that combine lower-level crates | Composition |
-| `library/convergence/` | Crates that pin generics, zero logic | Convergence |
+| Directory              | Contains                               | Crate Role                    |
+| ---------------------- | -------------------------------------- | ----------------------------- |
+| `library/leaf/`        | Crates with no snowball dependencies   | Leaf (stateless and stateful) |
+| `library/composition/` | Crates that combine lower-level crates | Composition                   |
+| `library/convergence/` | Crates that pin generics, zero logic   | Convergence                   |
 
 Binary crates live in application repos, not in the monorepo
 (see [repository](repository.md)).
@@ -73,12 +73,17 @@ Language never appears as a top-level directory.
 Shared configuration that applies to all crates of a language
 lives at the monorepo root:
 
+- `Makefile` — Global task entry point: check, fmt, and other operations.
 - `Cargo.toml` — Rust workspace members, shared dependencies.
 - `rustfmt.toml` — Formatting rules.
 - `clippy.toml` — Lint configuration.
+- `.editorconfig` — Editor indentation and whitespace rules.
 - `package.json` / `go.work` — when other languages are present.
 
 This avoids duplicating configuration in every crate.
+`Makefile` serves as the single entry point for all workspace-level
+operations, delegating to scripts in `tools/` and language-specific
+tooling as needed.
 
 ## Crate Promotion
 
