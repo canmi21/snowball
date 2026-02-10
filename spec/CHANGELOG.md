@@ -7,6 +7,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-10T17:18:58Z]
+
+### Changed
+
+- VCS strategy specification enhanced with "App Repositories" section clarifying
+  independent jj repository model for binary crate projects under `app/`.
+  Documented nested repository isolation, `.gitignore` enforcement, and VCS boundary
+  separation from root repository.
+  Files: `foundation/vcs/strategy.md`.
+
+- Shared configuration specification expanded with "App Configuration" section
+  documenting tool access patterns across Cargo workspace boundaries. Defined
+  symlink rules for rustfmt/editorconfig and duplication requirement for
+  `[workspace.lints]` in app Cargo.toml. Noted qwq enforcement of lint consistency.
+  Files: `foundation/vcs/shared-config.md`.
+
+- Directory structure specification updated: added `app/` directory to monorepo
+  layout tree showing independent jj/git isolation. Clarified binary crate
+  description: physically nested but separate VCS history and Cargo workspace.
+  Files: `foundation/architecture/directory.md`.
+
 ## [2026-02-10T16:16:38Z]
 
 ### Added
