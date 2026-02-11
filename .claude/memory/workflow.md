@@ -7,7 +7,7 @@
 4. Write confirmed content into files
 5. Self-review: spec audits itself against its own rules
 6. Fix issues through the same option-based flow
-7. Commit via spec-commit agent → land via vcs-land agent
+7. Dispatch vcs-bot: diff → commit → land → push (one call)
 
 ## Discussion Granularity
 - Don't ask per-paragraph — ask per-file concept outline
@@ -24,7 +24,9 @@
 7. The fixed spec becomes the new standard for the next review
 
 ## Commit Workflow
-- Dispatch vcs-bot agent — handles diff, commit, land, push in one agent
+- Dispatch vcs-bot with the full sequence needed (e.g., "diff, commit, land, push")
+- vcs-bot can start from any step — tell it exactly which steps to run
+- Default for completed work: diff → commit → land → push (one dispatch, save context)
 - Agent uses `qwq vcs` commands exclusively (never raw jj/git)
 - Cross-area rule: definition commit + chore(workspace) cascade commit
 
@@ -39,5 +41,5 @@ Then update spec CHANGELOG.
 - "讨论一下" → discuss best practices, don't just write
 - "写回" / "写吧" → user confirmed, write the files
 - "review" → run self-review cycle on all spec files
-- "commit" → dispatch spec-commit agent
+- "commit" → dispatch vcs-bot (diff → commit → land → push)
 - "最佳实践是什么" → analyze tradeoffs, present recommendation with reasoning
