@@ -7,6 +7,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-11T06:02:11Z]
+
+### Changed
+
+- Tooling references throughout specification migrated from make/tools shell
+  scripts to qwq CLI as the unified entry point for formatting, compliance
+  checks, and VCS operations. Updated compliance.md to reference `qwq check`
+  and `qwq vcs commit`. Updated heuristics.md mechanical checks section to
+  reference qwq CLI thresholds. Updated shared-config.md to remove rustfmt.toml
+  symlink references. Updated directory.md to remove tools/ directory from
+  monorepo layout. Updated strategy.md to remove tools/ from root repository scope.
+  Files: `foundation/architecture/directory.md`, `foundation/compliance.md`,
+  `foundation/heuristics.md`, `foundation/vcs/shared-config.md`,
+  `foundation/vcs/strategy.md`.
+
 ## [2026-02-11T05:29:40Z]
 
 ### Changed
