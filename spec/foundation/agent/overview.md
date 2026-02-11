@@ -6,7 +6,7 @@ Rules for defining LLM sub-agents in the snowball ecosystem.
 
 - Project agents: `.claude/agents/`
 - Naming: kebab-case, flat files only (no subdirectories).
-  Use prefixes for categorization (`spec-review.md`, `spec-check.md`).
+  Use prefixes for categorization (`spec-bot.md`, `spec-review.md`).
 - File name matches the `name` field in frontmatter.
 
 ## Frontmatter
