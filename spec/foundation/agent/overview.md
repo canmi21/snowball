@@ -53,3 +53,11 @@ exists at `.claude/agent-memory/{agent-name}/`.
 
 The memory mechanism is provided by Claude Code.
 The spec only defines when and how to reference it.
+
+## Prohibited Actions
+
+- Agents must never invoke the `claude` CLI.
+  Agents are already subprocesses of the orchestrator.
+  Calling `claude` from within an agent creates recursive dispatch.
+
+This is a universal rule that applies to all agents regardless of their tool access.
