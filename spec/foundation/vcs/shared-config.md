@@ -19,7 +19,7 @@ automatically. Others require an explicit symlink.
 | Lints           | `[workspace.lints]` in Cargo.toml       | No             |
 | Dep versions    | `[workspace.dependencies]`              | No             |
 | rustfmt         | `qwq.toml` `[fmt.rust]`, passed via CLI | No             |
-| clippy          | `clippy.toml` at root, tool walks up    | No             |
+| clippy          | `qwq.toml` `[lint.clippy]`, temp file   | No             |
 | editorconfig    | `.editorconfig` at root, tool walks up  | No             |
 | LICENSE         | Symlink to root file                    | Yes            |
 | Language config | Symlink to root file                    | Yes            |

@@ -6,18 +6,18 @@ Execute in order. A failure at any step blocks publication.
 ## 1. Formatting
 
 ```
-cargo fmt --check
+qwq fmt --check .
 ```
 
-All code must conform to the project's `rustfmt` configuration.
+All code must conform to the project's formatting configuration.
 
 ## 2. Lint (Feature Matrix)
 
 ```
-cargo clippy -- -D warnings
+qwq lint
 ```
 
-Run clippy against every meaningful feature combination.
+Run clippy (via `qwq lint`) against every meaningful feature combination.
 If a crate defines feature flags, all valid combinations must produce
 zero clippy warnings. At minimum:
 

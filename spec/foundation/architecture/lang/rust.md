@@ -52,8 +52,7 @@ Inter-crate dependencies use crates.io versions,
 From the [directory structure](../directory.md):
 
 - `Cargo.toml` — Workspace members, shared dependencies and lints.
-- `rustfmt.toml` — Formatting rules.
-- `clippy.toml` — Lint configuration.
+- `qwq.toml` — Formatting (`[fmt.rust]`) and lint (`[lint.clippy]`) configuration.
 
 Crate internal structure:
 

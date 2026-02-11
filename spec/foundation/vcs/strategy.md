@@ -27,7 +27,7 @@ A single jj repository at the monorepo root. It contains:
 - `spec/` — the snowball specification.
 - `library/` — all library crates (leaf, composition, convergence).
 - Workspace configuration files (`Cargo.toml`, `qwq.toml`,
-  `clippy.toml`, `.editorconfig`, and similar).
+  `.editorconfig`, and similar).
 
 ### App Repositories
 
