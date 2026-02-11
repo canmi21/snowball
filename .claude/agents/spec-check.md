@@ -16,7 +16,7 @@ If unsure, stop and report. Read `spec/foundation/agent.md` for details.
 
 ## Steps
 
-1. Run `make check` and capture the output.
+1. Run `qwq check` and capture the output.
 2. Run `make fmt-check` and capture the output.
 3. Report results:
    - If all pass: confirm success.
