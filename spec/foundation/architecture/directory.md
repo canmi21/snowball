@@ -81,14 +81,13 @@ Language never appears as a top-level directory.
 Shared configuration that applies to all crates of a language
 lives at the monorepo root:
 
-- `Makefile` — Global task entry point: check, fmt, and other operations.
+- `qwq.toml` — Configuration for the `qwq` CLI tool.
 - `.editorconfig` — Editor indentation and whitespace rules.
 - Language-specific workspace and tooling configuration.
 
 This avoids duplicating configuration in every crate.
-`Makefile` serves as the single entry point for all workspace-level
-operations, delegating to scripts in `tools/` and language-specific
-tooling as needed.
+The `qwq` CLI serves as the entry point for workspace-level
+operations (formatting, compliance checks, VCS workflow).
 
 For language-specific root configuration files, see the relevant `lang/` spec.
 

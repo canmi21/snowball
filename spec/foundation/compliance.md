@@ -4,9 +4,10 @@
 
 Spec compliance is verified through two complementary layers.
 
-### Layer 1 — Mechanical Checks (Shell Scripts)
+### Layer 1 — Mechanical Checks (qwq)
 
-Deterministic scripts that enforce rules expressible as pattern matching:
+Deterministic checks built into the `qwq` CLI that enforce rules
+expressible as pattern matching:
 
 - Link validity across spec files.
 - File line count (under 100 lines).
@@ -15,20 +16,23 @@ Deterministic scripts that enforce rules expressible as pattern matching:
 - Terminology consistency in the correct context.
 - CHANGELOG format validation.
 
-Commit message format is enforced at commit time by the commit
-wrapper (`tools/vcs/commit.sh`), not as a post-hoc check.
+Run all checks with `qwq check`, or a single check with
+`qwq check <name>` (e.g., `qwq check links`).
 
-Scripts run in CI as a gate. A failure blocks the action.
+Commit message format is enforced at commit time by
+`qwq vcs commit`, not as a post-hoc check.
 
-#### Script Modification as Breaking Signal
+Checks run in CI as a gate. A failure blocks the action.
 
-When a spec change requires modifying a checking script,
+#### Check Modification as Breaking Signal
+
+When a spec change requires modifying a check implementation,
 that is a natural signal that the change may be breaking.
 The need to update mechanical checks forces explicit consideration
 of impact — this is a feature, not overhead.
 
-Adding a new script is additive and harmless.
-Modifying an existing script's rules triggers review.
+Adding a new check is additive and harmless.
+Modifying an existing check's rules triggers review.
 
 ### Layer 2 — Semantic Checks (LLM Agent)
 
@@ -49,20 +53,20 @@ through the [evolution process](evolution/process.md).
 
 ### Relationship
 
-| Property               | Shell Script  | LLM Agent |
-| ---------------------- | ------------- | --------- |
-| Deterministic          | Yes           | No        |
-| Cost                   | Zero          | API cost  |
-| Speed                  | Fast          | Slower    |
-| CI gate                | Yes           | Optional  |
-| Adapts to spec changes | Manual update | Automatic |
-| Semantic understanding | No            | Yes       |
+| Property               | Shell Script | LLM Agent |
+| ---------------------- | ------------ | --------- |
+| Deterministic          | Yes          | No        |
+| Cost                   | Zero         | API cost  |
+| Speed                  | Fast         | Slower    |
+| CI gate                | Yes          | Optional  |
+| Adapts to spec changes | Code update  | Automatic |
+| Semantic understanding | No           | Yes       |
 
 Layer 1 is the floor — minimum compliance, always enforced.
 Layer 2 is the review — deeper compliance, run on demand.
 
-## Script Location
+## Tooling
 
-Checking scripts live in the `tools/` directory at the monorepo root.
-The `Makefile` at the repository root serves as the entry point
-for running checks (see [directory](architecture/directory.md)).
+All mechanical checks and VCS operations are provided by the
+`qwq` CLI tool (see [app/qwq](https://github.com/canmi21/qwq)).
+The allowlist file remains at `tools/check/allowlist.toml`.

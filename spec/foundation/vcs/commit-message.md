@@ -70,16 +70,18 @@ Each domain adds its own constraints:
 - Binary crates: see [bin](bin.md).
 - The spec itself: see [spec](spec.md).
 
-## jj Workflow
+## Commit Workflow
 
-All commits are created through jj, never through git directly.
+All commits go through `qwq vcs commit`, which validates the
+message format before executing jj commands.
 
-- `jj commit -m "type(scope): description"` — snapshot the current
-  working copy into a new commit and start a fresh change.
-- `jj describe -m "type(scope): description"` — set or update the
-  description of the current change without creating a new one.
-- `jj split` — interactively split the current change into two
-  when it contains unrelated modifications.
+```
+qwq vcs commit -m "type(scope): description"
+qwq vcs commit -m "type(scope): description" -- file1 file2
+```
 
-The commit message format applies identically regardless of
-which jj command creates the commit.
+The first form commits the entire working copy.
+The second form splits specified files into a separate commit.
+
+Direct jj or git commit commands are prohibited in normal workflow.
+The `qwq` tool ensures every commit message conforms to this spec.
