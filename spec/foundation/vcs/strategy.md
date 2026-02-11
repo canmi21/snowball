@@ -57,6 +57,3 @@ App crates under `app/` are not root workspace members.
 Each app defines its own independent `[workspace]` in its
 `Cargo.toml`, with its own `[workspace.lints]`,
 `[workspace.dependencies]`, and member list.
-
-When an app depends on a library crate from the monorepo,
-it uses a path dependency pointing to `../../library/...`.
