@@ -18,7 +18,7 @@ automatically. Others require an explicit symlink.
 | --------------- | -------------------------------------- | -------------- |
 | Lints           | `[workspace.lints]` in Cargo.toml      | No             |
 | Dep versions    | `[workspace.dependencies]`             | No             |
-| rustfmt         | `rustfmt.toml` at root, tool walks up  | No             |
+| rustfmt         | `qwq.toml` `[fmt.rust]`, passed via CLI | No             |
 | clippy          | `clippy.toml` at root, tool walks up   | No             |
 | editorconfig    | `.editorconfig` at root, tool walks up | No             |
 | LICENSE         | Symlink to root file                   | Yes            |
@@ -36,7 +36,7 @@ Apps must establish their own access to shared configuration.
 
 | Config       | App mechanism                         |
 | ------------ | ------------------------------------- |
-| rustfmt      | Symlink `rustfmt.toml` to root        |
+| rustfmt      | Via `qwq fmt` (reads `qwq.toml`)      |
 | editorconfig | Symlink `.editorconfig` to root       |
 | Lints        | Duplicate `[workspace.lints]` locally |
 | LICENSE      | Symlink to root file                  |
