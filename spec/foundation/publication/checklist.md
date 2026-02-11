@@ -6,7 +6,7 @@ Execute in order. A failure at any step blocks publication.
 ## 1. Formatting
 
 ```
-qwq fmt --check .
+qwq fmt .
 ```
 
 All code must conform to the project's formatting configuration.
@@ -14,10 +14,10 @@ All code must conform to the project's formatting configuration.
 ## 2. Lint (Feature Matrix)
 
 ```
-qwq lint
+qwq lint clippy
 ```
 
-Run clippy (via `qwq lint`) against every meaningful feature combination.
+Run clippy (via `qwq lint clippy`) against every meaningful feature combination.
 If a crate defines feature flags, all valid combinations must produce
 zero clippy warnings. At minimum:
 

@@ -9,8 +9,8 @@ Full Rust checklist: see [checklist](../checklist.md).
 
 Steps use these tools:
 
-1. `qwq fmt --check .`
-2. `qwq lint` (across feature matrix)
+1. `qwq fmt .`
+2. `qwq lint clippy` (across feature matrix)
 3. `cargo test`
 4. `cargo doc --no-deps`
 5. Zero `TODO`/`FIXME` markers
@@ -24,5 +24,5 @@ Steps use these tools:
 From the [contribution](../contribution.md) rules:
 
 - Formatting: `qwq fmt`
-- Linting: `qwq lint`
+- Linting: `qwq lint clippy`
 - Documentation: every public item has doc comments
