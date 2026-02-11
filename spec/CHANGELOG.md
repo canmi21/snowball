@@ -7,6 +7,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-11T05:29:40Z]
+
+### Changed
+
+- Compliance specification updated: Layer 1 migrated from shell scripts to
+  `qwq` CLI as primary mechanical check provider. Added `qwq check` command
+  documentation and updated commit message enforcement reference from
+  `tools/vcs/commit.sh` to `qwq vcs commit`. Clarified check modification
+  as breaking signal.
+  Files: `foundation/compliance.md`.
+
+- Directory structure specification updated: workspace root configuration
+  replaced Makefile with `qwq.toml` as the canonical entry point. Updated
+  description to reflect `qwq` CLI as the workspace-level operations entry
+  point for formatting, compliance checks, and VCS workflow.
+  Files: `foundation/architecture/directory.md`.
+
+- Commit message specification refined: "jj Workflow" section replaced with
+  "Commit Workflow" section documenting `qwq vcs commit` as the unified
+  commit interface. Added split-file workflow documentation with `-- files`
+  syntax. Removed direct jj commands from normal workflow; clarified that
+  `qwq` tool ensures message compliance.
+  Files: `foundation/vcs/commit-message.md`.
+
 ## [2026-02-10T17:18:58Z]
 
 ### Changed
