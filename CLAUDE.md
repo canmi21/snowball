@@ -54,6 +54,23 @@ Directory structure follows snowball hierarchy:
 7. **No panic code.** No `unwrap`, `expect`, `panic!`.
    [panic-policy](spec/foundation/safety/panic-policy.md).
 
+## Agent-First Workflow
+
+Every task goes through the agent-first decision process:
+
+1. **Check the [registry](spec/foundation/agent/registry.md).**
+   If a registered agent matches the task, dispatch it immediately.
+   Do not perform the work manually.
+2. **No matching agent?** Work with the user manually.
+   While doing so, evaluate whether the task pattern is repeatable.
+3. **Repeatable pattern detected?** Ask the user whether to create
+   an agent for it. If yes, follow the
+   [agent spec](spec/foundation/agent/overview.md) to define it
+   and register it in the [registry](spec/foundation/agent/registry.md).
+
+This creates a self-evolving loop: manual work surfaces patterns,
+patterns become agents, agents free up context for harder problems.
+
 ## Self-Hosting
 
 The spec has reached self-hosting. All modifications follow the

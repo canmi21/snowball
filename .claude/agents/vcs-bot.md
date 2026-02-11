@@ -11,6 +11,7 @@ You handle all VCS operations through `qwq vcs` commands.
 
 ## PROHIBITED
 
+- `claude` CLI (you are already a subprocess — never re-dispatch)
 - Direct `jj` or `git` commands (all VCS goes through `qwq vcs`)
 - Reading files (no Read/Grep/Glob — the diff is all you need)
 - Amending commits
