@@ -7,6 +7,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-11T06:22:51Z]
+
+### Changed
+
+- Clippy and cargo fmt references throughout specification migrated to qwq CLI
+  equivalents. Updated publication/checklist.md to reference `qwq lint` instead of
+  `cargo clippy`, and `qwq fmt` instead of `cargo fmt`. Updated publication/lang/rust.md
+  with qwq command equivalents. Updated architecture/lang/rust.md to consolidate
+  rustfmt.toml and clippy.toml configuration into qwq.toml. Updated
+  foundation/vcs/shared-config.md with temp file handling for qwq.toml [lint.clippy].
+  Updated foundation/vcs/strategy.md to remove clippy.toml from root config list.
+  Files: `foundation/architecture/lang/rust.md`, `foundation/publication/checklist.md`,
+  `foundation/publication/lang/rust.md`, `foundation/vcs/shared-config.md`,
+  `foundation/vcs/strategy.md`.
+
 ## [2026-02-11T06:02:11Z]
 
 ### Changed
