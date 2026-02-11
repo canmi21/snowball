@@ -12,7 +12,7 @@ Spec revisions use UTC timestamps as version identifiers.
 ### Changed
 
 - Clippy and cargo fmt references throughout specification migrated to qwq CLI
-  equivalents. Updated publication/checklist.md to reference `qwq lint` instead of
+  equivalents. Updated publication/checklist.md to reference `qwq lint clippy` instead of
   `cargo clippy`, and `qwq fmt` instead of `cargo fmt`. Updated publication/lang/rust.md
   with qwq command equivalents. Updated architecture/lang/rust.md to consolidate
   rustfmt.toml and clippy.toml configuration into qwq.toml. Updated

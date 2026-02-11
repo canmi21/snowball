@@ -87,7 +87,7 @@ Current version: [VERSION](VERSION) |
 - [architecture/lang/rust](foundation/architecture/lang/rust.md) — Rust trait examples, crates.io, workspace config.
 - [naming/lang/rust](foundation/naming/lang/rust.md) — crates.io availability, runtime naming.
 - [safety/lang/rust](foundation/safety/lang/rust.md) — .unwrap(), .expect(), panic!(), unsafe, cargo audit.
-- [publication/lang/rust](foundation/publication/lang/rust.md) — Pre-publish checklist, qwq fmt, qwq lint.
+- [publication/lang/rust](foundation/publication/lang/rust.md) — Pre-publish checklist, qwq fmt, qwq lint clippy.
 - [evolution/lang/rust](foundation/evolution/lang/rust.md) — Rust edition, clippy, tokio, thiserror triggers.
 
 ## Library Crates
