@@ -13,6 +13,9 @@ use_try_shorthand = true
 use_tabs = true
 tab_width = 2
 
+[lint.clippy]
+too-many-lines-threshold = 300
+
 [[check.allowlist]]
 file = "spec/foundation/vcs/bookmarks.md"
 check = "line-count"
