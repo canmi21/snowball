@@ -53,6 +53,7 @@ The scope identifies the area of change:
 - **Crate commits**: scope = crate name. Example: `fix(my-crate): handle empty input`.
 - **Spec commits**: scope = spec area. Example: `spec(foundation): add vcs rules`.
 - **Workspace-level commits**: scope = `workspace`. Example: `chore(workspace): update dependencies`.
+- **App repo commits**: scope = internal module or area. App repositories are independent VCS repositories; the app name is implicit from the repository context. The agent determines an appropriate scope from the changed files.
 
 See [commit-scope](commit-scope.md) for granularity rules.
 

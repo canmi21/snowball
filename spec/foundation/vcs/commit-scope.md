@@ -1,6 +1,6 @@
 # Commit Scope
 
-Granularity rules for commits in the snowball monorepo.
+Granularity rules for commits in the snowball ecosystem.
 
 ## Core Principle
 
@@ -38,6 +38,23 @@ in other areas:
 
 The definition commit carries the substance.
 The chore commit carries the mechanical adaptation.
+
+## App Repository Scope
+
+App repositories under `app/` are independent VCS repositories
+with their own commit history (see [strategy](strategy.md)).
+
+Scope within an app repo reflects the app's internal structure,
+not the app name. The repository context already identifies the app.
+
+Example scopes for an app with subcommands `vcs`, `fmt`, `check`:
+
+- `add(vcs): implement diff command`
+- `fix(fmt): handle trailing whitespace`
+- `chore(workspace): update dependencies`
+
+The `workspace` scope applies to app-level workspace files
+(the app's own package manifest, configuration, CI).
 
 ## Exceptions
 

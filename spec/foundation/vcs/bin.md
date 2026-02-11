@@ -16,3 +16,8 @@ Configuration format is a user-facing contract.
 Changes to startup behavior, shutdown behavior, or signal handling
 should include a brief note in the commit body
 describing the operational impact.
+
+### Commit Scope
+
+App repositories use internal module or area names as commit scope.
+See [commit-scope](commit-scope.md#app-repository-scope) for details.
