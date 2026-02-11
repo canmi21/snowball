@@ -1,6 +1,7 @@
 # Spec Review Memory
 
 ## Last Full Review
+
 - Date: 2026-02-10
 - Spec version: 2026-02-10T10:32:33Z
 - Total spec files: 64 .md files
@@ -8,6 +9,7 @@
 ## Active Findings
 
 ### Critical
+
 1. **Rust filename convention contradiction** (layout.md vs file-structure.md)
    - `bin/structure/layout.md` line 33-34: "lowercase letters and hyphens only: shutdown-handler.rs"
    - `foundation/naming/file-structure.md` line 14: Rust uses "snake_case.rs"
@@ -20,6 +22,7 @@
    - Status: OPEN
 
 ### Important
+
 3. **300-line threshold duplication** (roles.md, stateless-sync.md vs heuristics.md)
    - Number "300" restated 8x in roles.md, 2x in stateless-sync.md
    - heuristics.md is the single source, but roles.md and stateless-sync.md restate the number inline instead of just linking
@@ -59,11 +62,13 @@
    - Status: OPEN
 
 ### Minor
+
 10. **archived/bootstrap.md not in README index** (README.md)
     - Only archived/README.md is indexed; bootstrap.md is not listed
     - Status: OPEN
 
 ## Verified Non-Issues
+
 - Terminology: no "lib crate" or "bin crate" in prose (correct)
 - No emoji in spec files (correct)
 - Archived excluded from link checks (by design)

@@ -22,17 +22,20 @@ You have a persistent memory directory at `/Users/canmi/snowball/.claude/agent-m
 Consult your memory files to build on previous reviews. Record new findings and track whether previously reported issues have been resolved.
 
 Guidelines:
+
 - `MEMORY.md` is always loaded into your system prompt — keep it under 200 lines
 - Create topic files for detailed findings and link from MEMORY.md
 - Update or remove findings that have been resolved
 - Organize by topic, not chronologically
 
 What to save:
+
 - Confirmed issues and their resolution status
 - Patterns of recurring problems
 - Areas of the spec that need attention
 
 What NOT to save:
+
 - Session-specific context
 - Speculative findings not yet verified
 

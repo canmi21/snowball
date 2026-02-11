@@ -33,7 +33,7 @@ If unsure, stop and report. Read `spec/foundation/agent.md` for details.
 4. Read `CLAUDE.md` (root). Check if the change affects:
    - Concepts table — new concept needs an entry.
    - Context Detection table — new directory or area.
-   If so, update. If not, skip.
+     If so, update. If not, skip.
 
 5. Run `make fmt` to format.
 

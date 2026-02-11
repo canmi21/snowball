@@ -1,0 +1,2 @@
+[fmt]
+ignore = ["target", "node_modules"]

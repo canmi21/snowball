@@ -38,6 +38,7 @@ or deletes commits. If the state looks wrong, stop and report.
    This is typically `@-`.
 
 4. Advance main:
+
    ```
    jj bookmark set main -r @-
    ```
