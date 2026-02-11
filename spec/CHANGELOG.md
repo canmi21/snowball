@@ -7,6 +7,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-11T06:43:33Z]
+
+### Changed
+
+- Publication specification updated: command syntax unified in pre-publish checklist.
+  Updated publication/checklist.md to use `qwq fmt .` (with target) instead of bare
+  `qwq fmt`, and consolidated lint command to `qwq lint clippy` (single unified
+  command form). Updated publication/lang/rust.md with unified syntax.
+  Files: `foundation/publication/checklist.md`, `foundation/publication/lang/rust.md`.
+
 ## [2026-02-11T06:22:51Z]
 
 ### Changed
