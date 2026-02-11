@@ -12,3 +12,8 @@ use_try_shorthand = true
 [fmt.oxfmt]
 use_tabs = true
 tab_width = 2
+
+[[check.allowlist]]
+file = "spec/foundation/vcs/bookmarks.md"
+check = "line-count"
+hash = "c002e3649adaaf460a3b7859e6c4ed40268a8f660406a2606f9c290e5c36606c"
