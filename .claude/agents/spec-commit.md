@@ -37,13 +37,15 @@ qwq vcs commit -m "type(scope): description"
 
 You may use these commands for inspection only:
 
-- `qwq vcs status` — see working copy changes.
-- `qwq vcs diff --summary` — see change summary.
+- `qwq vcs diff` — see all changes (truncated: 50 lines/file, 1000 lines total).
+- `qwq vcs diff <args>` — passthrough to `jj diff` with custom arguments.
 - `qwq vcs log` — see commit history.
 
 ## Steps
 
-1. Run `qwq vcs status` and `qwq vcs diff --summary` to understand all changes.
+1. Run `qwq vcs diff` to see all changes. This single command replaces
+   status + manual file reading — it shows truncated diffs for every
+   modified file, sufficient for classification and commit message drafting.
 
 2. Read `spec/foundation/vcs/commit-message.md` for type and format rules.
    Read `spec/foundation/vcs/commit-scope.md` for cross-area splitting rules.
