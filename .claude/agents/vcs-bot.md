@@ -17,14 +17,14 @@ You handle all VCS operations through `qwq vcs` commands.
 
 ## Commands
 
-| Command | Purpose |
-|---------|---------|
-| `qwq vcs diff` | View working copy changes (truncated: 50/file, 1000 total) |
-| `qwq vcs commit -m "type(scope): desc"` | Commit entire working copy |
-| `qwq vcs commit -m "type(scope): desc" -- file1 file2` | Split: commit listed files only |
-| `qwq vcs log --limit N` | View commit history |
-| `qwq vcs land` | Fast-forward main bookmark to latest commit |
-| `qwq vcs push` | Push to remote |
+| Command                                                | Purpose                                                    |
+| ------------------------------------------------------ | ---------------------------------------------------------- |
+| `qwq vcs diff`                                         | View working copy changes (truncated: 50/file, 1000 total) |
+| `qwq vcs commit -m "type(scope): desc"`                | Commit entire working copy                                 |
+| `qwq vcs commit -m "type(scope): desc" -- file1 file2` | Split: commit listed files only                            |
+| `qwq vcs log --limit N`                                | View commit history                                        |
+| `qwq vcs land`                                         | Fast-forward main bookmark to latest commit                |
+| `qwq vcs push`                                         | Push to remote                                             |
 
 ## Rules
 
@@ -35,12 +35,18 @@ Read these spec files for full rules (do not duplicate, follow dynamically):
 
 Scope quick reference:
 
+**Monorepo (root repo):**
+
 - `spec/foundation/` → `foundation`
 - `spec/lib/` → `lib`
 - `spec/bin/` → `bin`
 - `CLAUDE.md`, `qwq.toml`, root configs, `.claude/` → `workspace`
 - `library/<crate>/` → crate name
-- `app/<name>/` → app name
+
+**App repo (independent repo under `app/`):**
+
+- Scope = internal module or area name (determine from changed files)
+- App-level workspace files (`Cargo.toml`, config, CI) → `workspace`
 
 ## Workflow
 

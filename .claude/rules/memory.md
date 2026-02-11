@@ -2,11 +2,11 @@
 
 Detailed knowledge base lives in `.claude/memory/`. Read on demand.
 
-| File | Content |
-|------|---------|
-| `decisions.md` | Architecture, error handling, panic policy, VCS, spec evolution |
-| `workflow.md` | Spec writing process, discussion granularity, commit workflow |
-| `vcs-decision.md` | jj/git model, bookmark strategy, repo topology, config table |
+| File              | Content                                                         |
+| ----------------- | --------------------------------------------------------------- |
+| `decisions.md`    | Architecture, error handling, panic policy, VCS, spec evolution |
+| `workflow.md`     | Spec writing process, discussion granularity, commit workflow   |
+| `vcs-decision.md` | jj/git model, bookmark strategy, repo topology, config table    |
 
 ## Always Remember
 

@@ -2,75 +2,78 @@
 
 ## Last Full Review
 
-- Date: 2026-02-10
-- Spec version: 2026-02-10T10:32:33Z
-- Total spec files: 64 .md files
+- Date: 2026-02-11
+- Spec version: 2026-02-11T06:43:33Z
+- Total spec files: 70 .md files (including README.md and CHANGELOG.md)
+
+## Resolved Since Last Review (2026-02-10)
+
+All 10 previously reported findings have been resolved:
+
+- #1 Rust filename contradiction: layout.md corrected
+- #2 CHANGELOG archived refs: archived/ deleted; entries are historical
+- #3 300-line duplication: roles.md uses "SCoL threshold" links now
+- #4 Checklist numbering collision: prefix IDs (SS/SA/SFS/SFA) eliminate overlap
+- #5 Missing commit script: compliance.md migrated to qwq CLI
+- #6 directory.md missing .claude/: now in monorepo layout tree
+- #7 Missing Unreleased section: spec.md explicitly exempts spec CHANGELOG
+- #8 Feature flag composition gap: section added to feature-flag.md
+- #9 archived/ broken links: directory deleted
+- #10 archived/ not in README: directory deleted
 
 ## Active Findings
 
 ### Critical
 
-1. **Rust filename convention contradiction** (layout.md vs file-structure.md)
-   - `bin/structure/layout.md` line 33-34: "lowercase letters and hyphens only: shutdown-handler.rs"
-   - `foundation/naming/file-structure.md` line 14: Rust uses "snake_case.rs"
-   - Hyphens in Rust filenames break `mod` declarations
-   - Status: OPEN
-
-2. **CHANGELOG references nonexistent file path** (CHANGELOG.md lines 67, 112)
-   - References `foundation/evolution/bootstrap.md` which was moved to `archived/bootstrap.md`
-   - Archived files are excluded from link check, and CHANGELOG references are in backtick-quoted file lists (not links), so not caught by scripts
+1. **Path dependency contradiction** (repository.md vs strategy.md)
+   - repository.md L34-35: "not through local path references"
+   - repository.md L47-48: "They never reference the monorepo by path"
+   - strategy.md L62: "it uses a path dependency pointing to ../../library/..."
    - Status: OPEN
 
 ### Important
 
-3. **300-line threshold duplication** (roles.md, stateless-sync.md vs heuristics.md)
-   - Number "300" restated 8x in roles.md, 2x in stateless-sync.md
-   - heuristics.md is the single source, but roles.md and stateless-sync.md restate the number inline instead of just linking
+2. **README compliance description stale** (README.md L46)
+   - Says "shell scripts + LLM agent"; compliance.md now says "qwq CLI"
    - Status: OPEN
 
-4. **Checklist numbering collision** (stateful-async.md)
-   - Inherits items from stateless-async (11-16) and stateful-sync (11-18) which use overlapping numbers
-   - Item 12 from stateless-async = "No concrete runtime" vs item 12 from stateful-sync = "Irreversible ops consume self"
-   - Stateful-sync item 11 (lifecycle phases) silently excluded without explanation (13 and 17 are explained)
+3. **Runtime Adaptation duplication** (naming/lang/rust.md vs naming/crate.md)
+   - naming/lang/rust.md L9-16 is exact copy of naming/crate.md L69-75
    - Status: OPEN
 
-5. **Missing commit-message-format script** (compliance.md vs tools/)
-   - compliance.md lists 7 Layer 1 checks including "Commit message format validation"
-   - Only 6 scripts exist in tools/check/spec/ -- no commit message script
+4. **Publication lang/rust.md restates checklist** (publication/lang/rust.md)
+   - L8-20 restates all 9 steps inline instead of linking
    - Status: OPEN
 
-6. **directory.md omits .claude/agents/** (directory.md)
-   - Monorepo layout tree does not show .claude/ directory
-   - CLAUDE.md context detection table references it
-   - Agent spec defines its location
+5. **Stale agent example in overview.md** (foundation/agent/overview.md L9)
+   - References spec-check.md; that agent was merged into spec-bot
    - Status: OPEN
 
-7. **Missing Unreleased section in spec CHANGELOG** (CHANGELOG.md vs format.md)
-   - format.md requires ## [Unreleased] section
-   - spec/CHANGELOG.md has none
-   - spec.md does not explicitly exempt spec from this requirement
+6. **trait-design.md filename vs content** (lib/contract/trait-design.md)
+   - Filename uses "trait" (Rust-specific); heading says "Interface Design"
    - Status: OPEN
 
-8. **Feature flag rules gap for composition crates** (feature-flag.md)
-   - Leaf and convergence crate feature rules defined
-   - Composition crate rules absent (only mentioned in "Forbidden" section)
-   - Status: OPEN
-
-9. **archived/bootstrap.md has broken internal links** (archived/bootstrap.md)
-   - Links to `process.md`, `../git/commit-message.md`, `../../VERSION`, `../writing-style.md` are all broken from archived/ location
-   - Excluded from link checker, but still misleading if read
+7. **Incomplete multi-language terminology migration** (foundation/)
+   - trait-impl-separation.md: "trait" 7x in language-agnostic context
+   - type-flow.md: "trait" 5x
+   - roles.md: "trait bounds" 2x
+   - crate.md: "trait definition crate"
+   - directory.md: "Rust trait definition"
    - Status: OPEN
 
 ### Minor
 
-10. **archived/bootstrap.md not in README index** (README.md)
-    - Only archived/README.md is indexed; bootstrap.md is not listed
-    - Status: OPEN
+8. **layout.md treats depth threshold as hard limit** (bin/structure/layout.md L26)
+   - "must stay under 4 levels" vs heuristics philosophy of evaluation triggers
+   - Status: OPEN
 
 ## Verified Non-Issues
 
-- Terminology: no "lib crate" or "bin crate" in prose (correct)
-- No emoji in spec files (correct)
-- Archived excluded from link checks (by design)
-- Spec CHANGELOG header matches spec.md template (paths adjusted correctly)
+- No "lib crate" or "bin crate" in prose
+- No emoji in spec files
+- All lang/ directory links resolve correctly
+- Agent registry matches actual agent files (3: spec-bot, spec-review, vcs-bot)
+- CHANGELOG historical entries are factual records
+- qwq.toml references consistent throughout
+- No cargo fmt/clippy in active spec files
 - lib/practices/naming.md is proper redirect (not duplication)
