@@ -16,7 +16,7 @@ Performs a single X→Y transformation with no internal state.
 
 **Qualification:**
 
-1. Describable as "transform X into Y" where X and Y are expressed as trait bounds.
+1. Describable as "transform X into Y" where X and Y are expressed as type constraints.
 2. Every public method is indispensable — remove any one and the rest lose independent meaning.
 3. Core logic stays within the SCoL threshold (see [heuristics](../heuristics.md)).
 
@@ -24,7 +24,7 @@ Performs a single X→Y transformation with no internal state.
 
 1. Can you describe it as "transform X into Y"?
    No → responsibility is not singular; split.
-   X or Y is a concrete type → insufficient generality; express as trait bound.
+   X or Y is a concrete type → insufficient generality; express as type constraint.
 
 2. How many reasonable variants exist for X and Y?
    Combinations exceed the SCoL threshold → scope too large; split.

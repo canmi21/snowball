@@ -54,13 +54,13 @@ config-reload-tokio     ← convergence around tokio for config reloading
 web-stack-hyper         ← convergence around hyper for a web stack
 ```
 
-## Trait Definition vs Implementation
+## Interface Definition vs Implementation
 
-Trait-definition crates and their implementations follow
+Interface-definition crates and their implementations follow
 a base-suffix pattern:
 
 ```
-config-parse            → trait definition crate
+config-parse            → interface definition crate
 config-parse-toml       → TOML implementation
 config-parse-json       → JSON implementation
 ```

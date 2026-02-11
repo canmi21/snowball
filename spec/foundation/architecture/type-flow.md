@@ -2,7 +2,7 @@
 
 ## Principle
 
-Types flow between crates through associated types and trait bounds.
+Types flow between crates through associated types and type constraints.
 The compiler verifies type compatibility across the entire composition chain.
 Manual type conversion between crates should be unnecessary in the common case.
 
@@ -26,16 +26,16 @@ Vocabulary interfaces belong in interface-definition packages
 (the same packages that define capability interfaces,
 or in dedicated vocabulary packages if the shape is cross-domain).
 
-### When to Use Vocabulary Traits
+### When to Use Vocabulary Interfaces
 
-Use a vocabulary trait only when:
+Use a vocabulary interface only when:
 
 - Two or more crates need to share a data-shape contract.
-- These crates do not already share a capability trait whose associated types
+- These crates do not already share a capability interface whose associated types
   would naturally connect them.
 
 If the type chain can be expressed purely through associated types
-on existing capability traits, do not introduce a vocabulary trait.
+on existing capability interfaces, do not introduce a vocabulary interface.
 
 ## Adapter — Last Resort
 

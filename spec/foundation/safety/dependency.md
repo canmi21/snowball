@@ -6,7 +6,7 @@ Every dependency increases the attack surface and maintenance burden.
 A crate should depend on as few external crates as possible.
 
 Before adding a dependency, apply the trusted foundation crate evaluation
-(see [trait-design](../../lib/contract/trait-design.md) Third-Party Type Isolation):
+(see [interface-design](../../lib/contract/interface-design.md) Third-Party Type Isolation):
 
 1. Does a crate exist that solves this problem?
 2. Are its boundaries clear?

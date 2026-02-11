@@ -65,7 +65,7 @@ Language-specific variants use a suffix:
 
 ```
 library/leaf/
-├── config-parse/           ← Rust trait definition
+├── config-parse/           ← interface definition
 ├── config-parse-toml/      ← Rust implementation
 └── config-parse-ts/        ← TypeScript implementation
 ```
