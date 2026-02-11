@@ -7,6 +7,71 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-11T07:51:05Z]
+
+### Added
+
+- App repository commit scope rules added to VCS specification. Scope within
+  app repositories reflects internal module structure, not app name. Repository
+  context already identifies the app. Added cross-references and examples.
+  Files: `foundation/vcs/commit-message.md`, `foundation/vcs/commit-scope.md`,
+  `foundation/vcs/bin.md`.
+
+## [2026-02-11T07:45:39Z]
+
+### Changed
+
+- Foundation-level terminology migration: replaced Rust-specific "trait" with
+  language-agnostic "interface" in foundation architecture and naming specifications.
+  Changed "trait bounds" to "type constraints" for language neutrality.
+  Files: `foundation/architecture/interface-impl-separation.md` (renamed from
+  `trait-impl-separation.md`), `foundation/architecture/type-flow.md`,
+  `foundation/architecture/roles.md`, `foundation/naming/crate.md`,
+  `foundation/architecture/directory.md`, `spec/README.md`,
+  `foundation/safety/dependency.md`, `lib/contract/lang/rust.md`.
+
+- Library contract specification: renamed trait-design to interface-design to
+  align with language-agnostic foundation terminology.
+  Files: `lib/contract/interface-design.md` (renamed from `trait-design.md`).
+
+## [2026-02-11T07:40:01Z]
+
+### Changed
+
+- Compliance specification terminology: updated from "shell scripts" to "qwq CLI"
+  to reflect current tooling architecture.
+  Files: `spec/README.md`.
+
+- Binary layout heuristics: replaced hardcoded "4 levels" depth limit with
+  threshold reference to heuristics specification, aligning with evaluation-trigger
+  philosophy.
+  Files: `bin/structure/layout.md`.
+
+- Rust publication checklist: restructured pre-publish checklist to separate
+  tool commands (table format) from steps with no Rust-specific tooling.
+  Removed redundant step descriptions that only restated parent checklist.
+  Files: `foundation/publication/lang/rust.md`.
+
+### Fixed
+
+- VCS strategy specification: removed contradictory path dependency statement.
+  Deleted lines claiming apps use `path` dependencies to `../../library/...`,
+  which contradicted repository.md and architecture/lang/rust.md registry-only rules.
+  Files: `foundation/vcs/strategy.md`.
+
+- Rust naming specification: removed duplicated runtime adaptation rules.
+  Replaced content with link to crate naming as single source of truth.
+  Files: `foundation/naming/lang/rust.md`.
+
+## [2026-02-11T07:36:51Z]
+
+### Fixed
+
+- Agent overview naming example updated to reference existing agents.
+  Changed example from `("spec-review.md", "spec-check.md")` to
+  `("spec-bot.md", "spec-review.md")` to reflect merged spec-check agent.
+  Files: `foundation/agent/overview.md`.
+
 ## [2026-02-11T06:43:33Z]
 
 ### Changed

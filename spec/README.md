@@ -11,7 +11,7 @@ Current version: [VERSION](VERSION) |
 - [convergence](foundation/architecture/convergence.md) — Terminal composition layer rules.
 - [dependencies](foundation/architecture/dependencies.md) — Dependency direction: stateless never depends on stateful.
 - [repository](foundation/architecture/repository.md) — Monorepo vs application repo separation.
-- [trait-impl-separation](foundation/architecture/trait-impl-separation.md) — Traits and implementations in separate crates.
+- [interface-impl-separation](foundation/architecture/interface-impl-separation.md) — Interfaces and implementations in separate crates.
 - [type-flow](foundation/architecture/type-flow.md) — Associated types, vocabulary traits, adapters.
 - [directory](foundation/architecture/directory.md) — Monorepo layout by crate role.
 
@@ -43,7 +43,7 @@ Current version: [VERSION](VERSION) |
 
 ### Compliance
 
-- [compliance](foundation/compliance.md) — Two-layer checking: shell scripts + LLM agent.
+- [compliance](foundation/compliance.md) — Two-layer checking: qwq CLI + LLM agent.
 
 ### Publication
 
@@ -101,7 +101,7 @@ Current version: [VERSION](VERSION) |
 
 ### Contract
 
-- [trait-design](lib/contract/trait-design.md) — Receiver, types, cohesion, dynamic dispatch, async.
+- [interface-design](lib/contract/interface-design.md) — Receiver, types, cohesion, dynamic dispatch, async.
 
 ### Practices
 
