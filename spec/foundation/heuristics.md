@@ -38,21 +38,20 @@ two 60-line files with an artificial split.
 
 ## Mechanical Checks
 
-Shell scripts in [`tools/`](../../tools/) use these thresholds
-as CI gate values. A threshold violation flags the change
-for attention, not automatic rejection.
+The `qwq` CLI uses these thresholds as CI gate values.
+A threshold violation flags the change for attention,
+not automatic rejection.
 
 ### Allowlist
 
-Acknowledged violations are recorded in an allowlist file
-at `tools/check/allowlist.toml`. Each entry contains:
+Acknowledged violations are recorded in `qwq.toml` under
+`[[check.allowlist]]`. Each entry contains:
 
 - The file path.
 - The check that is exceeded.
 - A content hash of the file at the time of acknowledgment.
-- The reason the violation is acceptable.
 
-When the script encounters a violation, it checks the allowlist.
+When `qwq check` encounters a violation, it checks the allowlist.
 If the file hash matches, the violation is silently skipped.
 If the file has been modified (hash mismatch), the entry is
 invalidated and the violation is flagged again for re-evaluation.

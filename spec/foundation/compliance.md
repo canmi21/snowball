@@ -53,14 +53,14 @@ through the [evolution process](evolution/process.md).
 
 ### Relationship
 
-| Property               | Shell Script | LLM Agent |
-| ---------------------- | ------------ | --------- |
-| Deterministic          | Yes          | No        |
-| Cost                   | Zero         | API cost  |
-| Speed                  | Fast         | Slower    |
-| CI gate                | Yes          | Optional  |
-| Adapts to spec changes | Code update  | Automatic |
-| Semantic understanding | No           | Yes       |
+| Property               | qwq CLI     | LLM Agent |
+| ---------------------- | ----------- | --------- |
+| Deterministic          | Yes         | No        |
+| Cost                   | Zero        | API cost  |
+| Speed                  | Fast        | Slower    |
+| CI gate                | Yes         | Optional  |
+| Adapts to spec changes | Code update | Automatic |
+| Semantic understanding | No          | Yes       |
 
 Layer 1 is the floor — minimum compliance, always enforced.
 Layer 2 is the review — deeper compliance, run on demand.
@@ -69,4 +69,5 @@ Layer 2 is the review — deeper compliance, run on demand.
 
 All mechanical checks and VCS operations are provided by the
 `qwq` CLI tool (see [app/qwq](https://github.com/canmi21/qwq)).
-The allowlist file remains at `tools/check/allowlist.toml`.
+The check allowlist is configured in `qwq.toml` under
+`[[check.allowlist]]`.

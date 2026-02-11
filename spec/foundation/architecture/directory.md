@@ -27,9 +27,6 @@ monorepo/
 │       └── config-reload-tokio/
 ├── app/                    ← binary crate projects (independent repos)
 │   └── qwq/               ← each app has own .jj/, .git/, [workspace]
-├── tools/                  ← workspace tooling
-│   ├── check/              ← compliance scripts
-│   └── vcs/                ← VCS operation wrappers
 ├── .claude/
 │   └── agents/             ← LLM sub-agent definitions
 ├── Cargo.toml              ← workspace root

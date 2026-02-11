@@ -14,15 +14,15 @@ settings unless the spec explicitly permits it.
 Some tools walk up the directory tree and find root configuration
 automatically. Others require an explicit symlink.
 
-| Config          | Mechanism                              | Symlink needed |
-| --------------- | -------------------------------------- | -------------- |
-| Lints           | `[workspace.lints]` in Cargo.toml      | No             |
-| Dep versions    | `[workspace.dependencies]`             | No             |
+| Config          | Mechanism                               | Symlink needed |
+| --------------- | --------------------------------------- | -------------- |
+| Lints           | `[workspace.lints]` in Cargo.toml       | No             |
+| Dep versions    | `[workspace.dependencies]`              | No             |
 | rustfmt         | `qwq.toml` `[fmt.rust]`, passed via CLI | No             |
-| clippy          | `clippy.toml` at root, tool walks up   | No             |
-| editorconfig    | `.editorconfig` at root, tool walks up | No             |
-| LICENSE         | Symlink to root file                   | Yes            |
-| Language config | Symlink to root file                   | Yes            |
+| clippy          | `clippy.toml` at root, tool walks up    | No             |
+| editorconfig    | `.editorconfig` at root, tool walks up  | No             |
+| LICENSE         | Symlink to root file                    | Yes            |
+| Language config | Symlink to root file                    | Yes            |
 
 App repositories under `app/` do not inherit from the root
 workspace automatically. Each app manages its configuration

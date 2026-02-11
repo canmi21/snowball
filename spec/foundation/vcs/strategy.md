@@ -25,9 +25,8 @@ The ecosystem contains two kinds of repositories.
 A single jj repository at the monorepo root. It contains:
 
 - `spec/` — the snowball specification.
-- `tools/` — compliance scripts and VCS tooling.
 - `library/` — all library crates (leaf, composition, convergence).
-- Workspace configuration files (`Cargo.toml`, `rustfmt.toml`,
+- Workspace configuration files (`Cargo.toml`, `qwq.toml`,
   `clippy.toml`, `.editorconfig`, and similar).
 
 ### App Repositories
