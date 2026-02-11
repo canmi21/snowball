@@ -13,7 +13,7 @@ Detailed knowledge base lives in `.claude/memory/`. Read on demand.
 - Discussion: Chinese + English technical terms. Artifacts: English only
 - `qwq fmt .` not `cargo fmt`. `qwq lint clippy` not `cargo clippy`. `qwq install .` not `cargo install`
 - `qwq vcs diff` (no args) gives truncated diff (50/file, 1000 total) — enough for agents
-- Dispatch agents for their tasks. spec-commit is Bash-only, diff-driven
+- Dispatch agents for their tasks. vcs-bot handles all VCS operations (diff/commit/land/push)
 - Discuss before writing spec — concept-level confirmation, not prose-level
 - Don't add Co-Authored-By lines to commits
 - User prefers tabs (hard_tabs, indent_size 2)

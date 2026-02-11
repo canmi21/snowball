@@ -24,10 +24,9 @@
 7. The fixed spec becomes the new standard for the next review
 
 ## Commit Workflow
-- Dispatch spec-commit agent — it runs `qwq vcs diff`, classifies, and commits
-- Agent uses `qwq vcs commit` wrapper (never raw jj/git commands)
+- Dispatch vcs-bot agent — handles diff, commit, land, push in one agent
+- Agent uses `qwq vcs` commands exclusively (never raw jj/git)
 - Cross-area rule: definition commit + chore(workspace) cascade commit
-- After commits: dispatch vcs-land agent to fast-forward main
 
 ## Spec Version Update
 After any spec change:
