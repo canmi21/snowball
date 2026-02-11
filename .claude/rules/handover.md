@@ -12,7 +12,11 @@ Review what happened this session and update `.claude/memory/` files:
 
 ## Step 2: Output Handover Context
 
-Print a handover block the user can paste into the next session:
+Compose the handover block and copy it to the macOS clipboard via `pbcopy`.
+After copying, stop and tell the user "Handover copied to clipboard."
+The user will restart the session and paste it.
+
+Template:
 
 ```
 Handover Context
