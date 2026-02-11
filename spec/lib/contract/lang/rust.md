@@ -1,7 +1,7 @@
 # Interface Design — Rust
 
 Rust-specific implementation details for the
-[interface design](../trait-design.md) specification.
+[interface design](../interface-design.md) specification.
 
 ## Trait Receiver
 
