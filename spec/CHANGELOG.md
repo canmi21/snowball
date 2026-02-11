@@ -7,6 +7,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 adapted for the [snowball ecosystem](foundation/changelog/format.md).
 Spec revisions use UTC timestamps as version identifiers.
 
+## [2026-02-11T08:03:49Z]
+
+### Added
+
+- Agent prohibited actions section added to agent specification. Agents must
+  never invoke the `claude` CLI as they are already subprocesses of the orchestrator.
+  Recursive dispatch is prohibited.
+  Files: `foundation/agent/overview.md`.
+
 ## [2026-02-11T07:51:05Z]
 
 ### Added
