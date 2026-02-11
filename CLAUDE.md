@@ -29,7 +29,6 @@ If the spec does not cover something, evolve the spec first, then act.
 | `library/`                | [lib patterns](spec/lib/patterns/) + [practices](spec/lib/practices/) + [convergence](spec/foundation/architecture/convergence.md) |
 | `bin/` (application repo) | [bin spec](spec/bin/)                                                                                                              |
 | `spec/`                   | [evolution](spec/foundation/evolution/) + [writing-style](spec/foundation/writing-style.md) + [naming](spec/foundation/naming/)    |
-| `tools/`                  | [compliance](spec/foundation/compliance.md)                                                                                        |
 | `.claude/agents/`         | [agent](spec/foundation/agent/overview.md)                                                                                         |
 | root config               | [vcs](spec/foundation/vcs/) + [publication](spec/foundation/publication/)                                                          |
 

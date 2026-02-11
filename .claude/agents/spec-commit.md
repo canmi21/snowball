@@ -53,7 +53,6 @@ You may use these commands for inspection only:
    - `spec/lib/` → scope `lib`
    - `spec/bin/` → scope `bin`
    - `CLAUDE.md`, `qwq.toml`, root configs → scope `workspace`
-   - `tools/` → scope `workspace`
    - `library/` → scope is the crate name
 
 4. Apply cross-area rule:
