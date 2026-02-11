@@ -31,9 +31,8 @@
 
 ## Commit Workflow
 
-- Dispatch vcs-bot with the full sequence needed (e.g., "diff, commit, land, push")
-- vcs-bot can start from any step — tell it exactly which steps to run
-- Default for completed work: diff → commit → land → push (one dispatch, save context)
+- Dispatch vcs-bot — default "full" mode does commit+land+push automatically
+- For partial operations, say "commit only" or name specific steps (selective mode)
 - Agent uses `qwq vcs` commands exclusively (never raw jj/git)
 - Cross-area rule: definition commit + chore(workspace) cascade commit
 

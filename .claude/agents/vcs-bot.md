@@ -49,9 +49,19 @@ Scope quick reference:
 - Scope = internal module or area name (determine from changed files)
 - App-level workspace files (`Cargo.toml`, config, CI) → `workspace`
 
-## Workflow
+## Dispatch Modes
 
-The caller tells you which operations to perform. Execute only what is requested.
+The caller chooses one of two modes:
+
+| Mode       | Trigger                              | Behavior                          |
+| ---------- | ------------------------------------ | --------------------------------- |
+| **full**   | Caller says "full" or no restriction | Commit → land → push (all three)  |
+| **selective** | Caller names specific operations  | Execute only what is listed        |
+
+Default is **full** — if the caller just describes what to commit
+without restricting operations, do commit + land + push.
+
+## Workflow
 
 ### Commit Flow
 
@@ -75,6 +85,6 @@ The caller tells you which operations to perform. Execute only what is requested
 
 ## Safety
 
-- Never push without being explicitly asked.
-- Never land without being explicitly asked.
+- In **selective** mode, never perform operations the caller did not list.
+- In **full** mode, commit + land + push are all authorized — proceed without asking.
 - If the state looks wrong, stop and report. Do not attempt to fix it.
