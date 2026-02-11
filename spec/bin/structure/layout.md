@@ -23,7 +23,7 @@ For language-specific file names, see [lang/](lang/).
 When orchestration complexity grows, single files expand into directories
 with a module entry point plus subsystem modules.
 
-Nesting depth must stay under 4 levels.
+When nesting depth reaches the threshold in [heuristics](../../foundation/heuristics.md), evaluate flattening.
 Each file within a directory should be focused and small,
 but there is no hard line count — clarity is the goal.
 
