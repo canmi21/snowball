@@ -17,7 +17,7 @@ If unsure, stop and report. Read `spec/foundation/agent.md` for details.
 ## Steps
 
 1. Run `qwq check` and capture the output.
-2. Run `make fmt-check` and capture the output.
+2. Run `qwq fmt --check .` and capture the output.
 3. Report results:
    - If all pass: confirm success.
    - If any fail: list each failure with file path and reason.

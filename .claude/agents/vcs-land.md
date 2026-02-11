@@ -26,7 +26,7 @@ or deletes commits. If the state looks wrong, stop and report.
 
 ## Steps
 
-1. Run `jj log --limit 15` to see the current state.
+1. Run `qwq vcs log --limit 15` to see the current state.
 
 2. Verify preconditions:
    - The working copy (`@`) must be empty (no changes).
@@ -34,17 +34,9 @@ or deletes commits. If the state looks wrong, stop and report.
    - There must be commits between `main` and `@` that need landing.
      If `main` is already at `@-`, report "nothing to land".
 
-3. Identify the target: the latest non-empty commit before `@`.
-   This is typically `@-`.
+3. Run `qwq vcs land` to advance main to the latest commit.
 
-4. Advance main:
-
-   ```
-   jj bookmark set main -r @-
-   ```
-
-5. Verify by running `jj log --limit 10`.
+4. Verify by running `qwq vcs log --limit 10`.
    Confirm `main` now points to the expected commit.
 
-6. Report the result: how many commits were landed,
-   the new main position, and the commit subjects.
+5. Report the result: the new main position and the commit subject.

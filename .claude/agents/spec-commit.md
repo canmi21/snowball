@@ -35,15 +35,15 @@ qwq vcs commit -m "type(scope): description"
 
 ## Read-Only Commands
 
-You may use these jj commands for inspection only:
+You may use these commands for inspection only:
 
-- `jj status` — see working copy changes.
-- `jj diff --summary` — see change summary.
-- `jj log` — see commit history.
+- `qwq vcs status` — see working copy changes.
+- `qwq vcs diff --summary` — see change summary.
+- `qwq vcs log` — see commit history.
 
 ## Steps
 
-1. Run `jj status` and `jj diff --summary` to understand all changes.
+1. Run `qwq vcs status` and `qwq vcs diff --summary` to understand all changes.
 
 2. Read `spec/foundation/vcs/commit-message.md` for type and format rules.
    Read `spec/foundation/vcs/commit-scope.md` for cross-area splitting rules.
@@ -52,7 +52,7 @@ You may use these jj commands for inspection only:
    - `spec/foundation/` → scope `foundation`
    - `spec/lib/` → scope `lib`
    - `spec/bin/` → scope `bin`
-   - `CLAUDE.md`, `Makefile`, root configs → scope `workspace`
+   - `CLAUDE.md`, `qwq.toml`, root configs → scope `workspace`
    - `tools/` → scope `workspace`
    - `library/` → scope is the crate name
 
@@ -68,7 +68,7 @@ You may use these jj commands for inspection only:
      `qwq vcs commit -m "type(scope): description"`
    - If the tool rejects the message, fix and retry.
 
-6. Run `jj log --limit 10` after all commits to verify.
+6. Run `qwq vcs log --limit 10` after all commits to verify.
 
 ## Other Rules
 

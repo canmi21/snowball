@@ -35,9 +35,9 @@ If unsure, stop and report. Read `spec/foundation/agent.md` for details.
    - Context Detection table — new directory or area.
      If so, update. If not, skip.
 
-5. Run `make fmt` to format.
+5. Run `qwq fmt .` to format.
 
-6. Run `make check` to verify. Report any failures.
+6. Run `qwq check` to verify. Report any failures.
 
 ## Rules
 
