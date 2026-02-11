@@ -7,17 +7,17 @@ under [publication](../).
 
 Full Rust checklist: see [checklist](../checklist.md).
 
-Steps use these tools:
+Rust tool commands for each step:
 
-1. `qwq fmt .`
-2. `qwq lint clippy` (across feature matrix)
-3. `cargo test`
-4. `cargo doc --no-deps`
-5. Zero `TODO`/`FIXME` markers
-6. Version in `Cargo.toml` updated
-7. CHANGELOG entry present
-8. `cargo audit` passes
-9. Dependencies published to crates.io in order
+| Step                | Command               |
+| ------------------- | --------------------- |
+| 1. Formatting       | `qwq fmt .`           |
+| 2. Lint             | `qwq lint clippy`     |
+| 3. Tests            | `cargo test`          |
+| 4. Documentation    | `cargo doc --no-deps` |
+| 8. Dependency audit | `cargo audit`         |
+
+Steps 5, 6, 7, 9 have no Rust-specific tooling — follow the [checklist](../checklist.md) descriptions directly.
 
 ## Contribution Code Style
 
